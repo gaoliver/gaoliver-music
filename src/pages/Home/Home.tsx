@@ -30,7 +30,6 @@ const Home: React.FC = () => {
         subtitle={homeData.hero.subtitle}
         ctaPrimary={homeData.hero.ctaPrimary}
         ctaSecondary={homeData.hero.ctaSecondary}
-        socialLinks={siteData.socialLinks}
         featuredRelease={featuredRelease!}
       />
       <Divider />

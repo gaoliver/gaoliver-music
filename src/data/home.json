@@ -8,7 +8,7 @@
       "url": "#"
     },
     "ctaSecondary": {
-      "isActive": true,
+      "isActive": false,
       "label": "View discography",
       "url": "#releases"
     }
@@ -16,7 +16,7 @@
   "about": {
     "summary": "Oliver is a solo project between Heavy and Progressive, mixing heavy riffs with dark atmospheres and introspective melodies. This site is straight to the point: releases, links and contact.",
     "cta": {
-      "isActive": false,
+      "isActive": true,
       "label": "Learn more",
       "url": "/about"
     }

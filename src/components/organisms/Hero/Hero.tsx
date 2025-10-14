@@ -1,7 +1,6 @@
 import React from 'react';
 import Logo from '../../atoms/Logo';
 import Button from '../../atoms/Button';
-import SocialLinks from '../../molecules/SocialLinks';
 import ReleaseCard from '../../molecules/ReleaseCard';
 import type { CTA } from '../../../types/cta';
 
@@ -19,18 +18,11 @@ interface Release {
   };
 }
 
-interface SocialLink {
-  platform: string;
-  url: string;
-  ariaLabel: string;
-}
-
 interface HeroProps {
   title: string;
   subtitle: string;
   ctaPrimary: CTA;
   ctaSecondary: CTA;
-  socialLinks: SocialLink[];
   featuredRelease: Release;
 }
 
@@ -39,7 +31,6 @@ const Hero: React.FC<HeroProps> = ({
   subtitle,
   ctaPrimary,
   ctaSecondary,
-  socialLinks,
   featuredRelease,
 }) => {
   return (
@@ -63,7 +54,6 @@ const Hero: React.FC<HeroProps> = ({
                 </Button>
               )}
             </div>
-            <SocialLinks links={socialLinks} withDividers={true} />
           </div>
           <div>
             <ReleaseCard

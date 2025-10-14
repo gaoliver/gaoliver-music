@@ -48,10 +48,10 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
                 size="sm" 
                 as="a" 
                 href={links.spotify}
-                className="!px-3"
+                className="!px-4 !py-2.5 hover:bg-[#1DB954] hover:border-[#1DB954] transition-colors"
                 aria-label="Listen on Spotify"
               >
-                <FaSpotify size={16} />
+                <FaSpotify size={20} />
               </Button>
             )}
             {links.appleMusic && (
@@ -60,10 +60,10 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
                 size="sm" 
                 as="a" 
                 href={links.appleMusic}
-                className="!px-3"
+                className="!px-4 !py-2.5 hover:bg-white hover:text-black hover:border-white transition-colors"
                 aria-label="Listen on Apple Music"
               >
-                <FaApple size={16} />
+                <FaApple size={20} />
               </Button>
             )}
             {links.youtube && (
@@ -72,10 +72,10 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
                 size="sm" 
                 as="a" 
                 href={links.youtube}
-                className="!px-3"
+                className="!px-4 !py-2.5 hover:bg-[#FF0000] hover:border-[#FF0000] transition-colors"
                 aria-label="Watch on YouTube"
               >
-                <FaYoutube size={16} />
+                <FaYoutube size={20} />
               </Button>
             )}
             {links.other && (
@@ -84,10 +84,10 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
                 size="sm" 
                 as="a" 
                 href={links.other}
-                className="!px-2.5"
+                className="!px-4 !py-2.5 hover:bg-brand-accent hover:border-brand-accent hover:text-black transition-colors"
                 aria-label="More streaming options"
               >
-                <HiDotsHorizontal size={18} />
+                <HiDotsHorizontal size={22} />
               </Button>
             )}
           </div>
@@ -114,10 +114,10 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
               size="sm" 
               as="a" 
               href={links.spotify}
-              className="!px-3"
+              className="!px-4 !py-2.5 hover:bg-[#1DB954] hover:border-[#1DB954] transition-colors"
               aria-label="Listen on Spotify"
             >
-              <FaSpotify size={16} />
+              <FaSpotify size={20} />
             </Button>
           )}
           {links.appleMusic && (
@@ -126,10 +126,10 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
               size="sm" 
               as="a" 
               href={links.appleMusic}
-              className="!px-3"
+              className="!px-4 !py-2.5 hover:bg-white hover:text-black hover:border-white transition-colors"
               aria-label="Listen on Apple Music"
             >
-              <FaApple size={16} />
+              <FaApple size={20} />
             </Button>
           )}
           {links.youtube && (
@@ -138,10 +138,10 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
               size="sm" 
               as="a" 
               href={links.youtube}
-              className="!px-3"
+              className="!px-4 !py-2.5 hover:bg-[#FF0000] hover:border-[#FF0000] transition-colors"
               aria-label="Watch on YouTube"
             >
-              <FaYoutube size={16} />
+              <FaYoutube size={20} />
             </Button>
           )}
           {links.other && (
@@ -150,10 +150,10 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
               size="sm" 
               as="a" 
               href={links.other}
-              className="!px-2.5"
+              className="!px-4 !py-2.5 hover:bg-brand-accent hover:border-brand-accent hover:text-black transition-colors"
               aria-label="More streaming options"
             >
-              <HiDotsHorizontal size={18} />
+              <HiDotsHorizontal size={22} />
             </Button>
           )}
         </div>

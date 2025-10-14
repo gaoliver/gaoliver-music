@@ -30,10 +30,21 @@ All icon buttons include proper `aria-label` attributes for screen readers:
 
 ## Button Styling
 
-- **Size**: 16px icons (18px for dots icon)
-- **Padding**: `!px-3` (horizontal padding)
+- **Size**: 20px icons (22px for dots icon)
+- **Padding**: `!px-4 !py-2.5` (larger buttons)
 - **Gap**: `gap-2` between buttons
 - **Responsive**: Wraps to multiple rows with `flex-wrap`
+
+## Hover Colors
+
+Each button features its official brand color on hover:
+
+- **Spotify**: `#1DB954` - Spotify green
+- **Apple Music**: `white` with black text
+- **YouTube**: `#FF0000` - YouTube red
+- **More**: Brand accent color (`#E45B66`)
+
+All hover states include smooth transitions with `transition-colors`.
 
 ## Benefits
 
