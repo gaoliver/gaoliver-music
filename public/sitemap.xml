@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://gaoliver-music.com/</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://gaoliver-music.com/images/Profile.jpg</image:loc>
+      <image:title>G.A. Oliver - The Official Website</image:title>
+    </image:image>
+  </url>
+  
+  <!-- About Section -->
+  <url>
+    <loc>https://gaoliver-music.com/#about</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Releases Section -->
+  <url>
+    <loc>https://gaoliver-music.com/#releases</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://gaoliver-music.com/images/albums/xmas-album-red.png</image:loc>
+      <image:title>Night Divine - EP</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://gaoliver-music.com/images/albums/hail-to-the-king.png</image:loc>
+      <image:title>Hail to the King - Single</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Contact Section -->
+  <url>
+    <loc>https://gaoliver-music.com/#contact</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+</urlset>
