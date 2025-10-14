@@ -57,6 +57,27 @@ npm run build
 npm run preview
 ```
 
+## 🚀 Deploy
+
+Este projeto está configurado para deploy automático no GitHub Pages.
+
+### Deploy Rápido (5 minutos)
+Ver: **[DEPLOY-QUICK.md](./DEPLOY-QUICK.md)**
+
+### Guia Completo
+Ver: **[DEPLOY.md](./DEPLOY.md)**
+
+### Comandos
+```bash
+# Fazer mudanças
+git add .
+git commit -m "Update: descrição"
+git push
+
+# Deploy automático inicia!
+# Ver progresso: GitHub → Actions
+```
+
 ## 📝 Content Management
 
 Website content is organized into separate JSON files for better maintainability:
