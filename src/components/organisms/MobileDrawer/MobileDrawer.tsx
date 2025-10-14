@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Button from '../../atoms/Button';
 import SocialLinks from '../../molecules/SocialLinks';
 import type { CTA } from '../../../types/cta';
