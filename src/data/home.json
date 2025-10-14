@@ -1,17 +1,33 @@
 {
   "hero": {
-    "title": "Shadows in Motion",
-    "subtitle": "Official site — releases, links and news. Heavy/Prog with minimalist and dark aesthetics.",
-    "ctaPrimary": "Listen now",
-    "ctaSecondary": "View discography"
+    "title": "Christmas release!",
+    "subtitle": "Listen to the classic Christmas songs in Metal version.",
+    "ctaPrimary": {
+      "isActive": true,
+      "label": "Pre-save now",
+      "url": "#"
+    },
+    "ctaSecondary": {
+      "isActive": true,
+      "label": "View discography",
+      "url": "#releases"
+    }
   },
   "about": {
     "summary": "Oliver is a solo project between Heavy and Progressive, mixing heavy riffs with dark atmospheres and introspective melodies. This site is straight to the point: releases, links and contact.",
-    "readMoreLabel": "Learn more"
+    "cta": {
+      "isActive": false,
+      "label": "Learn more",
+      "url": "/about"
+    }
   },
   "releases": {
     "sectionTitle": "Releases",
-    "viewAllLabel": "View all",
+    "cta": {
+      "isActive": true,
+      "label": "View all",
+      "url": "#releases"
+    },
     "limit": 3
   },
   "contact": {

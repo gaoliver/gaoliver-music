@@ -1,5 +1,7 @@
 import React from 'react';
 import Button from '../../atoms/Button';
+import { FaSpotify, FaApple, FaYoutube } from 'react-icons/fa';
+import { HiDotsHorizontal } from 'react-icons/hi';
 
 interface ReleaseCardProps {
   title: string;
@@ -10,6 +12,7 @@ interface ReleaseCardProps {
     spotify?: string;
     appleMusic?: string;
     youtube?: string;
+    other?: string;
   };
   featured?: boolean;
   newReleaseLabel?: string;
@@ -38,20 +41,53 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
           <p className="text-sm text-brand-muted">
             {type} — {year}
           </p>
-          <div className="flex gap-3 pt-3">
+          <div className="flex flex-wrap gap-2 pt-3">
             {links.spotify && (
-              <Button variant="secondary" size="sm" as="a" href={links.spotify}>
-                Spotify
+              <Button 
+                variant="secondary" 
+                size="sm" 
+                as="a" 
+                href={links.spotify}
+                className="!px-3"
+                aria-label="Listen on Spotify"
+              >
+                <FaSpotify size={16} />
               </Button>
             )}
             {links.appleMusic && (
-              <Button variant="secondary" size="sm" as="a" href={links.appleMusic}>
-                Apple Music
+              <Button 
+                variant="secondary" 
+                size="sm" 
+                as="a" 
+                href={links.appleMusic}
+                className="!px-3"
+                aria-label="Listen on Apple Music"
+              >
+                <FaApple size={16} />
               </Button>
             )}
             {links.youtube && (
-              <Button variant="secondary" size="sm" as="a" href={links.youtube}>
-                YouTube
+              <Button 
+                variant="secondary" 
+                size="sm" 
+                as="a" 
+                href={links.youtube}
+                className="!px-3"
+                aria-label="Watch on YouTube"
+              >
+                <FaYoutube size={16} />
+              </Button>
+            )}
+            {links.other && (
+              <Button 
+                variant="secondary" 
+                size="sm" 
+                as="a" 
+                href={links.other}
+                className="!px-2.5"
+                aria-label="More streaming options"
+              >
+                <HiDotsHorizontal size={18} />
               </Button>
             )}
           </div>
@@ -71,15 +107,53 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
         <p className="text-sm text-brand-muted">
           {type} • {year}
         </p>
-        <div className="flex gap-3 pt-3">
+        <div className="flex flex-wrap gap-2 pt-3">
           {links.spotify && (
-            <Button variant="secondary" size="sm" as="a" href={links.spotify}>
-              Spotify
+            <Button 
+              variant="secondary" 
+              size="sm" 
+              as="a" 
+              href={links.spotify}
+              className="!px-3"
+              aria-label="Listen on Spotify"
+            >
+              <FaSpotify size={16} />
+            </Button>
+          )}
+          {links.appleMusic && (
+            <Button 
+              variant="secondary" 
+              size="sm" 
+              as="a" 
+              href={links.appleMusic}
+              className="!px-3"
+              aria-label="Listen on Apple Music"
+            >
+              <FaApple size={16} />
             </Button>
           )}
           {links.youtube && (
-            <Button variant="secondary" size="sm" as="a" href={links.youtube}>
-              YouTube
+            <Button 
+              variant="secondary" 
+              size="sm" 
+              as="a" 
+              href={links.youtube}
+              className="!px-3"
+              aria-label="Watch on YouTube"
+            >
+              <FaYoutube size={16} />
+            </Button>
+          )}
+          {links.other && (
+            <Button 
+              variant="secondary" 
+              size="sm" 
+              as="a" 
+              href={links.other}
+              className="!px-2.5"
+              aria-label="More streaming options"
+            >
+              <HiDotsHorizontal size={18} />
             </Button>
           )}
         </div>

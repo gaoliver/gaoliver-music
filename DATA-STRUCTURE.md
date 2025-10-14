@@ -14,28 +14,58 @@ src/data/
 └── index.ts        # Central exports
 ```
 
+## 🎯 CTA Structure
+
+All Call-to-Action (CTA) elements throughout the website follow a consistent structure:
+
+```typescript
+interface CTA {
+  isActive: boolean;  // Controls visibility
+  label: string;      // Button/link text
+  url: string;        // Destination URL
+}
+```
+
+**Example:**
+```json
+{
+  "isActive": true,
+  "label": "Listen now",
+  "url": "#listen"
+}
+```
+
+This structure allows you to easily enable/disable CTAs without removing them from the JSON.
+
 ## 📄 site.json
 
-Site-wide configuration including navigation, social links, and footer.
+Site-wide configuration including navigation, header CTA, social links, and footer.
 
 ```json
 {
   "meta": {
-    "title": "Oliver — Music",
-    "description": "Heavy/Prog with minimalist and dark aesthetics",
+    "title": "G.A. Oliver | The Official Website",
+    "description": "Heavy riffs • Loud screams • Deep faith",
     "lang": "en"
   },
   "navigation": [
     { "label": "Home", "href": "#home" }
   ],
+  "headerCta": {
+    "isActive": true,
+    "label": "Listen now",
+    "url": "#listen"
+  },
   "socialLinks": [
     { "platform": "Spotify", "url": "#", "ariaLabel": "Spotify" }
   ],
   "footer": {
-    "copyright": "© 2025 Oliver — All rights reserved."
+    "copyright": "© [YEAR] G.A. Oliver | All rights reserved."
   }
 }
 ```
+
+**Note:** The `[YEAR]` placeholder in the copyright is automatically replaced with the current year.
 
 ## 🏠 home.json
 
@@ -44,18 +74,34 @@ Homepage-specific content including hero section and section previews.
 ```json
 {
   "hero": {
-    "title": "Shadows in Motion",
-    "subtitle": "Official site — releases, links and news.",
-    "ctaPrimary": "Listen now",
-    "ctaSecondary": "View discography"
+    "title": "Christmas release!",
+    "subtitle": "Listen to the classic Christmas songs in Metal version.",
+    "ctaPrimary": {
+      "isActive": true,
+      "label": "Pre-save now",
+      "url": "#"
+    },
+    "ctaSecondary": {
+      "isActive": true,
+      "label": "View discography",
+      "url": "#releases"
+    }
   },
   "about": {
     "summary": "Brief about description...",
-    "readMoreLabel": "Learn more"
+    "cta": {
+      "isActive": false,
+      "label": "Learn more",
+      "url": "/about"
+    }
   },
   "releases": {
     "sectionTitle": "Releases",
-    "viewAllLabel": "View all",
+    "cta": {
+      "isActive": true,
+      "label": "View all",
+      "url": "#releases"
+    },
     "limit": 3
   },
   "contact": {
@@ -64,6 +110,11 @@ Homepage-specific content including hero section and section previews.
   }
 }
 ```
+
+**CTA Configuration:**
+- **Hero CTAs**: Two buttons in hero section (primary and secondary)
+- **About CTA**: Optional "Learn more" button (set `isActive: false` to hide)
+- **Releases CTA**: "View all" link at top of releases section
 
 ## 👤 about.json
 
@@ -100,7 +151,8 @@ Complete catalog of music releases.
       "links": {
         "spotify": "#",
         "appleMusic": "#",
-        "youtube": "#"
+        "youtube": "#",
+        "other": "#"
       }
     }
   ]
@@ -116,7 +168,8 @@ Complete catalog of music releases.
 - **cover**: Cover art image URL
 - **featured**: Boolean - shows in hero section if true
 - **newReleaseLabel**: Text label for featured releases (default: "New Release")
-- **links**: Object with streaming platform URLs
+- **links**: Object with streaming platform URLs (spotify, appleMusic, youtube, other)
+  - **other**: Optional additional link (e.g., Bandcamp, SoundCloud, Deezer, Tidal, etc.)
 
 ## 📧 contact.json
 

@@ -41,7 +41,10 @@ const Home: React.FC = () => {
         image={aboutData.image}
       />
       <Divider />
-      <Releases releases={releasesData.releases} />
+      <Releases 
+        releases={releasesData.releases}
+        viewAllCta={homeData.releases.cta}
+      />
       <Divider />
       <Contact
         title={contactData.title}

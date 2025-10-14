@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../atoms/Logo';
 import NavMenu from '../../molecules/NavMenu';
 import Button from '../../atoms/Button';
+import type { CTA } from '../../../types/cta';
 
 interface NavItem {
   label: string;
@@ -11,10 +12,11 @@ interface NavItem {
 
 interface HeaderProps {
   navigation: NavItem[];
+  cta?: CTA;
   onNavClick?: (href: string) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ navigation, onNavClick }) => {
+const Header: React.FC<HeaderProps> = ({ navigation, cta, onNavClick }) => {
   return (
     <header className="fixed inset-x-0 top-0 z-50 glass">
       <nav className="container mx-auto flex items-center justify-between px-6 py-3">
@@ -23,9 +25,11 @@ const Header: React.FC<HeaderProps> = ({ navigation, onNavClick }) => {
           <span className="sr-only">Oliver</span>
         </Link>
         <NavMenu items={navigation} onLinkClick={onNavClick} />
-        <Button variant="primary" size="sm" as="a" href="#listen">
-          Listen now
-        </Button>
+        {cta && cta.isActive && (
+          <Button variant="primary" size="sm" as="a" href={cta.url}>
+            {cta.label}
+          </Button>
+        )}
       </nav>
     </header>
   );

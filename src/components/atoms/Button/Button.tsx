@@ -9,6 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   as?: 'button' | 'a';
   href?: string;
+  'aria-label'?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -29,7 +30,7 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const sizeStyles = {
-    sm: 'px-3 py-2 text-sm',
+    sm: 'px-3 py-1.5 text-xs',
     md: 'px-5 py-3 text-sm',
     lg: 'px-6 py-3 text-base',
   };
@@ -37,8 +38,18 @@ const Button: React.FC<ButtonProps> = ({
   const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
 
   if (as === 'a' && href) {
+    // Check if link is external (starts with http:// or https://)
+    const isExternal = href.startsWith('http://') || href.startsWith('https://');
+    const ariaLabel = props['aria-label'];
+    
     return (
-      <a href={href} className={combinedClassName}>
+      <a 
+        href={href} 
+        className={combinedClassName}
+        target={isExternal ? '_blank' : undefined}
+        rel={isExternal ? 'noopener noreferrer' : undefined}
+        aria-label={ariaLabel}
+      >
         {children}
       </a>
     );

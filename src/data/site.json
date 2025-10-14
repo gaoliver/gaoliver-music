@@ -10,6 +10,11 @@
     { "label": "Releases", "href": "#releases" },
     { "label": "Contact", "href": "#contact" }
   ],
+  "headerCta": {
+    "isActive": true,
+    "label": "Listen now",
+    "url": "#listen"
+  },
   "socialLinks": [
     { "platform": "Spotify", "url": "#", "ariaLabel": "Spotify" },
     { "platform": "YouTube", "url": "#", "ariaLabel": "YouTube" },

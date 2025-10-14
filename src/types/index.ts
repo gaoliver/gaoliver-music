@@ -1,3 +1,9 @@
+export interface CTA {
+  isActive: boolean;
+  label: string;
+  url: string;
+}
+
 export interface Release {
   id: string;
   title: string;
@@ -9,6 +15,7 @@ export interface Release {
     spotify?: string;
     appleMusic?: string;
     youtube?: string;
+    other?: string;
   };
 }
 
@@ -32,8 +39,8 @@ export interface SiteData {
   hero: {
     title: string;
     subtitle: string;
-    ctaPrimary: string;
-    ctaSecondary: string;
+    ctaPrimary: CTA;
+    ctaSecondary: CTA;
   };
   about: {
     title: string;

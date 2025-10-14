@@ -2,39 +2,31 @@
   "title": "Releases",
   "releases": [
     {
-      "id": "sangue-silencio",
-      "title": "Blood & Silence",
-      "type": "Single",
+      "id": "night-divine",
+      "title": "Night Divine",
+      "type": "EP",
       "year": "2025",
-      "cover": "https://images.unsplash.com/photo-1498429089284-41f8cf3ffd39?q=80&w=1600&auto=format&fit=crop",
+      "cover": "/images/albums/xmas-album-red.png",
       "featured": true,
       "newReleaseLabel": "New Release",
       "links": {
         "spotify": "#",
         "appleMusic": "#",
+        "other": "#",
         "youtube": "#"
       }
     },
     {
-      "id": "cicatrizes",
-      "title": "Scars",
+      "id": "hail-to-the-king",
+      "title": "Hail to the King",
       "type": "Single",
       "year": "2024",
-      "cover": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1600&auto=format&fit=crop",
+      "cover": "/images/albums/hail-to-the-king.png",
       "links": {
-        "spotify": "#",
-        "youtube": "#"
-      }
-    },
-    {
-      "id": "fragmentos",
-      "title": "Fragments",
-      "type": "EP",
-      "year": "2024",
-      "cover": "https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=1600&auto=format&fit=crop",
-      "links": {
-        "spotify": "#",
-        "youtube": "#"
+        "spotify": "https://open.spotify.com/track/5BgXgETox5CCDKq9qjlOfB",
+        "appleMusic": "https://geo.music.apple.com/us/album/_/1779789035?i=1779789036&mt=1&app=music",
+        "other": "https://lynkify.in/song/hail-to-the-king/q9qjlOfB",
+        "youtube": "https://www.youtube.com/watch?v=ZLb7YkIku-8"
       }
     }
   ]

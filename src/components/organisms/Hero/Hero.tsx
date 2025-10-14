@@ -3,6 +3,7 @@ import Logo from '../../atoms/Logo';
 import Button from '../../atoms/Button';
 import SocialLinks from '../../molecules/SocialLinks';
 import ReleaseCard from '../../molecules/ReleaseCard';
+import type { CTA } from '../../../types/cta';
 
 interface Release {
   title: string;
@@ -14,6 +15,7 @@ interface Release {
     spotify?: string;
     appleMusic?: string;
     youtube?: string;
+    other?: string;
   };
 }
 
@@ -26,8 +28,8 @@ interface SocialLink {
 interface HeroProps {
   title: string;
   subtitle: string;
-  ctaPrimary: string;
-  ctaSecondary: string;
+  ctaPrimary: CTA;
+  ctaSecondary: CTA;
   socialLinks: SocialLink[];
   featuredRelease: Release;
 }
@@ -50,12 +52,16 @@ const Hero: React.FC<HeroProps> = ({
             <h1 className="font-title text-4xl md:text-5xl tracking-wide">{title}</h1>
             <p className="text-brand-muted max-w-xl">{subtitle}</p>
             <div className="flex flex-wrap items-center gap-3">
-              <Button variant="primary" as="a" href="#listen">
-                {ctaPrimary}
-              </Button>
-              <Button variant="secondary" as="a" href="#releases">
-                {ctaSecondary}
-              </Button>
+              {ctaPrimary.isActive && (
+                <Button variant="primary" as="a" href={ctaPrimary.url}>
+                  {ctaPrimary.label}
+                </Button>
+              )}
+              {ctaSecondary.isActive && (
+                <Button variant="secondary" as="a" href={ctaSecondary.url}>
+                  {ctaSecondary.label}
+                </Button>
+              )}
             </div>
             <SocialLinks links={socialLinks} withDividers={true} />
           </div>
