@@ -5,7 +5,11 @@ import Releases from '../../components/organisms/Releases';
 import Contact from '../../components/organisms/Contact';
 import Divider from '../../components/atoms/Divider';
 import MainLayout from '../../templates/MainLayout';
-import siteData from '../../data/siteData.json';
+import siteData from '../../data/site.json';
+import homeData from '../../data/home.json';
+import aboutData from '../../data/about.json';
+import releasesData from '../../data/releases.json';
+import contactData from '../../data/contact.json';
 
 const Home: React.FC = () => {
   const handleNavClick = (href: string) => {
@@ -17,32 +21,32 @@ const Home: React.FC = () => {
     }
   };
 
-  const featuredRelease = siteData.releases.find((release) => release.featured);
+  const featuredRelease = releasesData.releases.find((release) => release.featured);
 
   return (
     <MainLayout onNavClick={handleNavClick}>
       <Hero
-        title={siteData.hero.title}
-        subtitle={siteData.hero.subtitle}
-        ctaPrimary={siteData.hero.ctaPrimary}
-        ctaSecondary={siteData.hero.ctaSecondary}
+        title={homeData.hero.title}
+        subtitle={homeData.hero.subtitle}
+        ctaPrimary={homeData.hero.ctaPrimary}
+        ctaSecondary={homeData.hero.ctaSecondary}
         socialLinks={siteData.socialLinks}
         featuredRelease={featuredRelease!}
       />
       <Divider />
       <About
-        title={siteData.about.title}
-        description={siteData.about.description}
-        details={siteData.about.details}
-        image={siteData.about.image}
+        title={aboutData.title}
+        description={aboutData.description}
+        details={aboutData.details}
+        image={aboutData.image}
       />
       <Divider />
-      <Releases releases={siteData.releases} />
+      <Releases releases={releasesData.releases} />
       <Divider />
       <Contact
-        title={siteData.contact.title}
-        fields={siteData.contact.fields}
-        submitText={siteData.contact.submitText}
+        title={contactData.title}
+        fields={contactData.form.fields}
+        submitText={contactData.form.submitText}
       />
     </MainLayout>
   );

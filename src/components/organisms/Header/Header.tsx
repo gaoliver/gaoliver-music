@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({ navigation, onNavClick }) => {
         </Link>
         <NavMenu items={navigation} onLinkClick={onNavClick} />
         <Button variant="primary" size="sm" as="a" href="#listen">
-          Ouça agora
+          Listen now
         </Button>
       </nav>
     </header>

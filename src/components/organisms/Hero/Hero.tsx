@@ -9,6 +9,7 @@ interface Release {
   type: string;
   year: string;
   cover: string;
+  newReleaseLabel?: string;
   links: {
     spotify?: string;
     appleMusic?: string;
@@ -66,6 +67,7 @@ const Hero: React.FC<HeroProps> = ({
               cover={featuredRelease.cover}
               links={featuredRelease.links}
               featured={true}
+              newReleaseLabel={featuredRelease.newReleaseLabel}
             />
           </div>
         </div>

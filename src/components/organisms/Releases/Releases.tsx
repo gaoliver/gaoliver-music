@@ -29,7 +29,7 @@ const Releases: React.FC<ReleasesProps> = ({ releases }) => {
         <div className="flex items-end justify-between mb-6">
           <h2 className="font-title text-3xl md:text-4xl">Releases</h2>
           <a href="#" className="text-sm text-brand-muted hover:text-brand-accent transition">
-            Ver tudo
+            View all
           </a>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

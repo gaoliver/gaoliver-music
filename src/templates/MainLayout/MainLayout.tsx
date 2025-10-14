@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../../components/organisms/Header';
 import Footer from '../../components/organisms/Footer';
-import siteData from '../../data/siteData.json';
+import siteData from '../../data/site.json';
 
 interface MainLayoutProps {
   children: React.ReactNode;

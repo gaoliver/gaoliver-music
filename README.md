@@ -58,13 +58,15 @@ npm run preview
 
 ## 📝 Content Management
 
-All website content is managed through `src/data/siteData.json`. Edit this file to update:
-- Hero section content
-- About information
-- Releases
-- Navigation items
-- Social links
-- Contact form labels
+Website content is organized into separate JSON files for better maintainability:
+
+- **`src/data/site.json`** - Site-wide settings (navigation, social links, footer)
+- **`src/data/home.json`** - Homepage hero section content
+- **`src/data/about.json`** - About page/section content
+- **`src/data/releases.json`** - All music releases
+- **`src/data/contact.json`** - Contact form configuration
+
+Each page imports only the data it needs, making the structure clean and scalable.
 
 ## 🎯 Component Architecture
 

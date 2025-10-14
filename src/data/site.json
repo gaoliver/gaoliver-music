@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "title": "G.A. Oliver | The Official Website",
+    "description": "Heavy riffs • Loud screams • Deep faith",
+    "lang": "en"
+  },
+  "navigation": [
+    { "label": "Home", "href": "#home" },
+    { "label": "About", "href": "#about" },
+    { "label": "Releases", "href": "#releases" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "socialLinks": [
+    { "platform": "Spotify", "url": "#", "ariaLabel": "Spotify" },
+    { "platform": "YouTube", "url": "#", "ariaLabel": "YouTube" },
+    { "platform": "Instagram", "url": "#", "ariaLabel": "Instagram" },
+    { "platform": "X", "url": "#", "ariaLabel": "X" }
+  ],
+  "footer": {
+    "copyright": "© [YEAR] G.A. Oliver | All rights reserved."
+  }
+}
+

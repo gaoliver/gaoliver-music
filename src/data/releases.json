@@ -1,0 +1,42 @@
+{
+  "title": "Releases",
+  "releases": [
+    {
+      "id": "sangue-silencio",
+      "title": "Blood & Silence",
+      "type": "Single",
+      "year": "2025",
+      "cover": "https://images.unsplash.com/photo-1498429089284-41f8cf3ffd39?q=80&w=1600&auto=format&fit=crop",
+      "featured": true,
+      "newReleaseLabel": "New Release",
+      "links": {
+        "spotify": "#",
+        "appleMusic": "#",
+        "youtube": "#"
+      }
+    },
+    {
+      "id": "cicatrizes",
+      "title": "Scars",
+      "type": "Single",
+      "year": "2024",
+      "cover": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1600&auto=format&fit=crop",
+      "links": {
+        "spotify": "#",
+        "youtube": "#"
+      }
+    },
+    {
+      "id": "fragmentos",
+      "title": "Fragments",
+      "type": "EP",
+      "year": "2024",
+      "cover": "https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=1600&auto=format&fit=crop",
+      "links": {
+        "spotify": "#",
+        "youtube": "#"
+      }
+    }
+  ]
+}
+

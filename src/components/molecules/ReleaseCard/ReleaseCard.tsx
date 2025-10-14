@@ -12,6 +12,7 @@ interface ReleaseCardProps {
     youtube?: string;
   };
   featured?: boolean;
+  newReleaseLabel?: string;
 }
 
 const ReleaseCard: React.FC<ReleaseCardProps> = ({
@@ -21,6 +22,7 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
   cover,
   links,
   featured = false,
+  newReleaseLabel = 'New Release',
 }) => {
   if (featured) {
     return (
@@ -31,7 +33,7 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
         />
         <div id="listen" className="pt-5">
           <h3 className="font-title text-2xl">
-            Novo Lançamento — <span className="text-brand-accent">{title}</span>
+            {newReleaseLabel} — <span className="text-brand-accent">{title}</span>
           </h3>
           <p className="text-sm text-brand-muted">
             {type} — {year}
