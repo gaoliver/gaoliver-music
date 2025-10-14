@@ -119,9 +119,9 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
           )}
 
           {/* Social Links */}
-          <div className="mt-auto pt-8">
-            <p className="mb-4 text-sm text-brand-muted">Follow me</p>
-            <SocialLinks links={socialLinks} />
+          <div className="mt-auto border-t border-white/5 pt-6">
+            <p className="mb-4 text-sm font-medium uppercase tracking-wider text-brand-muted">Follow me</p>
+            <SocialLinks links={socialLinks} withDividers={false} />
           </div>
         </div>
       </div>
