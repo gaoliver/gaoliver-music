@@ -216,22 +216,38 @@ Complete catalog of music releases.
 
 ## 📧 contact.json
 
-Contact form configuration.
+Contact form configuration with Getform integration (see [CONTACT-FORM.md](./CONTACT-FORM.md)).
 
 ```json
 {
   "title": "Contact",
   "description": "Get in touch...",
   "form": {
+    "endpoint": "https://getform.io/f/aolzdojb",
     "fields": {
       "name": "Your name",
       "email": "Your email",
       "message": "Message"
     },
-    "submitText": "Send"
+    "submitText": "Send",
+    "messages": {
+      "success": "Thank you! Your message has been sent successfully.",
+      "error": "Oops! Something went wrong. Please try again.",
+      "sending": "Sending..."
+    }
   }
 }
 ```
+
+### Contact Form Properties
+
+- **endpoint**: Getform (or other service) form submission URL
+- **fields**: Placeholder text for form inputs
+- **submitText**: Button text
+- **messages**: User feedback messages for different states
+  - `success`: Shown when message is sent (green box, auto-dismisses after 5s)
+  - `error`: Shown on submission failure (red box, auto-dismisses after 5s)
+  - `sending`: Button text while submitting
 
 ## 🔧 Usage in Components
 

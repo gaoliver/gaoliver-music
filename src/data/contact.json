@@ -2,12 +2,18 @@
   "title": "Contact",
   "description": "Get in touch for collaborations, bookings, or just to say hello.",
   "form": {
+    "endpoint": "https://getform.io/f/aolzdojb",
     "fields": {
       "name": "Your name",
       "email": "Your email",
       "message": "Message"
     },
-    "submitText": "Send"
+    "submitText": "Send",
+    "messages": {
+      "success": "Thank you! Your message has been sent successfully.",
+      "error": "Oops! Something went wrong. Please try again.",
+      "sending": "Sending..."
+    }
   }
 }
 

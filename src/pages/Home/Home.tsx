@@ -50,8 +50,10 @@ const Home: React.FC = () => {
       <Divider />
       <Contact
         title={contactData.title}
+        endpoint={contactData.form.endpoint}
         fields={contactData.form.fields}
         submitText={contactData.form.submitText}
+        messages={contactData.form.messages}
       />
     </MainLayout>
   );
