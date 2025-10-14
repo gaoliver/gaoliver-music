@@ -14,6 +14,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, onNavClick }) => {
       <Header 
         navigation={siteData.navigation} 
         cta={siteData.headerCta}
+        socialLinks={siteData.socialLinks}
         onNavClick={onNavClick} 
       />
       <main>{children}</main>

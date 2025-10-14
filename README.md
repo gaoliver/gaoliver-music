@@ -35,11 +35,13 @@ src/
 ## 🎵 Features
 
 - Smooth scroll navigation
-- Responsive design
-- Release showcase
-- Contact form (UI only)
-- Social media links
-- SEO-friendly
+- Responsive design with mobile hamburger menu
+- Mobile drawer with navigation & social links
+- Release showcase with streaming service icons
+- Contact form integrated with Getform
+- Social media links with platform icons
+- SEO-friendly with Open Graph & Twitter Cards
+- Rich text support in About section
 
 ## 🛠️ Development
 
@@ -94,6 +96,7 @@ Each page imports only the data it needs, making the structure clean and scalabl
 
 - **[DATA-STRUCTURE.md](./DATA-STRUCTURE.md)** - Complete guide to data file organization
 - **[CTA-GUIDE.md](./CTA-GUIDE.md)** - How to configure Call-to-Action buttons
+- **[MOBILE-MENU.md](./MOBILE-MENU.md)** - Mobile hamburger menu & drawer implementation
 - **[SOCIAL-LINKS.md](./SOCIAL-LINKS.md)** - Footer social media & streaming icons setup
 - **[CONTACT-FORM.md](./CONTACT-FORM.md)** - Contact form Getform integration setup
 - **[SEO.md](./SEO.md)** - SEO & social media optimization guide
@@ -108,9 +111,9 @@ Each page imports only the data it needs, making the structure clean and scalabl
 
 Following **Atomic Design** principles:
 
-- **Atoms**: Button, Input, Textarea, Logo, SocialLink, Divider
+- **Atoms**: Button, Input, Textarea, Logo, SocialLink, Divider, HamburgerButton
 - **Molecules**: ReleaseCard, NavMenu, SocialLinks, ContactForm
-- **Organisms**: Header, Hero, About, Releases, Contact, Footer
+- **Organisms**: Header, Hero, About, Releases, Contact, Footer, MobileDrawer
 - **Templates**: MainLayout
 - **Pages**: Home
 
