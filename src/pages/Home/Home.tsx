@@ -5,7 +5,6 @@ import Releases from '../../components/organisms/Releases';
 import Contact from '../../components/organisms/Contact';
 import Divider from '../../components/atoms/Divider';
 import MainLayout from '../../templates/MainLayout';
-import siteData from '../../data/site.json';
 import homeData from '../../data/home.json';
 import aboutData from '../../data/about.json';
 import releasesData from '../../data/releases.json';

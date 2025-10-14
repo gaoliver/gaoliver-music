@@ -22,7 +22,6 @@ const Header: React.FC<HeaderProps> = ({ navigation, cta, onNavClick }) => {
       <nav className="container mx-auto flex items-center justify-between px-6 py-3">
         <Link to="/" className="flex items-center gap-3">
           <Logo size="md" />
-          <span className="sr-only">Oliver</span>
         </Link>
         <NavMenu items={navigation} onLinkClick={onNavClick} />
         {cta && cta.isActive && (
