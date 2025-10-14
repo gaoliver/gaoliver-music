@@ -2,6 +2,7 @@
   "hero": {
     "title": "Christmas release!",
     "subtitle": "Listen to the classic Christmas songs in Metal version.",
+    "backgroundImage": "/images/albums/xmas-album-red.png",
     "ctaPrimary": {
       "isActive": true,
       "label": "Pre-save now",
@@ -24,7 +25,7 @@
   "releases": {
     "sectionTitle": "Releases",
     "cta": {
-      "isActive": true,
+      "isActive": false,
       "label": "View all",
       "url": "#releases"
     },

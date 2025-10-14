@@ -59,11 +59,17 @@ background: linear-gradient(to right, transparent, #2a2a2a, transparent);
 - Padding: py-3, px-6
 
 ### Hero Section
-- Min-height: 88vh
-- Radial gradient overlay: `rgba(228,91,102,0.10)`
+- Min-height: 100vh (full screen)
 - Two-column grid on desktop
 - Logo: w-64 md:w-80
 - Title: text-4xl md:text-5xl (Cinzel font)
+- **Background Effects** (if image provided):
+  - Image: 25% opacity, 8px blur, scaled 1.1x
+  - Dual Vignette System:
+    - **Radial vignette**: Larger transparent center (0-15%), gradual darkening (40%), complete black at sides (75%)
+    - **Linear vignette**: Complete black at top & bottom (0% and 100%), transparent middle (20-80%)
+    - Combined effect: Complete darkness on ALL edges with expanded light center
+  - Accent overlay: Subtle pink glow at center (rgba(228,91,102,0.12))
 
 ### Featured Release Card
 - Rounded: rounded-2xl
@@ -107,6 +113,10 @@ background: linear-gradient(to right, transparent, #2a2a2a, transparent);
 - Grid: md:grid-cols-5
 - Image: md:col-span-2, aspect-[4/5]
 - Content: md:col-span-3
+- **Background Effects**:
+  - Image: 50% opacity, 4px blur, scaled 1.1x
+  - Vignette: Radial gradient (transparent center → dark edges)
+  - Effect: Dramatic spotlight focusing on center content
 
 ### Releases Section
 - Grid: sm:grid-cols-2 lg:grid-cols-3
@@ -153,4 +163,46 @@ background: linear-gradient(to right, transparent, #2a2a2a, transparent);
 3. **Dividers**: Custom `.divider` class for subtle section separators
 4. **Cards**: Consistent border-white/10, bg-brand-bgAlt, shadow-soft pattern
 5. **Hover States**: Subtle opacity changes and scale transforms
+6. **Background Vignettes**: Radial gradients create spotlight effects (dark edges → light center)
+
+## Background Image Effects
+
+### Radial Vignette Pattern
+
+Both Hero and About sections use a consistent vignette effect:
+
+```css
+/* Background Image Layer */
+position: absolute
+opacity: 25% (Hero) / 50% (About)
+filter: blur(4-8px)
+transform: scale(1.1)  /* Prevents edge gaps */
+
+/* Dual Vignette System */
+
+/* Layer 1: Radial Vignette (sides) */
+radial-gradient(
+  ellipse at center,
+  transparent 0%,
+  transparent 15%,          /* Extended light center */
+  rgba(18,18,18,0.8) 40%,  /* Gradual darkening */
+  rgba(18,18,18,1.0) 75%   /* Complete black at sides */
+)
+
+/* Layer 2: Linear Vignette (top & bottom) */
+linear-gradient(
+  to bottom,
+  rgba(18,18,18,1.0) 0%,   /* Black at top */
+  transparent 20%,          /* Fade to transparent */
+  transparent 80%,          /* Stay transparent */
+  rgba(18,18,18,1.0) 100%  /* Black at bottom */
+)
+```
+
+**Effect**: Creates a dramatic cinematic spotlight that:
+- Extended transparent center keeps content highly visible
+- Complete black darkness on ALL edges (top, bottom, left, right)
+- Dual gradient system creates depth and focus
+- Seamless blend with page background
+- Works with any background image
 

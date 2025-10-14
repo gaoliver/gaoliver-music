@@ -12,8 +12,9 @@ A modern, minimalist music artist website built with React, TypeScript, and Tail
 
 - **React 19** with TypeScript
 - **Vite** for blazing fast development
-- **TailwindCSS v4** for styling
+- **TailwindCSS v3** for styling
 - **React Router** for navigation
+- **React Icons** for icon library
 - **Atomic Design** for component architecture
 
 ## 📁 Project Structure
@@ -60,13 +61,21 @@ npm run preview
 
 Website content is organized into separate JSON files for better maintainability:
 
-- **`src/data/site.json`** - Site-wide settings (navigation, social links, footer)
-- **`src/data/home.json`** - Homepage hero section content
-- **`src/data/about.json`** - About page/section content
-- **`src/data/releases.json`** - All music releases
+- **`src/data/site.json`** - Site-wide settings (navigation, social links, footer, header CTA)
+- **`src/data/home.json`** - Homepage hero section content (including background image)
+- **`src/data/about.json`** - About page/section content (foreground & background images)
+- **`src/data/releases.json`** - All music releases and streaming links
 - **`src/data/contact.json`** - Contact form configuration
 
 Each page imports only the data it needs, making the structure clean and scalable.
+
+### 📚 Documentation Guides
+
+- **[DATA-STRUCTURE.md](./DATA-STRUCTURE.md)** - Complete guide to data file organization
+- **[CTA-GUIDE.md](./CTA-GUIDE.md)** - How to configure Call-to-Action buttons
+- **[BACKGROUND-IMAGES.md](./BACKGROUND-IMAGES.md)** - Managing background images via JSON
+- **[ICON-BUTTONS.md](./ICON-BUTTONS.md)** - Streaming service icon buttons implementation
+- **[STYLING.md](./STYLING.md)** - Custom CSS and Tailwind configuration
 
 ## 🎯 Component Architecture
 

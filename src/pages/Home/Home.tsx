@@ -28,6 +28,7 @@ const Home: React.FC = () => {
       <Hero
         title={homeData.hero.title}
         subtitle={homeData.hero.subtitle}
+        backgroundImage={homeData.hero.backgroundImage}
         ctaPrimary={homeData.hero.ctaPrimary}
         ctaSecondary={homeData.hero.ctaSecondary}
         featuredRelease={featuredRelease!}
@@ -38,6 +39,7 @@ const Home: React.FC = () => {
         description={aboutData.description}
         details={aboutData.details}
         image={aboutData.image}
+        backgroundImage={aboutData.backgroundImage}
       />
       <Divider />
       <Releases 

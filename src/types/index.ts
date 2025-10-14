@@ -30,36 +30,48 @@ export interface NavItem {
   href: string;
 }
 
-export interface SiteData {
-  site: {
-    title: string;
-    description: string;
-    lang: string;
-  };
+// Home Page Data
+export interface HomeData {
   hero: {
     title: string;
     subtitle: string;
+    backgroundImage?: string;
     ctaPrimary: CTA;
     ctaSecondary: CTA;
   };
   about: {
+    summary: string;
+    cta: CTA;
+  };
+  releases: {
+    sectionTitle: string;
+    cta: CTA;
+    limit: number;
+  };
+  contact: {
+    sectionTitle: string;
+    description: string;
+  };
+}
+
+// About Data
+export interface AboutData {
+  title: string;
+  description: string;
+  details: string[];
+  image: string;
+  backgroundImage?: string;
+}
+
+// Site Configuration
+export interface SiteData {
+  meta: {
     title: string;
     description: string;
-    details: string[];
-    image: string;
   };
-  releases: Release[];
   navigation: NavItem[];
   socialLinks: SocialLink[];
-  contact: {
-    title: string;
-    fields: {
-      name: string;
-      email: string;
-      message: string;
-    };
-    submitText: string;
-  };
+  headerCta?: CTA;
   footer: {
     copyright: string;
   };
