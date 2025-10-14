@@ -52,7 +52,7 @@ While you create the perfect image, you can use an album cover:
 
 ```bash
 # Use Night Divine cover as OG image temporarily
-cp public/images/albums/xmas-album-red.png public/images/og-image.png
+cp public/images/albums/xmas-album-red.webp public/images/og-image.png
 ```
 
 Not ideal (wrong dimensions) but works until you create the proper one!

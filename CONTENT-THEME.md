@@ -20,7 +20,7 @@ The About section supports a `lightContent` boolean that switches between light 
   "description": "...",
   "details": [...],
   "image": "/images/Profile.jpg",
-  "backgroundImage": "/images/singing-studio-white.png",
+  "backgroundImage": "/images/singing-studio-white.webp",
   "lightContent": false
 }
 ```
