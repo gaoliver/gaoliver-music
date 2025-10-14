@@ -26,7 +26,7 @@ const Releases: React.FC<ReleasesProps> = ({ releases, viewAllCta }) => {
   const isExternalLink = viewAllCta?.url && (viewAllCta.url.startsWith('http://') || viewAllCta.url.startsWith('https://'));
   
   return (
-    <section id="releases" className="py-12">
+    <section id="releases" className="pt-24 pb-12">
       <div className="container mx-auto px-6">
         <div className="flex items-end justify-between mb-6">
           <h2 className="font-title text-3xl md:text-4xl">Releases</h2>

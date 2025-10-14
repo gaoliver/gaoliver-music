@@ -110,6 +110,7 @@ background: linear-gradient(to right, transparent, #2a2a2a, transparent);
 - Placeholder: text-brand-muted
 
 ### About Section
+- Padding: pt-24 pb-12 (extra top padding for scroll offset)
 - Grid: md:grid-cols-5
 - Image: md:col-span-2, aspect-[4/5]
 - Content: md:col-span-3
@@ -119,8 +120,13 @@ background: linear-gradient(to right, transparent, #2a2a2a, transparent);
   - Effect: Dramatic spotlight focusing on center content
 
 ### Releases Section
+- Padding: pt-24 pb-12 (extra top padding for scroll offset)
 - Grid: sm:grid-cols-2 lg:grid-cols-3
 - Gap: gap-6
+
+### Contact Section
+- Padding: pt-24 pb-12 (extra top padding for scroll offset)
+- Max-width: max-w-3xl (centered form container)
 
 ### Footer
 - Border-top: border-white/10
@@ -142,7 +148,8 @@ background: linear-gradient(to right, transparent, #2a2a2a, transparent);
 ## Spacing
 
 ### Sections
-- Vertical padding: py-12
+- Hero: pt-24 (accounts for fixed header)
+- All other sections: pt-24 pb-12 (extra top padding for scroll offset)
 - Container padding: px-6
 
 ### Elements

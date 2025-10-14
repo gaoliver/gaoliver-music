@@ -12,7 +12,7 @@ const About: React.FC<AboutProps> = ({ title, description, details, image, backg
   const bgImage = backgroundImage || image;
   
   return (
-    <section id="about" className="relative py-12 overflow-hidden">
+    <section id="about" className="relative pt-24 pb-12 overflow-hidden">
       {/* Background Image with Blur and Fade */}
       {bgImage && (
         <div 
