@@ -16,10 +16,14 @@
     "url": "#listen"
   },
   "socialLinks": [
-    { "platform": "Spotify", "url": "#", "ariaLabel": "Spotify" },
-    { "platform": "YouTube", "url": "#", "ariaLabel": "YouTube" },
-    { "platform": "Instagram", "url": "#", "ariaLabel": "Instagram" },
-    { "platform": "X", "url": "#", "ariaLabel": "X" }
+    { "platform": "Spotify", "url": "#", "ariaLabel": "Listen on Spotify" },
+    { "platform": "AppleMusic", "url": "#", "ariaLabel": "Listen on Apple Music" },
+    { "platform": "AmazonMusic", "url": "#", "ariaLabel": "Listen on Amazon Music" },
+    { "platform": "Deezer", "url": "#", "ariaLabel": "Listen on Deezer" },
+    { "platform": "YouTube", "url": "#", "ariaLabel": "Watch on YouTube" },
+    { "platform": "Instagram", "url": "#", "ariaLabel": "Follow on Instagram" },
+    { "platform": "TikTok", "url": "#", "ariaLabel": "Follow on TikTok" },
+    { "platform": "Facebook", "url": "#", "ariaLabel": "Follow on Facebook" }
   ],
   "footer": {
     "copyright": "© [YEAR] G.A. Oliver | All rights reserved."

@@ -57,13 +57,40 @@ Site-wide configuration including navigation, header CTA, social links, and foot
     "url": "#listen"
   },
   "socialLinks": [
-    { "platform": "Spotify", "url": "#", "ariaLabel": "Spotify" }
+    { "platform": "Spotify", "url": "#", "ariaLabel": "Listen on Spotify" },
+    { "platform": "AppleMusic", "url": "#", "ariaLabel": "Listen on Apple Music" },
+    { "platform": "AmazonMusic", "url": "#", "ariaLabel": "Listen on Amazon Music" },
+    { "platform": "Deezer", "url": "#", "ariaLabel": "Listen on Deezer" },
+    { "platform": "YouTube", "url": "#", "ariaLabel": "Watch on YouTube" },
+    { "platform": "Instagram", "url": "#", "ariaLabel": "Follow on Instagram" },
+    { "platform": "TikTok", "url": "#", "ariaLabel": "Follow on TikTok" },
+    { "platform": "Facebook", "url": "#", "ariaLabel": "Follow on Facebook" }
   ],
   "footer": {
     "copyright": "© [YEAR] G.A. Oliver | All rights reserved."
   }
 }
 ```
+
+### Social Links
+
+Social links are displayed as **icons** in the footer. Supported platforms:
+
+| Platform | Icon Used | Example URL |
+|----------|-----------|-------------|
+| `Spotify` | Spotify logo | `https://open.spotify.com/artist/...` |
+| `AppleMusic` | Apple logo | `https://music.apple.com/artist/...` |
+| `AmazonMusic` | Amazon logo | `https://music.amazon.com/artists/...` |
+| `Deezer` | Deezer logo | `https://www.deezer.com/artist/...` |
+| `YouTube` | YouTube logo | `https://youtube.com/@username` |
+| `Instagram` | Instagram logo | `https://instagram.com/username` |
+| `TikTok` | TikTok logo | `https://tiktok.com/@username` |
+| `Facebook` | Facebook logo | `https://facebook.com/username` |
+
+**Properties:**
+- `platform`: Must match one of the supported platform names exactly (case-sensitive)
+- `url`: Full URL to your profile/artist page
+- `ariaLabel`: Descriptive label for screen readers
 
 **Note:** The `[YEAR]` placeholder in the copyright is automatically replaced with the current year.
 

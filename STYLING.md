@@ -168,6 +168,11 @@ p:last-child {
 - Border-top: border-white/10
 - Background: bg-brand-bgAlt
 - Padding: py-10
+- Social Links: Display as icon grid with hover effects
+  - Icon size: 20px
+  - Hover color: brand-accent (#E45B66)
+  - Smooth transition (200ms)
+  - Supports: Spotify, Apple Music, Amazon Music, Deezer, YouTube, Instagram, TikTok, Facebook
 
 ## Typography
 

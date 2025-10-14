@@ -73,6 +73,7 @@ Each page imports only the data it needs, making the structure clean and scalabl
 
 - **[DATA-STRUCTURE.md](./DATA-STRUCTURE.md)** - Complete guide to data file organization
 - **[CTA-GUIDE.md](./CTA-GUIDE.md)** - How to configure Call-to-Action buttons
+- **[SOCIAL-LINKS.md](./SOCIAL-LINKS.md)** - Footer social media & streaming icons setup
 - **[BACKGROUND-IMAGES.md](./BACKGROUND-IMAGES.md)** - Managing background images via JSON
 - **[CONTENT-THEME.md](./CONTENT-THEME.md)** - Light/dark text theme for readable content
 - **[RICH-TEXT.md](./RICH-TEXT.md)** - HTML formatting in About section description
