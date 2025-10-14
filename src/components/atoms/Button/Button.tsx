@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
   
   const variantStyles = {
     primary: 'bg-brand-accent text-black hover:opacity-90 shadow-soft',
-    secondary: 'bg-white/5 border border-white/10 hover:bg-white/10',
+    secondary: 'bg-white/5 border border-white/10',
     ghost: 'hover:text-brand-accent',
   };
 
