@@ -13,11 +13,11 @@
   "headerCta": {
     "isActive": true,
     "label": "Listen now",
-    "url": "#listen"
+    "url": "https://gaoliver.bio.link/"
   },
   "socialLinks": [
     { "platform": "Spotify", "url": "https://open.spotify.com/artist/0QcdwXaf0rj4RtErlHVH4y", "ariaLabel": "Listen on Spotify" },
-    { "platform": "AppleMusic", "url": "https://music.apple.com/de/artist/g-a-oliver/1779139802?l=en-GB", "ariaLabel": "Listen on Apple Music" },
+    { "platform": "AppleMusic", "url": "https://music.apple.com/de/artist/g-a-oliver/1779139802", "ariaLabel": "Listen on Apple Music" },
     { "platform": "AmazonMusic", "url": "https://music.amazon.com/artists/B0CKNDLZNZ/g-a-oliver", "ariaLabel": "Listen on Amazon Music" },
     { "platform": "Deezer", "url": "https://www.deezer.com/en/artist/234915551", "ariaLabel": "Listen on Deezer" },
     { "platform": "YouTube", "url": "https://www.youtube.com/@gaoliver", "ariaLabel": "Watch on YouTube" },
