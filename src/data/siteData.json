@@ -1,0 +1,84 @@
+{
+  "site": {
+    "title": "Oliver — Music",
+    "description": "Heavy/Prog com estética minimalista e sombria",
+    "lang": "pt-br"
+  },
+  "hero": {
+    "title": "Sombras em Movimento",
+    "subtitle": "Site oficial — lançamentos, links e novidades. Heavy/Prog com estética minimalista e sombria.",
+    "ctaPrimary": "Ouça o novo single",
+    "ctaSecondary": "Ver discografia"
+  },
+  "about": {
+    "title": "About",
+    "description": "Oliver é um projeto solo entre o Heavy e o Progressive, misturando riffs pesados com atmosferas sombrias e melodias introspectivas. Este site é um espaço direto ao ponto: lançamentos, links e contato.",
+    "details": [
+      "• Guitarra & Voz • Produção independente • Estúdio caseiro",
+      "• Influências: Skillet, Metallica, BMTH"
+    ],
+    "image": "https://images.unsplash.com/photo-1507878866276-a947ef722fee?q=80&w=1600&auto=format&fit=crop"
+  },
+  "releases": [
+    {
+      "id": "sangue-silencio",
+      "title": "Sangue & Silêncio",
+      "type": "Single",
+      "year": "2025",
+      "cover": "https://images.unsplash.com/photo-1498429089284-41f8cf3ffd39?q=80&w=1600&auto=format&fit=crop",
+      "featured": true,
+      "links": {
+        "spotify": "#",
+        "appleMusic": "#",
+        "youtube": "#"
+      }
+    },
+    {
+      "id": "cicatrizes",
+      "title": "Cicatrizes",
+      "type": "Single",
+      "year": "2024",
+      "cover": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1600&auto=format&fit=crop",
+      "links": {
+        "spotify": "#",
+        "youtube": "#"
+      }
+    },
+    {
+      "id": "fragmentos",
+      "title": "Fragmentos",
+      "type": "EP",
+      "year": "2024",
+      "cover": "https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=1600&auto=format&fit=crop",
+      "links": {
+        "spotify": "#",
+        "youtube": "#"
+      }
+    }
+  ],
+  "navigation": [
+    { "label": "Home", "href": "#home" },
+    { "label": "About", "href": "#about" },
+    { "label": "Releases", "href": "#releases" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "socialLinks": [
+    { "platform": "Spotify", "url": "#", "ariaLabel": "Spotify" },
+    { "platform": "YouTube", "url": "#", "ariaLabel": "YouTube" },
+    { "platform": "Instagram", "url": "#", "ariaLabel": "Instagram" },
+    { "platform": "X", "url": "#", "ariaLabel": "X" }
+  ],
+  "contact": {
+    "title": "Contato",
+    "fields": {
+      "name": "Seu nome",
+      "email": "Seu e-mail",
+      "message": "Mensagem"
+    },
+    "submitText": "Enviar"
+  },
+  "footer": {
+    "copyright": "© 2025 Oliver — All rights reserved."
+  }
+}
+

@@ -1,1 +1,40 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables */
+:root {
+  --bg: #121212;
+  --bgAlt: #0C0C0C;
+  --text: #E5E5E5;
+  --muted: #8E8E8E;
+  --accent: #E45B66;
+}
+
+/* Base Styles */
+@layer base {
+  html,
+  body {
+    background: #121212;
+    color: #E5E5E5;
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .glass {
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #2a2a2a, transparent);
+  }
+}
+
+@layer components {
+  .container {
+    max-width: 1120px;
+  }
+}

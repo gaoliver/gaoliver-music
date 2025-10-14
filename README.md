@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
+# Oliver — Music Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, minimalist music artist website built with React, TypeScript, and TailwindCSS, featuring a dark aesthetic with smooth animations and responsive design.
 
-Currently, two official plugins are available:
+## 🎨 Design
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Dark Theme**: Sophisticated dark color palette with accent colors
+- **Typography**: Cinzel for titles and Inter for body text
+- **Architecture**: Atomic Design principles (Atoms, Molecules, Organisms, Templates, Pages)
 
-## React Compiler
+## 🚀 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19** with TypeScript
+- **Vite** for blazing fast development
+- **TailwindCSS v4** for styling
+- **React Router** for navigation
+- **Atomic Design** for component architecture
 
-## Expanding the ESLint configuration
+## 📁 Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── components/
+│   ├── atoms/          # Basic building blocks (Button, Input, Logo, etc.)
+│   ├── molecules/      # Simple component combinations (ReleaseCard, NavMenu, etc.)
+│   └── organisms/      # Complex components (Header, Hero, Footer, etc.)
+├── templates/          # Page layouts
+├── pages/              # Full pages
+├── data/               # Static JSON data
+├── types/              # TypeScript type definitions
+└── utils/              # Utility functions
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🎵 Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Smooth scroll navigation
+- Responsive design
+- Release showcase
+- Contact form (UI only)
+- Social media links
+- SEO-friendly
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠️ Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
+
+## 📝 Content Management
+
+All website content is managed through `src/data/siteData.json`. Edit this file to update:
+- Hero section content
+- About information
+- Releases
+- Navigation items
+- Social links
+- Contact form labels
+
+## 🎯 Component Architecture
+
+Following **Atomic Design** principles:
+
+- **Atoms**: Button, Input, Textarea, Logo, SocialLink, Divider
+- **Molecules**: ReleaseCard, NavMenu, SocialLinks, ContactForm
+- **Organisms**: Header, Hero, About, Releases, Contact, Footer
+- **Templates**: MainLayout
+- **Pages**: Home
+
+## 🌈 Color Palette
+
+```css
+Brand Background: #121212
+Background Alt: #0C0C0C
+Text: #E5E5E5
+Muted: #8E8E8E
+Accent: #E45B66
+```
+
+## 📄 License
+
+All rights reserved © 2025 Oliver
