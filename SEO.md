@@ -40,7 +40,7 @@ Complete SEO and social media sharing optimization for G.A. Oliver's official we
 ## 🎨 Social Media Image (OG Image)
 
 ### Current Setup
-Location: `/public/images/og-image.png`
+Location: `/public/images/og-image.webp`
 
 ### Requirements
 - **Size**: 1200x630 pixels
@@ -62,13 +62,13 @@ Location: `/public/images/og-image.png`
 2. Create 1200x630px canvas
 3. Add your logo, name, tagline
 4. Export as PNG
-5. Save to `/public/images/og-image.png`
+5. Save to `/public/images/og-image.webp`
 
 **Option 2: Use Existing Album Cover**
 1. Take "Night Divine" or "Hail to the King" cover
 2. Resize to 1200x630px
 3. Add text overlay if needed
-4. Save to `/public/images/og-image.png`
+4. Save to `/public/images/og-image.webp`
 
 **Testing:**
 - Facebook Debugger: https://developers.facebook.com/tools/debug/

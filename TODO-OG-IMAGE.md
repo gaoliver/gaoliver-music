@@ -9,7 +9,7 @@ You need to create an Open Graph (OG) image for social media sharing.
 ## 🎯 Quick Summary
 
 **What:** A 1200x630px image that appears when your website is shared  
-**Where:** `/public/images/og-image.png`  
+**Where:** `/public/images/og-image.webp`  
 **When:** Before launching or sharing on social media  
 **Why:** Makes your links look professional and attractive  
 
@@ -22,7 +22,7 @@ You need to create an Open Graph (OG) image for social media sharing.
 2. Create a 1200x630px canvas with black background
 3. Place logo in center
 4. Add text: "G.A. Oliver" and "Heavy riffs • Loud screams • Deep faith"
-5. Save as `/public/images/og-image.png`
+5. Save as `/public/images/og-image.webp`
 
 ---
 
@@ -39,7 +39,7 @@ Follow the complete guide: **[OG-IMAGE-GUIDE.md](./OG-IMAGE-GUIDE.md)**
 
 ## ✅ After Creating
 
-1. Save file as: `/public/images/og-image.png`
+1. Save file as: `/public/images/og-image.webp`
 2. Test with Facebook Debugger: https://developers.facebook.com/tools/debug/
 3. Test with Twitter Validator: https://cards-dev.twitter.com/validator
 4. Share your link and see the beautiful preview!

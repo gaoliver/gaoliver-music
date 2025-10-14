@@ -14,7 +14,7 @@ The Open Graph (OG) image is what appears when your website is shared on social 
 - **Aspect Ratio**: 1.91:1
 - **Format**: PNG or JPG
 - **File Size**: < 300KB (recommended for fast loading)
-- **Location**: `/public/images/og-image.png`
+- **Location**: `/public/images/og-image.webp`
 
 ### Safe Zone
 Keep important content within the center **1200x600px** area, as some platforms crop edges.
