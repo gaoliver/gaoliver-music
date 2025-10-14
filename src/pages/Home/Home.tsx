@@ -40,6 +40,7 @@ const Home: React.FC = () => {
         details={aboutData.details}
         image={aboutData.image}
         backgroundImage={aboutData.backgroundImage}
+        lightContent={aboutData.lightContent}
       />
       <Divider />
       <Releases 

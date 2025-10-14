@@ -1,11 +1,12 @@
 {
   "title": "About",
-  "description": "Oliver is a solo project between Heavy and Progressive, mixing heavy riffs with dark atmospheres and introspective melodies. This site is a direct space: releases, links and contact.",
+  "description": "<p>Born in Brazil and living in the Netherlands, I've been writing my songs since my childhood. Always about my <strong>thoughts</strong> and <strong>feelings</strong>, and about my <strong>faith</strong> and&nbsp;the <strong>dark</strong> moments of life.</p><p>Guitar is my&nbsp;musical passion, and my voice is how I scream about what I feel and what I believe.&nbsp;I write about love, pain and the ups and downs of life. Always following my understanding that Jesus is the&nbsp;Way, the Truth and the Life. I also write praises for the One who deserves it all.</p><p>My first released work was <strong>Abismo</strong>, together with my former band Of Christ (right after I left it), in which I sang from 2021 to 2022. In 2024, I released the single <strong>Hail to the King</strong> for Christmas, and my most recent release is the EP <strong>Night Divine</strong>, also for Christmas. That's probably my last holiday work for a while, as I want to start working&nbsp;again on songs about life during the rest of the year.&nbsp;</p><p>I am G.A. Oliver.</p>",
   "details": [
-    "• Guitar & Vocals • Independent Production • Home Studio",
-    "• Influences: Skillet, Metallica, BMTH"
+    "• Heavy riffs • Loud screams • Deep faith",
+    "• \"I sing about faith and fight. About Him, who is the light.\""
   ],
-  "image": "https://images.unsplash.com/photo-1507878866276-a947ef722fee?q=80&w=1600&auto=format&fit=crop",
-  "backgroundImage": "https://images.unsplash.com/photo-1507878866276-a947ef722fee?q=80&w=1600&auto=format&fit=crop"
+  "image": "/images/Profile.jpg",
+  "backgroundImage": "/images/singing-studio-white.png",
+  "lightContent": true
 }
 

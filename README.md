@@ -74,6 +74,8 @@ Each page imports only the data it needs, making the structure clean and scalabl
 - **[DATA-STRUCTURE.md](./DATA-STRUCTURE.md)** - Complete guide to data file organization
 - **[CTA-GUIDE.md](./CTA-GUIDE.md)** - How to configure Call-to-Action buttons
 - **[BACKGROUND-IMAGES.md](./BACKGROUND-IMAGES.md)** - Managing background images via JSON
+- **[CONTENT-THEME.md](./CONTENT-THEME.md)** - Light/dark text theme for readable content
+- **[RICH-TEXT.md](./RICH-TEXT.md)** - HTML formatting in About section description
 - **[ICON-BUTTONS.md](./ICON-BUTTONS.md)** - Streaming service icon buttons implementation
 - **[STYLING.md](./STYLING.md)** - Custom CSS and Tailwind configuration
 

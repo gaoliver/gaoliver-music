@@ -6,10 +6,16 @@ interface AboutProps {
   details: string[];
   image: string;
   backgroundImage?: string;
+  lightContent?: boolean;
 }
 
-const About: React.FC<AboutProps> = ({ title, description, details, image, backgroundImage }) => {
+const About: React.FC<AboutProps> = ({ title, description, details, image, backgroundImage, lightContent = false }) => {
   const bgImage = backgroundImage || image;
+  
+  // Define color classes based on lightContent prop
+  const titleColor = lightContent ? 'text-white' : 'text-brand-text';
+  const textColor = lightContent ? 'text-white/90' : 'text-brand-text';
+  const mutedColor = lightContent ? 'text-white/70' : 'text-brand-muted';
   
   return (
     <section id="about" className="relative pt-24 pb-12 overflow-hidden">
@@ -41,9 +47,12 @@ const About: React.FC<AboutProps> = ({ title, description, details, image, backg
           
           {/* Right Content */}
           <div className="md:col-span-3">
-            <h2 className="font-title text-3xl md:text-4xl mb-4">{title}</h2>
-            <p className="text-brand-text leading-relaxed">{description}</p>
-            <ul className="mt-6 space-y-2 text-sm text-brand-muted">
+            <h2 className={`font-title text-3xl md:text-4xl mb-4 ${titleColor}`}>{title}</h2>
+            <div 
+              className={`leading-relaxed ${textColor} prose prose-invert max-w-none`}
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
+            <ul className={`mt-6 space-y-2 text-sm ${mutedColor}`}>
               {details.map((detail, index) => (
                 <li key={index}>{detail}</li>
               ))}

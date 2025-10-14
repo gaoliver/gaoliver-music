@@ -50,6 +50,42 @@ background: linear-gradient(to right, transparent, #2a2a2a, transparent);
 ```
 **Used in**: Section separators
 
+### .prose (Rich Text)
+```css
+/* Links */
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent);  /* #E45B66 */
+}
+
+/* Bold/Strong */
+strong, b {
+  font-weight: 700;
+  color: inherit;
+}
+
+/* Italic/Emphasis */
+em, i {
+  font-style: italic;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1em;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+```
+**Used in**: About section description (supports HTML formatting)
+
 ## Component Styling
 
 ### Header

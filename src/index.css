@@ -37,4 +37,35 @@
   .container {
     max-width: 1120px;
   }
+
+  /* Rich text styling */
+  .prose a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s ease;
+  }
+
+  .prose a:hover {
+    color: var(--accent);
+  }
+
+  .prose strong,
+  .prose b {
+    font-weight: 700;
+    color: inherit;
+  }
+
+  .prose em,
+  .prose i {
+    font-style: italic;
+  }
+
+  .prose p {
+    margin-bottom: 1em;
+  }
+
+  .prose p:last-child {
+    margin-bottom: 0;
+  }
 }

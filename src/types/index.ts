@@ -61,6 +61,7 @@ export interface AboutData {
   details: string[];
   image: string;
   backgroundImage?: string;
+  lightContent?: boolean;
 }
 
 // Site Configuration

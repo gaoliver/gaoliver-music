@@ -128,9 +128,25 @@ Full about section content.
     "• Guitar & Vocals",
     "• Influences: Band1, Band2"
   ],
-  "image": "https://..."
+  "image": "https://...",
+  "backgroundImage": "https://...",
+  "lightContent": false
 }
 ```
+
+### About Properties
+
+- **title**: Section heading
+- **description**: Main description text (supports HTML formatting - see [RICH-TEXT.md](./RICH-TEXT.md))
+  - Can include HTML tags like `<strong>`, `<em>`, `<br>`, `<a>`, etc.
+  - Example: `"Description with <strong>bold</strong> text"`
+- **details**: Array of detail strings (bullet points)
+- **image**: Foreground image (displayed in card on left)
+- **backgroundImage** (optional): Background image for the section (see [BACKGROUND-IMAGES.md](./BACKGROUND-IMAGES.md))
+  - If not provided, falls back to `image`
+- **lightContent** (optional, boolean): Use light text colors for better readability on bright backgrounds (see [CONTENT-THEME.md](./CONTENT-THEME.md))
+  - `false` (default): Standard gray text (`#E5E5E5`)
+  - `true`: White text with opacity variations for better contrast on light backgrounds
 
 ## 🎵 releases.json
 

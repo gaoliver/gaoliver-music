@@ -45,13 +45,15 @@ Configure the About section background image:
   "description": "...",
   "details": [...],
   "image": "https://your-image-url.com/about-card.jpg",
-  "backgroundImage": "https://your-image-url.com/about-bg.jpg"
+  "backgroundImage": "https://your-image-url.com/about-bg.jpg",
+  "lightContent": false
 }
 ```
 
 **Properties:**
 - `image`: Foreground image shown in the left card (always visible)
 - `backgroundImage` (optional): Background image for the section
+- `lightContent` (optional, boolean): Use light text for bright backgrounds (see [CONTENT-THEME.md](./CONTENT-THEME.md))
 - If `backgroundImage` is not provided, it falls back to `image`
 - Displays with:
   - 50% opacity
