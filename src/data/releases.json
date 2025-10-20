@@ -10,10 +10,10 @@
       "featured": true,
       "newReleaseLabel": "New Release",
       "links": {
-        "spotify": "#",
-        "appleMusic": "#",
-        "other": "#",
-        "youtube": "#"
+        "spotify": "https://ffm.to/ga-oliver-night-divine",
+        "appleMusic": "https://ffm.to/ga-oliver-night-divine",
+        "other": "https://ffm.to/ga-oliver-night-divine",
+        "youtube": "https://ffm.to/ga-oliver-night-divine"
       }
     },
     {
