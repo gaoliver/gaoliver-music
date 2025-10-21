@@ -38,9 +38,9 @@ const About: React.FC<AboutProps> = ({ title, description, details, image, backg
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-5 gap-10 items-center">
           {/* Left Image */}
-          <div className="md:col-span-2 rounded-2xl overflow-hidden border border-white/10 bg-brand-bgAlt shadow-soft">
+          <div className="md:col-span-2 rounded-2xl h-[270px] md:h-auto overflow-hidden border border-white/10 bg-brand-bgAlt shadow-soft">
             <div
-              className="aspect-[4/5] bg-cover bg-center"
+              className="aspect-[4/5] h-full w-full bg-cover bg-center"
               style={{ backgroundImage: `url(${image})` }}
             />
           </div>
