@@ -54,13 +54,13 @@ const Hero: React.FC<HeroProps> = ({
       <div className="absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,_rgba(18,18,18,1)_0%,_transparent_20%,_transparent_80%,_rgba(18,18,18,1)_100%)]" />
       {/* Accent Gradient Overlay */}
       <div className="absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_center,_rgba(228,91,102,0.12)_0%,_transparent_50%)]" />
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div className="space-y-6">
-            <Logo size="lg" className="md:w-80" />
+      <div className="container md:max-w-7xl relative z-10">
+        <div className="grid md:grid-cols-2 md:gap-40 gap-10 items-center">
+          <div className="space-y-6 text-center">
+            <Logo size="lg" className="md:w-80 mx-auto translate-x-[-10px]" />
             <h1 className="font-title text-4xl md:text-5xl tracking-wide">{title}</h1>
             <p className="text-brand-muted max-w-xl">{subtitle}</p>
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap justify-center gap-3">
               {ctaPrimary.isActive && (
                 <Button variant="primary" as="a" href={ctaPrimary.url}>
                   {ctaPrimary.label}
