@@ -3,20 +3,7 @@ import Logo from '../../atoms/Logo';
 import Button from '../../atoms/Button';
 import ReleaseCard from '../../molecules/ReleaseCard';
 import type { CTA } from '../../../types/cta';
-
-interface Release {
-  title: string;
-  type: string;
-  year: string;
-  cover: string;
-  newReleaseLabel?: string;
-  links: {
-    spotify?: string;
-    appleMusic?: string;
-    youtube?: string;
-    other?: string;
-  };
-}
+import type { ReleaseCardProps } from '../../molecules/ReleaseCard/ReleaseCard';
 
 interface HeroProps {
   title: string;
@@ -24,7 +11,7 @@ interface HeroProps {
   backgroundImage?: string;
   ctaPrimary: CTA;
   ctaSecondary: CTA;
-  featuredRelease: Release;
+  featuredRelease: ReleaseCardProps;
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -79,6 +66,7 @@ const Hero: React.FC<HeroProps> = ({
               type={featuredRelease.type}
               year={featuredRelease.year}
               cover={featuredRelease.cover}
+              videoId={featuredRelease.videoId}
               links={featuredRelease.links}
               featured={true}
               newReleaseLabel={featuredRelease.newReleaseLabel}

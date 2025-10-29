@@ -3,11 +3,12 @@ import Button from '../../atoms/Button';
 import { FaSpotify, FaApple, FaYoutube } from 'react-icons/fa';
 import { HiDotsHorizontal } from 'react-icons/hi';
 
-interface ReleaseCardProps {
+export interface ReleaseCardProps {
   title: string;
   type: string;
   year: string;
   cover: string;
+  videoId?: string;
   links: {
     spotify?: string;
     appleMusic?: string;
@@ -23,6 +24,7 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
   type,
   year,
   cover,
+  videoId,
   links,
   featured = false,
   newReleaseLabel = 'New Release',
@@ -30,10 +32,21 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
   if (featured) {
     return (
       <article className="rounded-2xl border border-white/10 bg-brand-bgAlt p-6 shadow-soft">
+        {videoId ? (
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}`}
+            className="aspect-square rounded-xl"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        ) : (
         <div
           className="aspect-square rounded-xl bg-cover bg-center"
           style={{ backgroundImage: `url(${cover})` }}
         />
+        )}
         <div id="listen" className="pt-5">
           <h3 className="font-title text-2xl">
             {newReleaseLabel} — <span className="text-brand-accent">{title}</span>
