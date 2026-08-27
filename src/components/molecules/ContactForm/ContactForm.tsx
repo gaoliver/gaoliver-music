@@ -113,6 +113,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ endpoint, placeholders, submi
   return (
     <form onSubmit={handleSubmit} className="grid gap-4">
       <Input
+        label="Name"
         name="name"
         placeholder={placeholders.name}
         value={formData.name}
@@ -130,6 +131,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ endpoint, placeholders, submi
         className="absolute h-px w-px overflow-hidden opacity-0"
       />
       <Input
+        label="Email"
         name="email"
         type="email"
         placeholder={placeholders.email}
@@ -139,6 +141,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ endpoint, placeholders, submi
         disabled={status === 'sending'}
       />
       <Textarea
+        label="Message"
         name="message"
         rows={5}
         placeholder={placeholders.message}
