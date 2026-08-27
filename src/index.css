@@ -4,20 +4,80 @@
 
 /* Custom CSS Variables */
 :root {
+  /* Reference shell palette. Shell/editorial surfaces should use these tokens. */
+  --shell-bg: #0a0a0a;
+  --shell-text: #fdfdfd;
+  --shell-muted: #7e848c;
+  --shell-muted-light: #d7d7d7;
+  --shell-accent: #ad0e10;
+  --shell-accent-hover: #ef090c;
+  --shell-content-width: 1280px;
+  --shell-space-unit: 10px;
+
+  /* Protected music palette. Keep compatibility aliases for existing classes. */
+  --music-bg: #121212;
+  --music-bg-alt: #0c0c0c;
+  --music-text: #e5e5e5;
+  --music-muted: #8e8e8e;
+  --music-accent: #778dfb;
+
   --bg: #121212;
-  --bgAlt: #0C0C0C;
-  --text: #E5E5E5;
-  --muted: #8E8E8E;
-  /* --accent: #E45B66; */
-  --accent: #778dfbff;
+  --bgAlt: var(--music-bg-alt);
+  --text: var(--music-text);
+  --muted: var(--music-muted);
+  --accent: var(--music-accent);
 }
 
 /* Base Styles */
 @layer base {
   html,
   body {
-    background: #121212;
-    color: #E5E5E5;
+    background: var(--music-bg);
+    color: var(--music-text);
+  }
+}
+
+@layer components {
+  .background-media {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .background-media__image,
+  .background-media__video,
+  .background-media__overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .background-media__image,
+  .background-media__video {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .background-media__image {
+    z-index: 0;
+  }
+
+  .background-media__video {
+    z-index: 1;
+  }
+
+  .background-media__overlay {
+    z-index: 2;
+    background: var(--background-media-overlay, rgba(10, 10, 10, 0.62));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .background-media__video {
+    display: none;
   }
 }
 
