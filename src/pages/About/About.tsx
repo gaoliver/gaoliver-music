@@ -6,7 +6,7 @@ import MainLayout from '../../templates/MainLayout';
 export default function AboutPage() {
   return (
     <MainLayout>
-      <PageTitle>About</PageTitle>
+      <PageTitle backgroundImage={aboutContent.backgroundImage} backgroundImageAlt="G.A. Oliver in the studio">About</PageTitle>
       <PageContentSurface aria-label="About G.A. Oliver">
         <AboutOrganism {...aboutContent} />
       </PageContentSurface>
