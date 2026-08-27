@@ -43,9 +43,19 @@ export default function ReleaseDetail({ release }: ReleaseDetailProps) {
               <dt className="font-semibold uppercase tracking-wider text-[var(--shell-muted)]">Year</dt>
               <dd>{release.year}</dd>
             </dl>
-            <Link to="/releases" className="inline-flex text-[var(--shell-accent-hover)] underline underline-offset-4">
-              View all releases
-            </Link>
+            <div className="flex flex-wrap gap-6">
+              {release.lyrics && release.lyrics.length > 0 && (
+                <Link
+                  to={`/lyrics/${release.id}`}
+                  className="inline-flex text-[var(--shell-accent-hover)] underline underline-offset-4"
+                >
+                  Read the lyrics
+                </Link>
+              )}
+              <Link to="/releases" className="inline-flex text-[var(--shell-accent-hover)] underline underline-offset-4">
+                View all releases
+              </Link>
+            </div>
           </div>
         </div>
       </PageContentSurface>

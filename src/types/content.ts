@@ -3,7 +3,8 @@ import type { NavigationItem, SocialLinkData } from './navigation';
 
 export interface SeoContent { title: string; description: string; canonicalPath: string; socialImage?: string; }
 export interface StreamingLinks { spotify?: string; appleMusic?: string; youtube?: string; other?: string; }
-export interface ReleaseContent { id: string; title: string; type: string; year: string; cover: string; videoId?: string; featured?: boolean; newReleaseLabel?: string; links: StreamingLinks; }
+export interface ReleaseContent { id: string; title: string; type: string; year: string; cover: string; videoId?: string; featured?: boolean; newReleaseLabel?: string; links: StreamingLinks; lyrics?: string[]; lyricsDraft?: boolean; }
+export interface ShowsContent { title: string; description: string; emptyMessage: string; shows: Array<{ id: string; date: string; venue: string; city: string; ticketUrl?: string }> }
 export interface ReleaseCatalogContent { title: string; releases: ReleaseContent[]; }
 export interface AboutContent { title: string; summary: string; description: string; details: string[]; image: string; backgroundImage?: string; lightContent?: boolean; }
 export interface ContactContent { title: string; description: string; email?: string; form: { endpoint: string; fields: { name: string; email: string; message: string }; submitText: string; messages: { success: string; error: string; sending: string; timeout?: string } } }
@@ -55,6 +56,28 @@ export function validateAboutContent(value: unknown): AboutContent {
   return { title: requiredString(data.title, `${path}.title`), summary: requiredString(data.summary, `${path}.summary`), description: requiredString(data.description, `${path}.description`), details: validateStringArray(data.details, `${path}.details`), image: requiredString(data.image, `${path}.image`), backgroundImage: optionalString(data.backgroundImage, `${path}.backgroundImage`), lightContent: data.lightContent === undefined ? undefined : requiredBoolean(data.lightContent, `${path}.lightContent`) };
 }
 
+export function validateShowsContent(value: unknown): ShowsContent {
+  const path = 'src/data/shows.json';
+  const data = record(value, path);
+  if (!Array.isArray(data.shows)) throw new Error(`Invalid content in ${path}.shows: expected an array`);
+  return {
+    title: requiredString(data.title, `${path}.title`),
+    description: requiredString(data.description, `${path}.description`),
+    emptyMessage: requiredString(data.emptyMessage, `${path}.emptyMessage`),
+    shows: data.shows.map((entry, index) => {
+      const showPath = `${path}.shows[${index}]`;
+      const show = record(entry, showPath);
+      return {
+        id: requiredString(show.id, `${showPath}.id`),
+        date: requiredString(show.date, `${showPath}.date`),
+        venue: requiredString(show.venue, `${showPath}.venue`),
+        city: requiredString(show.city, `${showPath}.city`),
+        ticketUrl: optionalString(show.ticketUrl, `${showPath}.ticketUrl`),
+      };
+    }),
+  };
+}
+
 export function validateTimelineContent(value: unknown): TimelineContent {
   const path = 'src/data/timeline.json';
   const data = record(value, path);
@@ -83,7 +106,7 @@ export function validateReleaseCatalog(value: unknown): ReleaseCatalogContent {
   const releases = data.releases.map((item, index): ReleaseContent => {
     const itemPath = `${path}.releases[${index}]`;
     const release = record(item, itemPath);
-    return { id: requiredString(release.id, `${itemPath}.id`), title: requiredString(release.title, `${itemPath}.title`), type: requiredString(release.type, `${itemPath}.type`), year: requiredString(release.year, `${itemPath}.year`), cover: requiredString(release.cover, `${itemPath}.cover`), videoId: optionalString(release.videoId, `${itemPath}.videoId`), featured: release.featured === undefined ? undefined : requiredBoolean(release.featured, `${itemPath}.featured`), newReleaseLabel: optionalString(release.newReleaseLabel, `${itemPath}.newReleaseLabel`), links: validateStreamingLinks(release.links, `${itemPath}.links`) };
+    return { id: requiredString(release.id, `${itemPath}.id`), title: requiredString(release.title, `${itemPath}.title`), type: requiredString(release.type, `${itemPath}.type`), year: requiredString(release.year, `${itemPath}.year`), cover: requiredString(release.cover, `${itemPath}.cover`), videoId: optionalString(release.videoId, `${itemPath}.videoId`), featured: release.featured === undefined ? undefined : requiredBoolean(release.featured, `${itemPath}.featured`), newReleaseLabel: optionalString(release.newReleaseLabel, `${itemPath}.newReleaseLabel`), links: validateStreamingLinks(release.links, `${itemPath}.links`), lyrics: release.lyrics === undefined ? undefined : validateStringArray(release.lyrics, `${itemPath}.lyrics`), lyricsDraft: release.lyricsDraft === undefined ? undefined : requiredBoolean(release.lyricsDraft, `${itemPath}.lyricsDraft`) };
   });
   const ids = new Set<string>();
   releases.forEach((release) => { if (ids.has(release.id)) throw new Error(`Invalid content in ${path}: duplicate release id "${release.id}"`); ids.add(release.id); });

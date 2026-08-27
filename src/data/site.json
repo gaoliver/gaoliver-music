@@ -7,6 +7,7 @@
   "backgroundImage": "/images/singing-of-christ-church.webp",
   "navigation": [
     { "label": "Home", "href": "/" },
+    { "label": "Shows", "href": "/shows" },
     {
       "label": "About",
       "href": "/about",
@@ -27,6 +28,7 @@
         "imageAlt": "",
         "items": [
           { "label": "Discography", "href": "/releases", "description": "Every official release" },
+          { "label": "Lyrics", "href": "/lyrics", "description": "Words to the songs" },
           { "label": "Videos", "href": "/videos", "description": "Official videos" }
         ]
       }

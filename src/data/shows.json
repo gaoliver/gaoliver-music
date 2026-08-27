@@ -1,0 +1,6 @@
+{
+  "title": "Shows",
+  "description": "Upcoming and past live dates.",
+  "emptyMessage": "No upcoming shows.",
+  "shows": []
+}

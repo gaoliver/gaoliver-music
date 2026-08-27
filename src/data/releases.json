@@ -12,7 +12,14 @@
       "links": {
         "spotify": "https://ffm.to/ga-oliver-in-the-waters",
         "other": "https://ffm.to/ga-oliver-in-the-waters"
-      }
+      },
+      "lyrics": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\nsed do eiusmod tempor incididunt ut labore et dolore.",
+        "Ut enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "Duis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.",
+        "Excepteur sint occaecat cupidatat non proident,\nsunt in culpa qui officia deserunt mollit anim id est laborum."
+      ],
+      "lyricsDraft": true
     },
     {
       "id": "night-divine",
@@ -26,7 +33,14 @@
         "appleMusic": "https://music.apple.com/album/night-divine-ep/1847123904",
         "other": "https://ffm.to/ga-oliver-night-divine",
         "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_loThs1JIe26CtxnHxD-UzFn-IvWnyYJVo&si=9OoLnXcckctevUQi"
-      }
+      },
+      "lyrics": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\nsed do eiusmod tempor incididunt ut labore et dolore.",
+        "Ut enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "Duis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.",
+        "Excepteur sint occaecat cupidatat non proident,\nsunt in culpa qui officia deserunt mollit anim id est laborum."
+      ],
+      "lyricsDraft": true
     },
     {
       "id": "hail-to-the-king",
@@ -40,7 +54,14 @@
         "appleMusic": "https://geo.music.apple.com/us/album/_/1779789035?i=1779789036&mt=1&app=music",
         "other": "https://ffm.to/hailtotheking",
         "youtube": "https://www.youtube.com/watch?v=ZLb7YkIku-8"
-      }
+      },
+      "lyrics": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\nsed do eiusmod tempor incididunt ut labore et dolore.",
+        "Ut enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "Duis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.",
+        "Excepteur sint occaecat cupidatat non proident,\nsunt in culpa qui officia deserunt mollit anim id est laborum."
+      ],
+      "lyricsDraft": true
     }
   ]
 }
