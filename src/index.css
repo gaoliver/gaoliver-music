@@ -48,7 +48,9 @@
   /* Persistent cinematic backdrop. The reference site paints one cover image
      behind the whole document with background-attachment: fixed; pinning the
      shared BackgroundMedia component reproduces that. */
-  .background-media--fixed {
+  /* Two classes so this wins over .background-media's absolute default
+     regardless of declaration order. */
+  .background-media.background-media--fixed {
     position: fixed;
     z-index: -1;
     background-color: var(--shell-bg);
