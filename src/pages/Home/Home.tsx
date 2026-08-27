@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import Hero from '../../components/organisms/Hero';
 import About from '../../components/organisms/About';
 import Releases from '../../components/organisms/Releases';

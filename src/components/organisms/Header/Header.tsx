@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import Logo from '../../atoms/Logo';
 import NavMenu from '../../molecules/NavMenu';
 import Button from '../../atoms/Button';

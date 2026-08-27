@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../../components/organisms/Header';
 import Footer from '../../components/organisms/Footer';
 import { siteContent } from '../../data';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 interface MainLayoutProps {
   children: React.ReactNode;
