@@ -52,6 +52,7 @@ const Home: React.FC = () => {
         <Releases
           releases={releaseCatalog.releases}
           viewAllCta={homeContent.releases.cta}
+          title={homeContent.releases.sectionTitle}
         />
         <PageSection title={contactContent.title}>
           <div className="max-w-3xl">

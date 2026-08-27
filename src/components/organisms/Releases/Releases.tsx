@@ -21,27 +21,35 @@ interface ReleasesProps {
   releases: Release[];
   viewAllCta?: CTA;
   detailBasePath?: string;
+  /** Section heading. Omit on the releases route, where the page title already says it. */
+  title?: string;
 }
 
-const Releases: React.FC<ReleasesProps> = ({ releases, viewAllCta, detailBasePath }) => {
+const Releases: React.FC<ReleasesProps> = ({ releases, viewAllCta, detailBasePath, title }) => {
   const isExternalLink = viewAllCta?.url && (viewAllCta.url.startsWith('http://') || viewAllCta.url.startsWith('https://'));
   
   return (
-    <section id="releases" className="pt-24 pb-12">
-      <div className="container mx-auto px-6">
-        <div className="flex items-end justify-between mb-6">
-          <h2 className="font-title text-3xl md:text-4xl">Releases</h2>
-          {viewAllCta && viewAllCta.isActive && (
-            <a 
-              href={viewAllCta.url} 
-              className="text-sm text-brand-muted hover:text-brand-accent transition"
-              target={isExternalLink ? '_blank' : undefined}
-              rel={isExternalLink ? 'noopener noreferrer' : undefined}
-            >
-              {viewAllCta.label}
-            </a>
-          )}
-        </div>
+    <section id="releases" className="pt-12 pb-12">
+      <div>
+        {(title || (viewAllCta && viewAllCta.isActive)) && (
+          <div className="mb-6 flex items-end justify-between gap-6 border-b border-white/15 pb-4">
+            {title && (
+              <h2 className="text-2xl font-bold uppercase leading-none tracking-tight text-white md:text-3xl">
+                {title}
+              </h2>
+            )}
+            {viewAllCta && viewAllCta.isActive && (
+              <a
+                href={viewAllCta.url}
+                className="shrink-0 text-xs font-semibold uppercase tracking-[0.16em] text-white/70 underline underline-offset-4 transition-colors hover:text-brand-accentHover"
+                target={isExternalLink ? '_blank' : undefined}
+                rel={isExternalLink ? 'noopener noreferrer' : undefined}
+              >
+                {viewAllCta.label}
+              </a>
+            )}
+          </div>
+        )}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {releases.map((release) => (
             <ReleaseCard

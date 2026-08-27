@@ -39,12 +39,11 @@ const Hero: React.FC<HeroProps> = ({
         />
       )}
       {/* Radial Vignette Overlay - Complete black at all edges, larger transparent center */}
-      <div className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,_transparent_0%,_transparent_15%,_rgba(18,18,18,0.8)_40%,_rgba(18,18,18,1)_75%)]" />
+      <div className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,_transparent_0%,_transparent_15%,_rgba(10,10,10,0.8)_40%,_rgba(10,10,10,1)_75%)]" />
       {/* Top and Bottom Black Gradient */}
-      <div className="absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,_rgba(18,18,18,1)_0%,_transparent_20%,_transparent_80%,_rgba(18,18,18,1)_100%)]" />
+      <div className="absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,_rgba(10,10,10,1)_0%,_transparent_20%,_transparent_80%,_rgba(10,10,10,1)_100%)]" />
       {/* Accent Gradient Overlay */}
-      {/* <div className="absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_center,_rgba(228,91,102,0.12)_0%,_transparent_50%)]" /> */}
-      <div className="absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_center,_rgba(119,141,251,0.12)_0%,_transparent_50%)]" />
+      <div className="absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_center,_rgba(173,14,16,0.12)_0%,_transparent_50%)]" />
       <div className="container md:max-w-7xl relative z-10">
         <div className="grid md:grid-cols-2 md:gap-40 gap-10 items-center">
           <div className="space-y-6 text-center">

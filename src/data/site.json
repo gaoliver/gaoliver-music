@@ -4,6 +4,7 @@
     "description": "Heavy riffs • Loud screams • Deep faith",
     "lang": "en"
   },
+  "backgroundImage": "/images/singing-of-christ-church.webp",
   "navigation": [
     { "label": "Home", "href": "/" },
     { "label": "About", "href": "/about" },

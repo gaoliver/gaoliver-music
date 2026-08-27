@@ -1,12 +1,12 @@
 import ContactForm from '../../components/molecules/ContactForm';
 import { PageContentSurface, PageTitle } from '../../components/design-system';
-import { contactContent, homeContent } from '../../data';
+import { contactContent } from '../../data';
 import MainLayout from '../../templates/MainLayout';
 
 export default function ContactPage() {
   return (
     <MainLayout>
-      <PageTitle backgroundImage={homeContent.hero.backgroundImage} backgroundImageAlt="">{contactContent.title}</PageTitle>
+      <PageTitle>{contactContent.title}</PageTitle>
       <PageContentSurface aria-label="Contact G.A. Oliver">
         <p className="mb-8 max-w-2xl text-[var(--shell-muted-light)]">
           {contactContent.description}

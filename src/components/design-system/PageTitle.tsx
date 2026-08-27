@@ -1,32 +1,29 @@
 import type { ReactNode } from 'react';
-import BackgroundMedia from '../media/BackgroundMedia';
 
 export interface PageTitleProps {
   children: ReactNode;
   eyebrow?: ReactNode;
   className?: string;
-  backgroundImage?: string;
-  backgroundImageAlt?: string;
 }
 
-export function PageTitle({
-  children,
-  eyebrow,
-  className = '',
-  backgroundImage,
-  backgroundImageAlt,
-}: PageTitleProps) {
+/**
+ * Oversized centred route title floating over the shell backdrop.
+ * Reference geometry: 5rem desktop / 3.5rem mobile, weight 700, uppercase,
+ * followed by a ~40svh visual pause before the content surface rises.
+ */
+export function PageTitle({ children, eyebrow, className = '' }: PageTitleProps) {
   return (
     <header
-      className={`relative isolate mx-auto w-full max-w-[1280px] overflow-hidden px-5 pb-[clamp(6rem,40svh,28rem)] pt-[calc(var(--shell-header-height)+clamp(1rem,8svh,4rem))] md:px-10 ${className}`}
+      className={`mx-auto w-full max-w-[var(--shell-content-width)] px-5 pb-[clamp(6rem,40svh,28rem)] pt-[calc(var(--shell-header-height)+clamp(1rem,8svh,4rem))] text-center md:px-10 ${className}`}
     >
-      {backgroundImage && (
-        <BackgroundMedia image={backgroundImage} imageAlt={backgroundImageAlt ?? ''} className="-z-10" />
+      {eyebrow && (
+        <p className="mb-4 text-xs font-medium uppercase tracking-[0.24em] text-[var(--shell-muted-light)]">
+          {eyebrow}
+        </p>
       )}
-      <div className="relative z-10">
-        {eyebrow && <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-white/60">{eyebrow}</p>}
-        <h1 className="max-w-5xl text-[clamp(3.5rem,8vw,5rem)] font-black uppercase leading-[0.92] tracking-[-0.04em] text-white">{children}</h1>
-      </div>
+      <h1 className="text-[clamp(3.5rem,8vw,5rem)] font-bold uppercase leading-[1.05] text-[var(--shell-text)]">
+        {children}
+      </h1>
     </header>
   );
 }

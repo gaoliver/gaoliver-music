@@ -4,10 +4,20 @@ export interface PageContentSurfaceProps extends HTMLAttributes<HTMLElement> {
   children: ReactNode;
 }
 
+/**
+ * Opaque content plane rising over the shell backdrop. The very wide, soft
+ * shadow reproduces the reference site's deep fade where the surface meets
+ * the background media.
+ */
 export function PageContentSurface({ children, className = '', ...props }: PageContentSurfaceProps) {
   return (
-    <section className={`relative isolate overflow-hidden bg-black shadow-[0_-5rem_6rem_3rem_rgba(0,0,0,0.92)] before:pointer-events-none before:absolute before:inset-x-0 before:-top-32 before:h-40 before:bg-gradient-to-t before:from-black before:to-transparent ${className}`} {...props}>
-      <div className="relative mx-auto w-full max-w-[1280px] px-5 py-12 md:px-10 md:py-20">{children}</div>
+    <section
+      className={`relative bg-[var(--shell-bg)] shadow-surface ${className}`}
+      {...props}
+    >
+      <div className="relative mx-auto w-full max-w-[var(--shell-content-width)] px-5 pb-20 md:px-10">
+        {children}
+      </div>
     </section>
   );
 }

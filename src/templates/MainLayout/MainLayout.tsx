@@ -7,9 +7,11 @@ import { useNavigate } from 'react-router';
 interface MainLayoutProps {
   children: React.ReactNode;
   onNavClick?: (href: string) => void;
+  /** Route-specific cinematic backdrop. Falls back to the shared site image. */
+  backgroundImage?: string;
 }
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children, onNavClick }) => {
+const MainLayout: React.FC<MainLayoutProps> = ({ children, onNavClick, backgroundImage }) => {
   const navigate = useNavigate();
   const handleNavClick = (href: string) => {
     if (onNavClick) return onNavClick(href);
@@ -18,8 +20,13 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, onNavClick }) => {
     } else navigate(href);
   };
   return (
-    <div className="min-h-screen bg-brand-bg text-brand-text font-body antialiased">
-      <Header 
+    <div className="min-h-screen text-brand-text font-body antialiased">
+      <div
+        className="shell-backdrop"
+        style={{ backgroundImage: `url(${backgroundImage ?? siteContent.backgroundImage})` }}
+        aria-hidden="true"
+      />
+      <Header
         navigation={siteContent.navigation}
         cta={siteContent.headerCta}
         socialLinks={siteContent.socialLinks}

@@ -31,7 +31,7 @@ export default function ReleaseDetail({ release }: ReleaseDetailProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(releaseStructuredData(release)) }}
       />
-      <PageTitle eyebrow={`${release.type} · ${release.year}`} backgroundImage={release.cover} backgroundImageAlt={`${release.title} cover artwork`}>{release.title}</PageTitle>
+      <PageTitle eyebrow={`${release.type} · ${release.year}`}>{release.title}</PageTitle>
       <PageContentSurface aria-label={`${release.title} release details`}>
         <div className="grid items-start gap-10 md:grid-cols-2">
           <ReleaseCard {...release} featured />

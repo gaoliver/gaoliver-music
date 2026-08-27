@@ -34,11 +34,11 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
 }) => {
   if (featured) {
     return (
-      <article className="rounded-2xl border border-white/10 bg-brand-bgAlt p-6 shadow-soft">
+      <article className="bg-brand-bgAlt p-6">
         {videoId ? (
           <iframe
             src={`https://www.youtube.com/embed/${videoId}`}
-            className="aspect-square rounded-xl"
+            className="aspect-square"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
@@ -46,7 +46,7 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
           />
         ) : (
         <div
-          className="aspect-square rounded-xl bg-cover bg-center"
+          className="aspect-square bg-cover bg-center"
           style={{ backgroundImage: `url(${cover})` }}
         />
         )}
@@ -113,7 +113,7 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
   }
 
   return (
-    <article className="group rounded-xl overflow-hidden border border-white/10 bg-brand-bgAlt shadow-soft">
+    <article className="group overflow-hidden bg-brand-bgAlt">
       <div
         className="aspect-square bg-cover bg-center transition-transform group-hover:scale-[1.02]"
         style={{ backgroundImage: `url(${cover})` }}

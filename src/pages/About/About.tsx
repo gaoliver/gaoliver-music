@@ -8,7 +8,7 @@ export default function AboutPage() {
   const { title: _title, ...aboutWithoutTitle } = aboutContent;
   return (
     <MainLayout>
-      <PageTitle backgroundImage={aboutContent.backgroundImage} backgroundImageAlt="G.A. Oliver in the studio">About</PageTitle>
+      <PageTitle>About</PageTitle>
       <PageContentSurface aria-label="About G.A. Oliver">
         <AboutOrganism {...aboutWithoutTitle} />
       </PageContentSurface>
