@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import Logo from '../../atoms/Logo';
 import NavMenu from '../../molecules/NavMenu';
@@ -9,6 +9,23 @@ import type { CTA } from '../../../types/cta';
 import type { NavigationItem, SocialLinkData } from '../../../types/navigation';
 
 const MOBILE_MENU_ID = 'site-mobile-menu';
+
+/** Past this scroll offset the header takes a solid backdrop so navigation
+ *  never blends into the page content behind it. */
+const SCROLLED_OFFSET = 24;
+
+function useIsScrolled(): boolean {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const update = () => setIsScrolled(window.scrollY > SCROLLED_OFFSET);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
+  }, []);
+
+  return isScrolled;
+}
 
 interface HeaderProps {
   navigation: NavigationItem[];
@@ -21,10 +38,11 @@ const Header: React.FC<HeaderProps> = ({ navigation, cta, socialLinks, onNavClic
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const menuTriggerRef = useRef<HTMLButtonElement>(null);
   const closeDrawer = useCallback(() => setIsDrawerOpen(false), []);
+  const isScrolled = useIsScrolled();
 
   return (
     <>
-      <header className="shell-header">
+      <header className={`shell-header ${isScrolled ? 'shell-header--scrolled' : ''}`}>
         <nav className="shell-header__nav" aria-label="Primary navigation">
           <Link
             to="/"

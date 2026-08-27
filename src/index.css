@@ -68,6 +68,14 @@
     z-index: 50;
     color: var(--shell-text);
     background: transparent;
+    transition: background-color 200ms ease, backdrop-filter 200ms ease;
+  }
+
+  /* Applied once the page is scrolled, so navigation never blends into the
+     content passing beneath it. */
+  .shell-header--scrolled {
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(8px);
   }
 
   .shell-header__nav {
@@ -239,6 +247,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .shell-header,
   .shell-nav-link,
   .shell-submenu,
   .mobile-menu-link {
