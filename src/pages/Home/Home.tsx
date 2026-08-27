@@ -30,7 +30,7 @@ const Home: React.FC = () => {
         backgroundImage={homeData.hero.backgroundImage}
         ctaPrimary={homeData.hero.ctaPrimary}
         ctaSecondary={homeData.hero.ctaSecondary}
-        featuredRelease={featuredRelease!}
+        featuredRelease={featuredRelease}
       />
       <Divider />
       <About
@@ -59,4 +59,3 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-

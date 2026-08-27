@@ -55,7 +55,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ endpoint, placeholders, submi
           setStatus('idle');
         }, 5000);
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
       // Reset error message after 5 seconds
       setTimeout(() => {
@@ -128,4 +128,3 @@ const ContactForm: React.FC<ContactFormProps> = ({ endpoint, placeholders, submi
 };
 
 export default ContactForm;
-

@@ -11,7 +11,7 @@ interface HeroProps {
   backgroundImage?: string;
   ctaPrimary: CTA;
   ctaSecondary: CTA;
-  featuredRelease: ReleaseCardProps;
+  featuredRelease?: ReleaseCardProps;
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -67,16 +67,18 @@ const Hero: React.FC<HeroProps> = ({
             </div>
           </div>
           <div>
-            <ReleaseCard
-              title={featuredRelease.title}
-              type={featuredRelease.type}
-              year={featuredRelease.year}
-              cover={featuredRelease.cover}
-              videoId={featuredRelease.videoId}
-              links={featuredRelease.links}
-              featured={true}
-              newReleaseLabel={featuredRelease.newReleaseLabel}
-            />
+            {featuredRelease ? (
+              <ReleaseCard
+                title={featuredRelease.title}
+                type={featuredRelease.type}
+                year={featuredRelease.year}
+                cover={featuredRelease.cover}
+                videoId={featuredRelease.videoId}
+                links={featuredRelease.links}
+                featured={true}
+                newReleaseLabel={featuredRelease.newReleaseLabel}
+              />
+            ) : null}
           </div>
         </div>
       </div>
