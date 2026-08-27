@@ -10,7 +10,7 @@ interface SocialLinksProps {
 
 const SocialLinks: React.FC<SocialLinksProps> = ({ links, withDividers = true, className = '' }) => {
   return (
-    <div className={`flex flex-wrap items-center gap-4 ${className}`.trim()}>
+    <div className={`flex flex-wrap items-center gap-5 ${className}`.trim()}>
       {links.map((link, index) => (
         <React.Fragment key={link.platform}>
           <SocialLink

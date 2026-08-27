@@ -17,7 +17,7 @@ const Footer: React.FC<FooterProps> = ({ copyright, socialLinks }) => {
   return (
     <footer className="shell-footer">
       <div className="shell-footer__content">
-        <div className="flex flex-row flex-wrap items-center justify-center gap-10 text-[var(--shell-muted-light)]">
+        <div className="flex flex-row flex-wrap items-center justify-center gap-20 text-[var(--shell-muted-light)]">
           <div>
             <span className="sr-only">Streaming platforms</span>
             <SocialLinks links={streamingLinks} withDividers={false} className="justify-center" />
