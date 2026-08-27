@@ -27,7 +27,7 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <section
       id="home"
-      className="relative min-h-[calc(100svh-var(--shell-header-height))] flex items-center overflow-hidden"
+      className="relative min-h-[calc(100svh_-_var(--shell-header-height))] flex items-center overflow-hidden"
     >
       <div className="container md:max-w-7xl relative z-10">
         <div className="grid md:grid-cols-2 md:gap-40 gap-10 items-center">

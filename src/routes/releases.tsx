@@ -4,7 +4,7 @@ import { pageMeta } from '../lib/seo';
 
 export const meta: MetaFunction = () =>
   pageMeta(
-    'Releases | G.A. Oliver',
+    'Discography | G.A. Oliver',
     'Explore the official music catalog from G.A. Oliver.',
     '/releases',
   );

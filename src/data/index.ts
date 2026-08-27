@@ -4,4 +4,5 @@ export {
   homeContent,
   releaseCatalog,
   siteContent,
+  timelineContent,
 } from './content';

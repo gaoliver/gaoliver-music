@@ -5,8 +5,9 @@ export interface SeoContent { title: string; description: string; canonicalPath:
 export interface StreamingLinks { spotify?: string; appleMusic?: string; youtube?: string; other?: string; }
 export interface ReleaseContent { id: string; title: string; type: string; year: string; cover: string; videoId?: string; featured?: boolean; newReleaseLabel?: string; links: StreamingLinks; }
 export interface ReleaseCatalogContent { title: string; releases: ReleaseContent[]; }
-export interface AboutContent { title: string; description: string; details: string[]; image: string; backgroundImage?: string; lightContent?: boolean; }
-export interface ContactContent { title: string; description: string; form: { endpoint: string; fields: { name: string; email: string; message: string }; submitText: string; messages: { success: string; error: string; sending: string; timeout?: string } } }
+export interface AboutContent { title: string; summary: string; description: string; details: string[]; image: string; backgroundImage?: string; lightContent?: boolean; }
+export interface ContactContent { title: string; description: string; email?: string; form: { endpoint: string; fields: { name: string; email: string; message: string }; submitText: string; messages: { success: string; error: string; sending: string; timeout?: string } } }
+export interface TimelineContent { title: string; description: string; entries: Array<{ year: string; title: string; description: string }> }
 export interface HomeContent { background: { image: string; video?: string; poster?: string }; hero: { title: string; subtitle: string; ctaPrimary: CTA; ctaSecondary: CTA } }
 export interface SiteContent { meta: { title: string; description: string; lang: string }; backgroundImage: string; navigation: NavigationItem[]; headerCta?: CTA; socialLinks: SocialLinkData[]; footer: { copyright: string } }
 export interface ShowContent { id: string; date: string; venue: string; city: string; ticketUrl?: string; }
@@ -24,8 +25,8 @@ function requiredString(value: unknown, path: string, allowEmpty = false): strin
   return value;
 }
 
-function optionalString(value: unknown, path: string): string | undefined {
-  return value === undefined ? undefined : requiredString(value, path);
+function optionalString(value: unknown, path: string, allowEmpty = false): string | undefined {
+  return value === undefined ? undefined : requiredString(value, path, allowEmpty);
 }
 
 function requiredBoolean(value: unknown, path: string): boolean {
@@ -51,7 +52,28 @@ function validateStreamingLinks(value: unknown, path: string): StreamingLinks {
 export function validateAboutContent(value: unknown): AboutContent {
   const path = 'src/data/about.json';
   const data = record(value, path);
-  return { title: requiredString(data.title, `${path}.title`), description: requiredString(data.description, `${path}.description`), details: validateStringArray(data.details, `${path}.details`), image: requiredString(data.image, `${path}.image`), backgroundImage: optionalString(data.backgroundImage, `${path}.backgroundImage`), lightContent: data.lightContent === undefined ? undefined : requiredBoolean(data.lightContent, `${path}.lightContent`) };
+  return { title: requiredString(data.title, `${path}.title`), summary: requiredString(data.summary, `${path}.summary`), description: requiredString(data.description, `${path}.description`), details: validateStringArray(data.details, `${path}.details`), image: requiredString(data.image, `${path}.image`), backgroundImage: optionalString(data.backgroundImage, `${path}.backgroundImage`), lightContent: data.lightContent === undefined ? undefined : requiredBoolean(data.lightContent, `${path}.lightContent`) };
+}
+
+export function validateTimelineContent(value: unknown): TimelineContent {
+  const path = 'src/data/timeline.json';
+  const data = record(value, path);
+  if (!Array.isArray(data.entries) || data.entries.length === 0) {
+    throw new Error(`Invalid content in ${path}.entries: expected a non-empty array`);
+  }
+  return {
+    title: requiredString(data.title, `${path}.title`),
+    description: requiredString(data.description, `${path}.description`),
+    entries: data.entries.map((entry, index) => {
+      const entryPath = `${path}.entries[${index}]`;
+      const item = record(entry, entryPath);
+      return {
+        year: requiredString(item.year, `${entryPath}.year`),
+        title: requiredString(item.title, `${entryPath}.title`),
+        description: requiredString(item.description, `${entryPath}.description`),
+      };
+    }),
+  };
 }
 
 export function validateReleaseCatalog(value: unknown): ReleaseCatalogContent {
@@ -74,7 +96,7 @@ export function validateContactContent(value: unknown): ContactContent {
   const form = record(data.form, `${path}.form`);
   const fields = record(form.fields, `${path}.form.fields`);
   const messages = record(form.messages, `${path}.form.messages`);
-  return { title: requiredString(data.title, `${path}.title`), description: requiredString(data.description, `${path}.description`), form: { endpoint: requiredString(form.endpoint, `${path}.form.endpoint`), fields: { name: requiredString(fields.name, `${path}.form.fields.name`), email: requiredString(fields.email, `${path}.form.fields.email`), message: requiredString(fields.message, `${path}.form.fields.message`) }, submitText: requiredString(form.submitText, `${path}.form.submitText`), messages: { success: requiredString(messages.success, `${path}.form.messages.success`), error: requiredString(messages.error, `${path}.form.messages.error`), sending: requiredString(messages.sending, `${path}.form.messages.sending`), timeout: optionalString(messages.timeout, `${path}.form.messages.timeout`) } } };
+  return { title: requiredString(data.title, `${path}.title`), description: requiredString(data.description, `${path}.description`), email: optionalString(data.email, `${path}.email`), form: { endpoint: requiredString(form.endpoint, `${path}.form.endpoint`), fields: { name: requiredString(fields.name, `${path}.form.fields.name`), email: requiredString(fields.email, `${path}.form.fields.email`), message: requiredString(fields.message, `${path}.form.fields.message`) }, submitText: requiredString(form.submitText, `${path}.form.submitText`), messages: { success: requiredString(messages.success, `${path}.form.messages.success`), error: requiredString(messages.error, `${path}.form.messages.error`), sending: requiredString(messages.sending, `${path}.form.messages.sending`), timeout: optionalString(messages.timeout, `${path}.form.messages.timeout`) } } };
 }
 
 export function validateHomeContent(value: unknown): HomeContent {
@@ -97,6 +119,28 @@ export function validateHomeContent(value: unknown): HomeContent {
   };
 }
 
+function validateSubmenu(value: unknown, path: string): NavigationItem['submenu'] {
+  if (value === undefined) return undefined;
+  const data = record(value, path);
+  if (!Array.isArray(data.items) || data.items.length === 0) {
+    throw new Error(`Invalid content in ${path}.items: expected a non-empty array`);
+  }
+  return {
+    image: optionalString(data.image, `${path}.image`),
+    // Decorative submenu artwork legitimately carries an empty alt.
+    imageAlt: optionalString(data.imageAlt, `${path}.imageAlt`, true),
+    items: data.items.map((item, index) => {
+      const itemPath = `${path}.items[${index}]`;
+      const subItem = record(item, itemPath);
+      return {
+        label: requiredString(subItem.label, `${itemPath}.label`),
+        href: requiredString(subItem.href, `${itemPath}.href`),
+        description: optionalString(subItem.description, `${itemPath}.description`),
+      };
+    }),
+  };
+}
+
 export function validateSiteContent(value: unknown): SiteContent {
   const path = 'src/data/site.json';
   const data = record(value, path);
@@ -104,5 +148,5 @@ export function validateSiteContent(value: unknown): SiteContent {
   const footer = record(data.footer, `${path}.footer`);
   if (!Array.isArray(data.navigation)) throw new Error(`Invalid content in ${path}.navigation: expected an array`);
   if (!Array.isArray(data.socialLinks)) throw new Error(`Invalid content in ${path}.socialLinks: expected an array`);
-  return { meta: { title: requiredString(meta.title, `${path}.meta.title`), description: requiredString(meta.description, `${path}.meta.description`), lang: requiredString(meta.lang, `${path}.meta.lang`) }, backgroundImage: requiredString(data.backgroundImage, `${path}.backgroundImage`), navigation: data.navigation.map((item, index) => { const itemPath = `${path}.navigation[${index}]`; const navItem = record(item, itemPath); return { label: requiredString(navItem.label, `${itemPath}.label`), href: requiredString(navItem.href, `${itemPath}.href`) }; }), headerCta: data.headerCta === undefined ? undefined : validateCta(data.headerCta, `${path}.headerCta`), socialLinks: data.socialLinks.map((item, index) => { const itemPath = `${path}.socialLinks[${index}]`; const link = record(item, itemPath); return { platform: requiredString(link.platform, `${itemPath}.platform`), url: requiredString(link.url, `${itemPath}.url`), ariaLabel: requiredString(link.ariaLabel, `${itemPath}.ariaLabel`) }; }), footer: { copyright: requiredString(footer.copyright, `${path}.footer.copyright`) } };
+  return { meta: { title: requiredString(meta.title, `${path}.meta.title`), description: requiredString(meta.description, `${path}.meta.description`), lang: requiredString(meta.lang, `${path}.meta.lang`) }, backgroundImage: requiredString(data.backgroundImage, `${path}.backgroundImage`), navigation: data.navigation.map((item, index) => { const itemPath = `${path}.navigation[${index}]`; const navItem = record(item, itemPath); return { label: requiredString(navItem.label, `${itemPath}.label`), href: requiredString(navItem.href, `${itemPath}.href`), submenu: validateSubmenu(navItem.submenu, `${itemPath}.submenu`) }; }), headerCta: data.headerCta === undefined ? undefined : validateCta(data.headerCta, `${path}.headerCta`), socialLinks: data.socialLinks.map((item, index) => { const itemPath = `${path}.socialLinks[${index}]`; const link = record(item, itemPath); return { platform: requiredString(link.platform, `${itemPath}.platform`), url: requiredString(link.url, `${itemPath}.url`), ariaLabel: requiredString(link.ariaLabel, `${itemPath}.ariaLabel`) }; }), footer: { copyright: requiredString(footer.copyright, `${path}.footer.copyright`) } };
 }

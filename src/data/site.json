@@ -7,8 +7,30 @@
   "backgroundImage": "/images/singing-of-christ-church.webp",
   "navigation": [
     { "label": "Home", "href": "/" },
-    { "label": "About", "href": "/about" },
-    { "label": "Releases", "href": "/releases" },
+    {
+      "label": "About",
+      "href": "/about",
+      "submenu": {
+        "image": "/images/singing-studio-white.webp",
+        "imageAlt": "",
+        "items": [
+          { "label": "Story", "href": "/about/story", "description": "The journey behind the music" },
+          { "label": "Timeline", "href": "/about/timeline", "description": "Releases and milestones" }
+        ]
+      }
+    },
+    {
+      "label": "Music",
+      "href": "/releases",
+      "submenu": {
+        "image": "/images/albums/xmas-album-red.webp",
+        "imageAlt": "",
+        "items": [
+          { "label": "Discography", "href": "/releases", "description": "Every official release" },
+          { "label": "Videos", "href": "/videos", "description": "Official videos" }
+        ]
+      }
+    },
     { "label": "Contact", "href": "/contact" }
   ],
   "headerCta": {

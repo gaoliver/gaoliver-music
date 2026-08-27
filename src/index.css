@@ -88,6 +88,9 @@
   .shell-nav-link {
     display: inline-flex;
     padding-block: 12px;
+    /* Explicit, because Tailwind's preflight forces text-transform: none on
+       button elements and would otherwise break casing parity. */
+    text-transform: uppercase;
     color: var(--shell-text);
     transition: color 160ms ease, transform 160ms ease;
   }
@@ -101,7 +104,7 @@
 
   .shell-submenu {
     position: absolute;
-    inset-inline: 24px;
+    inset-inline: 20px;
     top: calc(100% - 4px);
     display: grid;
     grid-template-columns: minmax(220px, 0.8fr) 1.2fr;

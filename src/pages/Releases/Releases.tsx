@@ -8,7 +8,13 @@ export default function ReleasesPage() {
     <MainLayout>
       <PageTitle>{releaseCatalog.title}</PageTitle>
       <PageContentSurface aria-label="Release catalog">
-        <ReleasesOrganism releases={releaseCatalog.releases} detailBasePath="/releases" />
+        {/* The mobile menu is top level only, mirroring the reference, so the
+            sibling Videos route is reached from here. */}
+        <ReleasesOrganism
+          releases={releaseCatalog.releases}
+          detailBasePath="/releases"
+          viewAllCta={{ isActive: true, label: 'Videos »', url: '/videos' }}
+        />
       </PageContentSurface>
     </MainLayout>
   );

@@ -35,25 +35,27 @@ const NavMenu: React.FC<NavMenuProps> = ({ items, onLinkClick }) => {
               if (!event.currentTarget.contains(event.relatedTarget)) setOpenSubmenu(null);
             }}
           >
-            {hasSubmenu ? (
-              <button
-                type="button"
-                className="shell-nav-link"
-                aria-expanded={isOpen}
-                aria-controls={submenuId}
-                onClick={() => setOpenSubmenu(isOpen ? null : item.label)}
-              >
-                {item.label}
-              </button>
-            ) : (
-              <a
-                href={item.href}
-                onClick={(event) => handleClick(event, item.href)}
-                className="shell-nav-link"
-              >
-                {item.label}
-              </a>
-            )}
+            {/* Always a real link, as on the reference site: the parent route
+                stays reachable and the submenu opens on hover, focus or
+                ArrowDown rather than swallowing the click. */}
+            <a
+              href={item.href}
+              onClick={(event) => handleClick(event, item.href)}
+              className="shell-nav-link"
+              aria-expanded={hasSubmenu ? isOpen : undefined}
+              aria-controls={hasSubmenu ? submenuId : undefined}
+              onKeyDown={(event) => {
+                if (!hasSubmenu) return;
+                if (event.key === 'ArrowDown') {
+                  event.preventDefault();
+                  setOpenSubmenu(item.label);
+                } else if (event.key === 'Escape') {
+                  setOpenSubmenu(null);
+                }
+              }}
+            >
+              {item.label}
+            </a>
 
             {hasSubmenu && item.submenu && (
               <div

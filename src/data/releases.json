@@ -1,5 +1,5 @@
 {
-  "title": "Releases",
+  "title": "Discography",
   "releases": [
     {
       "id": "in-the-waters",
@@ -34,6 +34,7 @@
       "type": "Single",
       "year": "2024",
       "cover": "/images/albums/hail-to-the-king.webp",
+      "videoId": "ZLb7YkIku-8",
       "links": {
         "spotify": "https://open.spotify.com/track/5BgXgETox5CCDKq9qjlOfB",
         "appleMusic": "https://geo.music.apple.com/us/album/_/1779789035?i=1779789036&mt=1&app=music",

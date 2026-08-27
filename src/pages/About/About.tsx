@@ -1,16 +1,31 @@
-import AboutOrganism from '../../components/organisms/About';
-import { PageContentSurface, PageTitle } from '../../components/design-system';
+import { PageContentSurface, PageTitle, FeaturedTile, FeaturedTileGrid } from '../../components/design-system';
 import { aboutContent } from '../../data';
 import MainLayout from '../../templates/MainLayout';
 
 export default function AboutPage() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { title: _title, ...aboutWithoutTitle } = aboutContent;
   return (
     <MainLayout>
       <PageTitle>About</PageTitle>
       <PageContentSurface aria-label="About G.A. Oliver">
-        <AboutOrganism {...aboutWithoutTitle} />
+        <p className="mx-auto mb-12 max-w-3xl text-center text-lg leading-relaxed text-[var(--shell-muted-light)]">
+          {aboutContent.summary}
+        </p>
+        <FeaturedTileGrid>
+          <FeaturedTile
+            title="Story"
+            href="/about/story"
+            image={aboutContent.image}
+            imageAlt=""
+            description="The journey behind the music"
+          />
+          <FeaturedTile
+            title="Timeline"
+            href="/about/timeline"
+            image={aboutContent.backgroundImage ?? aboutContent.image}
+            imageAlt=""
+            description="Releases and milestones"
+          />
+        </FeaturedTileGrid>
       </PageContentSurface>
     </MainLayout>
   );
