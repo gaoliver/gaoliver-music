@@ -1,10 +1,12 @@
 import type { MetaFunction } from 'react-router';
 import About from '../pages/About';
+import { pageMeta } from '../lib/seo';
 
-export const meta: MetaFunction = () => [
-  { title: 'About | G.A. Oliver' },
-  { name: 'description', content: 'Meet G.A. Oliver, a Brazilian guitarist and singer based in the Netherlands.' },
-  { tagName: 'link', rel: 'canonical', href: 'https://gaoliver-music.com/about' },
-];
+export const meta: MetaFunction = () =>
+  pageMeta(
+    'About | G.A. Oliver',
+    'Meet G.A. Oliver, a Brazilian guitarist and singer based in the Netherlands.',
+    '/about',
+  );
 
 export default About;

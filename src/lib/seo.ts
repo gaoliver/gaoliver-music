@@ -31,6 +31,30 @@ export function releaseMeta(release: ReleaseContent): MetaDescriptor[] {
   ];
 }
 
+export function pageMeta(
+  title: string,
+  description: string,
+  path: string,
+  image?: string,
+): MetaDescriptor[] {
+  const canonicalUrl = `${SITE_URL}${path}`;
+  const socialImage = image ? absoluteUrl(image) : DEFAULT_SOCIAL_IMAGE;
+  return [
+    { title },
+    { name: 'description', content: description },
+    { tagName: 'link', rel: 'canonical', href: canonicalUrl },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:title', content: title },
+    { property: 'og:description', content: description },
+    { property: 'og:url', content: canonicalUrl },
+    { property: 'og:image', content: socialImage },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: title },
+    { name: 'twitter:description', content: description },
+    { name: 'twitter:image', content: socialImage },
+  ];
+}
+
 export function releaseStructuredData(release: ReleaseContent) {
   const isSingle = release.type.toLowerCase() === 'single';
   return {

@@ -6,6 +6,7 @@ import Releases from '../../components/organisms/Releases';
 import Divider from '../../components/atoms/Divider';
 import MainLayout from '../../templates/MainLayout';
 import { aboutContent, contactContent, homeContent, releaseCatalog } from '../../data';
+import { SITE_URL } from '../../lib/seo';
 
 const Home: React.FC = () => {
   const handleNavClick = (href: string) => {
@@ -19,8 +20,19 @@ const Home: React.FC = () => {
 
   const featuredRelease = releaseCatalog.releases.find((release) => release.featured);
 
+  const musicGroupStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'MusicGroup',
+    name: 'G.A. Oliver',
+    url: SITE_URL,
+  };
+
   return (
     <MainLayout onNavClick={handleNavClick}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(musicGroupStructuredData) }}
+      />
       <Hero
         title={homeContent.hero.title}
         subtitle={homeContent.hero.subtitle}
