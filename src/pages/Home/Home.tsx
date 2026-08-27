@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Hero from '../../components/organisms/Hero';
-import About from '../../components/organisms/About';
 import Releases from '../../components/organisms/Releases';
 import Divider from '../../components/atoms/Divider';
 import MainLayout from '../../templates/MainLayout';
@@ -42,14 +41,15 @@ const Home: React.FC = () => {
         featuredRelease={featuredRelease}
       />
       <Divider />
-      <About
-        title={aboutContent.title}
-        description={aboutContent.description}
-        details={aboutContent.details}
-        image={aboutContent.image}
-        backgroundImage={aboutContent.backgroundImage}
-        lightContent={aboutContent.lightContent}
-      />
+      <section id="about" className="pt-24 pb-12">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <h2 className="mb-4 font-title text-3xl md:text-4xl">{aboutContent.title}</h2>
+          <p className="mb-6 text-brand-muted">{homeContent.about.summary}</p>
+          <Link to="/about" className="inline-flex rounded-md bg-brand-accent px-5 py-3 font-semibold text-black">
+            {homeContent.about.cta.label}
+          </Link>
+        </div>
+      </section>
       <Divider />
       <Releases 
         releases={releaseCatalog.releases}
