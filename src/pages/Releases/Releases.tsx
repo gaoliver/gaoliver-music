@@ -8,7 +8,7 @@ export default function ReleasesPage() {
     <MainLayout>
       <PageTitle>{releaseCatalog.title}</PageTitle>
       <PageContentSurface aria-label="Release catalog">
-        <ReleasesOrganism releases={releaseCatalog.releases} />
+        <ReleasesOrganism releases={releaseCatalog.releases} detailBasePath="/releases" />
       </PageContentSurface>
     </MainLayout>
   );

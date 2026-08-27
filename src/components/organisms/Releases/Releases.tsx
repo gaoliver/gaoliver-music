@@ -20,9 +20,10 @@ interface Release {
 interface ReleasesProps {
   releases: Release[];
   viewAllCta?: CTA;
+  detailBasePath?: string;
 }
 
-const Releases: React.FC<ReleasesProps> = ({ releases, viewAllCta }) => {
+const Releases: React.FC<ReleasesProps> = ({ releases, viewAllCta, detailBasePath }) => {
   const isExternalLink = viewAllCta?.url && (viewAllCta.url.startsWith('http://') || viewAllCta.url.startsWith('https://'));
   
   return (
@@ -50,6 +51,7 @@ const Releases: React.FC<ReleasesProps> = ({ releases, viewAllCta }) => {
               year={release.year}
               cover={release.cover}
               links={release.links}
+              detailUrl={detailBasePath ? `${detailBasePath}/${release.id}` : undefined}
             />
           ))}
         </div>
@@ -59,4 +61,3 @@ const Releases: React.FC<ReleasesProps> = ({ releases, viewAllCta }) => {
 };
 
 export default Releases;
-

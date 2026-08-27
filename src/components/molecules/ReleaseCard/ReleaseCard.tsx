@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../../atoms/Button';
 import { FaSpotify, FaApple, FaYoutube } from 'react-icons/fa';
 import { HiDotsHorizontal } from 'react-icons/hi';
+import { Link } from 'react-router';
 
 export interface ReleaseCardProps {
   title: string;
@@ -17,6 +18,7 @@ export interface ReleaseCardProps {
   };
   featured?: boolean;
   newReleaseLabel?: string;
+  detailUrl?: string;
 }
 
 const ReleaseCard: React.FC<ReleaseCardProps> = ({
@@ -28,6 +30,7 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
   links,
   featured = false,
   newReleaseLabel = 'New Release',
+  detailUrl,
 }) => {
   if (featured) {
     return (
@@ -49,7 +52,7 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
         )}
         <div id="listen" className="pt-5">
           <h3 className="font-title text-2xl">
-            {newReleaseLabel} — <span className="text-brand-accent">{title}</span>
+            {newReleaseLabel} — <span className="text-brand-accent">{detailUrl ? <Link to={detailUrl}>{title}</Link> : title}</span>
           </h3>
           <p className="text-sm text-brand-muted">
             {type} — {year}
@@ -116,7 +119,9 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
         style={{ backgroundImage: `url(${cover})` }}
       />
       <div className="p-4">
-        <h3 className="text-lg font-semibold">{title}</h3>
+        <h3 className="text-lg font-semibold">
+          {detailUrl ? <Link to={detailUrl} className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent">{title}</Link> : title}
+        </h3>
         <p className="text-sm text-brand-muted">
           {type} • {year}
         </p>
@@ -176,4 +181,3 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
 };
 
 export default ReleaseCard;
-
