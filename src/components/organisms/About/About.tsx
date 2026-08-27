@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface AboutProps {
-  title: string;
+  title?: string;
   description: string;
   details: string[];
   image: string;
@@ -47,7 +47,7 @@ const About: React.FC<AboutProps> = ({ title, description, details, image, backg
           
           {/* Right Content */}
           <div className="md:col-span-3">
-            <h2 className={`font-title text-3xl md:text-4xl mb-4 ${titleColor}`}>{title}</h2>
+            {title && <h2 className={`font-title text-3xl md:text-4xl mb-4 ${titleColor}`}>{title}</h2>}
             <div 
               className={`leading-relaxed ${textColor} prose prose-invert max-w-none`}
               dangerouslySetInnerHTML={{ __html: description }}

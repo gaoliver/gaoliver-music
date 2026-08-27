@@ -4,11 +4,13 @@ import { aboutContent } from '../../data';
 import MainLayout from '../../templates/MainLayout';
 
 export default function AboutPage() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { title: _title, ...aboutWithoutTitle } = aboutContent;
   return (
     <MainLayout>
       <PageTitle backgroundImage={aboutContent.backgroundImage} backgroundImageAlt="G.A. Oliver in the studio">About</PageTitle>
       <PageContentSurface aria-label="About G.A. Oliver">
-        <AboutOrganism {...aboutContent} />
+        <AboutOrganism {...aboutWithoutTitle} />
       </PageContentSurface>
     </MainLayout>
   );
