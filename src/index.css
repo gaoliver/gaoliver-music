@@ -56,12 +56,8 @@
     background-color: var(--shell-bg);
   }
 
-  /* Reference treatment: desaturated and slightly crushed, so overlaid type
-     stays legible regardless of the underlying frame. */
-  .background-media--fixed .background-media__image,
-  .background-media--fixed .background-media__video {
-    filter: grayscale(1) contrast(1.15);
-  }
+  /* The reference applies no filter to its page backdrop (measured
+     filter: none) - contrast comes from the overlay alone. */
 
   /* Reference header: sticky (so it occupies layout space), fully
      transparent, 88px tall, logo flush left and nav flush right. */

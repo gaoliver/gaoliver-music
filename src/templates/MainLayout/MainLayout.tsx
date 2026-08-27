@@ -22,7 +22,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, onNavClick }) => {
     <div className="min-h-screen text-brand-text font-body antialiased">
       <BackgroundMedia
         image={siteContent.backgroundImage}
-        overlay="rgba(10, 10, 10, 0.45)"
+        overlay="rgba(10, 10, 10, 0.4)"
         className="background-media--fixed"
       />
       <Header
