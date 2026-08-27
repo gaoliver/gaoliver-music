@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Input from '../../atoms/Input';
 import Textarea from '../../atoms/Textarea';
 import Button from '../../atoms/Button';
@@ -15,8 +15,12 @@ interface ContactFormProps {
     success: string;
     error: string;
     sending: string;
+    timeout?: string;
   };
 }
+
+const REQUEST_TIMEOUT_MS = 10_000;
+const STATUS_RESET_MS = 5_000;
 
 const ContactForm: React.FC<ContactFormProps> = ({ endpoint, placeholders, submitText, messages }) => {
   const [formData, setFormData] = useState({
@@ -24,11 +28,42 @@ const ContactForm: React.FC<ContactFormProps> = ({ endpoint, placeholders, submi
     email: '',
     message: '',
   });
-  
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [honeypot, setHoneypot] = useState('');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error' | 'timeout'>('idle');
+  const abortControllerRef = useRef<AbortController | null>(null);
+  const statusResetRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const mountedRef = useRef(true);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      abortControllerRef.current?.abort();
+      if (statusResetRef.current) clearTimeout(statusResetRef.current);
+    };
+  }, []);
+
+  const resetStatusLater = () => {
+    if (statusResetRef.current) clearTimeout(statusResetRef.current);
+    statusResetRef.current = setTimeout(() => {
+      if (mountedRef.current) setStatus('idle');
+    }, STATUS_RESET_MS);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    abortControllerRef.current?.abort();
+    if (statusResetRef.current) clearTimeout(statusResetRef.current);
+
+    if (honeypot.trim()) {
+      setStatus('success');
+      resetStatusLater();
+      return;
+    }
+
+    const abortController = new AbortController();
+    abortControllerRef.current = abortController;
+    const timeoutId = setTimeout(() => abortController.abort(), REQUEST_TIMEOUT_MS);
     setStatus('sending');
 
     try {
@@ -37,30 +72,32 @@ const ContactForm: React.FC<ContactFormProps> = ({ endpoint, placeholders, submi
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, website: honeypot }),
+        signal: abortController.signal,
       });
 
       if (response.ok) {
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });
         
-        // Reset success message after 5 seconds
-        setTimeout(() => {
-          setStatus('idle');
-        }, 5000);
+        resetStatusLater();
       } else {
         setStatus('error');
-        // Reset error message after 5 seconds
-        setTimeout(() => {
-          setStatus('idle');
-        }, 5000);
+        resetStatusLater();
       }
-    } catch {
-      setStatus('error');
-      // Reset error message after 5 seconds
-      setTimeout(() => {
-        setStatus('idle');
-      }, 5000);
+    } catch (error) {
+      if (!mountedRef.current) return;
+      if (error instanceof DOMException && error.name === 'AbortError') {
+        setStatus('timeout');
+      } else {
+        setStatus('error');
+      }
+      resetStatusLater();
+    } finally {
+      clearTimeout(timeoutId);
+      if (abortControllerRef.current === abortController) {
+        abortControllerRef.current = null;
+      }
     }
   };
 
@@ -83,6 +120,15 @@ const ContactForm: React.FC<ContactFormProps> = ({ endpoint, placeholders, submi
         required
         disabled={status === 'sending'}
       />
+      <input
+        name="website"
+        value={honeypot}
+        onChange={(event) => setHoneypot(event.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute h-px w-px overflow-hidden opacity-0"
+      />
       <Input
         name="email"
         type="email"
@@ -103,15 +149,16 @@ const ContactForm: React.FC<ContactFormProps> = ({ endpoint, placeholders, submi
       />
       
       {/* Status Messages */}
-      {status === 'success' && (
-        <div className="p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400">
-          {messages.success}
-        </div>
-      )}
-      
-      {status === 'error' && (
-        <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400">
-          {messages.error}
+      {status !== 'idle' && (
+        <div
+          className={`rounded-lg border p-4 ${status === 'success' ? 'border-green-500/20 bg-green-500/10 text-green-400' : status === 'sending' ? 'border-white/15 bg-white/5 text-white/75' : 'border-red-500/20 bg-red-500/10 text-red-400'}`}
+          aria-live="polite"
+          role="status"
+        >
+          {status === 'success' && messages.success}
+          {status === 'sending' && messages.sending}
+          {status === 'error' && messages.error}
+          {status === 'timeout' && (messages.timeout || 'The request timed out. Please try again.')}
         </div>
       )}
       
