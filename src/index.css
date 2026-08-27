@@ -8,7 +8,8 @@
   --bgAlt: #0C0C0C;
   --text: #E5E5E5;
   --muted: #8E8E8E;
-  --accent: #E45B66;
+  /* --accent: #E45B66; */
+  --accent: #778dfbff;
 }
 
 /* Base Styles */

@@ -1,12 +1,12 @@
 {
   "hero": {
-    "title": "Christmas release!",
-    "subtitle": "Listen to the classic Christmas songs in Metal version.",
-    "backgroundImage": "/images/albums/xmas-album-red.webp",
+    "title": "New Release",
+    "subtitle": "In The Waters (Walk Upon) — Single • 09/11/2026",
+    "backgroundImage": "/images/albums/in-the-water-single-cover.webp",
     "ctaPrimary": {
       "isActive": true,
-      "label": "Listen now",
-      "url": "https://ffm.to/ga-oliver-night-divine"
+      "label": "Pre-save now",
+      "url": "https://ffm.to/ga-oliver-in-the-waters"
     },
     "ctaSecondary": {
       "isActive": false,
@@ -36,4 +36,3 @@
     "description": "Get in touch for collaborations, bookings, or just to say hello."
   }
 }
-

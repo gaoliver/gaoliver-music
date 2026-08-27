@@ -1,9 +1,9 @@
-import React from 'react';
-import Logo from '../../atoms/Logo';
-import Button from '../../atoms/Button';
-import ReleaseCard from '../../molecules/ReleaseCard';
-import type { CTA } from '../../../types/cta';
-import type { ReleaseCardProps } from '../../molecules/ReleaseCard/ReleaseCard';
+import React from "react";
+import Logo from "../../atoms/Logo";
+import Button from "../../atoms/Button";
+import ReleaseCard from "../../molecules/ReleaseCard";
+import type { CTA } from "../../../types/cta";
+import type { ReleaseCardProps } from "../../molecules/ReleaseCard/ReleaseCard";
 
 interface HeroProps {
   title: string;
@@ -23,15 +23,18 @@ const Hero: React.FC<HeroProps> = ({
   featuredRelease,
 }) => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-24 overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center pt-24 overflow-hidden"
+    >
       {/* Background Image (if provided) */}
       {backgroundImage && (
-        <div 
+        <div
           className="absolute inset-0 z-0 bg-cover bg-center opacity-25"
-          style={{ 
+          style={{
             backgroundImage: `url(${backgroundImage})`,
-            filter: 'blur(8px)',
-            transform: 'scale(1.1)'
+            filter: "blur(8px)",
+            transform: "scale(1.1)",
           }}
         />
       )}
@@ -40,12 +43,15 @@ const Hero: React.FC<HeroProps> = ({
       {/* Top and Bottom Black Gradient */}
       <div className="absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,_rgba(18,18,18,1)_0%,_transparent_20%,_transparent_80%,_rgba(18,18,18,1)_100%)]" />
       {/* Accent Gradient Overlay */}
-      <div className="absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_center,_rgba(228,91,102,0.12)_0%,_transparent_50%)]" />
+      {/* <div className="absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_center,_rgba(228,91,102,0.12)_0%,_transparent_50%)]" /> */}
+      <div className="absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_center,_rgba(119,141,251,0.12)_0%,_transparent_50%)]" />
       <div className="container md:max-w-7xl relative z-10">
         <div className="grid md:grid-cols-2 md:gap-40 gap-10 items-center">
           <div className="space-y-6 text-center">
             <Logo size="lg" className="md:w-80 mx-auto translate-x-[-10px]" />
-            <h1 className="font-title text-4xl md:text-5xl tracking-wide">{title}</h1>
+            <h1 className="font-title text-4xl md:text-5xl tracking-wide">
+              {title}
+            </h1>
             <p className="text-brand-muted max-w-xl">{subtitle}</p>
             <div className="flex flex-wrap justify-center gap-3">
               {ctaPrimary.isActive && (
@@ -79,4 +85,3 @@ const Hero: React.FC<HeroProps> = ({
 };
 
 export default Hero;
-
