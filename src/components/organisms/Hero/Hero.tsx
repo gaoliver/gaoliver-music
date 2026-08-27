@@ -8,16 +8,18 @@ import type { ReleaseCardProps } from "../../molecules/ReleaseCard/ReleaseCard";
 interface HeroProps {
   title: string;
   subtitle: string;
-  backgroundImage?: string;
   ctaPrimary: CTA;
   ctaSecondary: CTA;
   featuredRelease?: ReleaseCardProps;
 }
 
+/**
+ * Content-only hero. The homepage backdrop (image or video) is owned by the
+ * site shell, so this component paints no background of its own.
+ */
 const Hero: React.FC<HeroProps> = ({
   title,
   subtitle,
-  backgroundImage,
   ctaPrimary,
   ctaSecondary,
   featuredRelease,
@@ -27,23 +29,6 @@ const Hero: React.FC<HeroProps> = ({
       id="home"
       className="relative min-h-[calc(100svh-var(--shell-header-height))] flex items-center overflow-hidden"
     >
-      {/* Background Image (if provided) */}
-      {backgroundImage && (
-        <div
-          className="absolute inset-0 z-0 bg-cover bg-center opacity-25"
-          style={{
-            backgroundImage: `url(${backgroundImage})`,
-            filter: "blur(8px)",
-            transform: "scale(1.1)",
-          }}
-        />
-      )}
-      {/* Radial Vignette Overlay - Complete black at all edges, larger transparent center */}
-      <div className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,_transparent_0%,_transparent_15%,_rgba(10,10,10,0.8)_40%,_rgba(10,10,10,1)_75%)]" />
-      {/* Top and Bottom Black Gradient */}
-      <div className="absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,_rgba(10,10,10,1)_0%,_transparent_20%,_transparent_80%,_rgba(10,10,10,1)_100%)]" />
-      {/* Accent Gradient Overlay */}
-      <div className="absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_center,_rgba(173,14,16,0.12)_0%,_transparent_50%)]" />
       <div className="container md:max-w-7xl relative z-10">
         <div className="grid md:grid-cols-2 md:gap-40 gap-10 items-center">
           <div className="space-y-6 text-center">

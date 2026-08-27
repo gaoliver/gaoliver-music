@@ -1,8 +1,10 @@
 {
+  "background": {
+    "image": "/images/singing-of-christ-church.webp"
+  },
   "hero": {
     "title": "New Release",
     "subtitle": "In The Waters (Walk Upon) — Single • 09/11/2026",
-    "backgroundImage": "/images/albums/in-the-water-single-cover.webp",
     "ctaPrimary": {
       "isActive": true,
       "label": "Pre-save now",
@@ -11,28 +13,7 @@
     "ctaSecondary": {
       "isActive": false,
       "label": "View discography",
-      "url": "#releases"
+      "url": "/releases"
     }
-  },
-  "about": {
-    "summary": "Brazilian guitarist and singer based in the Netherlands.",
-    "cta": {
-      "isActive": true,
-      "label": "Learn more",
-      "url": "/about"
-    }
-  },
-  "releases": {
-    "sectionTitle": "Releases",
-    "cta": {
-      "isActive": false,
-      "label": "View all",
-      "url": "#releases"
-    },
-    "limit": 3
-  },
-  "contact": {
-    "sectionTitle": "Contact",
-    "description": "Get in touch for collaborations, bookings, or just to say hello."
   }
 }

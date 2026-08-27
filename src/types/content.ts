@@ -7,7 +7,7 @@ export interface ReleaseContent { id: string; title: string; type: string; year:
 export interface ReleaseCatalogContent { title: string; releases: ReleaseContent[]; }
 export interface AboutContent { title: string; description: string; details: string[]; image: string; backgroundImage?: string; lightContent?: boolean; }
 export interface ContactContent { title: string; description: string; form: { endpoint: string; fields: { name: string; email: string; message: string }; submitText: string; messages: { success: string; error: string; sending: string; timeout?: string } } }
-export interface HomeContent { hero: { title: string; subtitle: string; backgroundImage?: string; ctaPrimary: CTA; ctaSecondary: CTA }; about: { summary: string; cta: CTA }; releases: { sectionTitle: string; cta: CTA; limit: number }; contact: { sectionTitle: string; description: string } }
+export interface HomeContent { background: { image: string; video?: string; poster?: string }; hero: { title: string; subtitle: string; ctaPrimary: CTA; ctaSecondary: CTA } }
 export interface SiteContent { meta: { title: string; description: string; lang: string }; backgroundImage: string; navigation: NavigationItem[]; headerCta?: CTA; socialLinks: SocialLinkData[]; footer: { copyright: string } }
 export interface ShowContent { id: string; date: string; venue: string; city: string; ticketUrl?: string; }
 export interface ArticleContent { slug: string; title: string; publishedAt: string; summary: string; image?: string; }
@@ -81,11 +81,20 @@ export function validateHomeContent(value: unknown): HomeContent {
   const path = 'src/data/home.json';
   const data = record(value, path);
   const hero = record(data.hero, `${path}.hero`);
-  const about = record(data.about, `${path}.about`);
-  const releases = record(data.releases, `${path}.releases`);
-  const contact = record(data.contact, `${path}.contact`);
-  if (typeof releases.limit !== 'number' || releases.limit < 0) throw new Error(`Invalid content in ${path}.releases.limit: expected a non-negative number`);
-  return { hero: { title: requiredString(hero.title, `${path}.hero.title`), subtitle: requiredString(hero.subtitle, `${path}.hero.subtitle`), backgroundImage: optionalString(hero.backgroundImage, `${path}.hero.backgroundImage`), ctaPrimary: validateCta(hero.ctaPrimary, `${path}.hero.ctaPrimary`), ctaSecondary: validateCta(hero.ctaSecondary, `${path}.hero.ctaSecondary`) }, about: { summary: requiredString(about.summary, `${path}.about.summary`, true), cta: validateCta(about.cta, `${path}.about.cta`) }, releases: { sectionTitle: requiredString(releases.sectionTitle, `${path}.releases.sectionTitle`), cta: validateCta(releases.cta, `${path}.releases.cta`), limit: releases.limit }, contact: { sectionTitle: requiredString(contact.sectionTitle, `${path}.contact.sectionTitle`), description: requiredString(contact.description, `${path}.contact.description`) } };
+  const background = record(data.background, `${path}.background`);
+  return {
+    background: {
+      image: requiredString(background.image, `${path}.background.image`),
+      video: optionalString(background.video, `${path}.background.video`),
+      poster: optionalString(background.poster, `${path}.background.poster`),
+    },
+    hero: {
+      title: requiredString(hero.title, `${path}.hero.title`),
+      subtitle: requiredString(hero.subtitle, `${path}.hero.subtitle`),
+      ctaPrimary: validateCta(hero.ctaPrimary, `${path}.hero.ctaPrimary`),
+      ctaSecondary: validateCta(hero.ctaSecondary, `${path}.hero.ctaSecondary`),
+    },
+  };
 }
 
 export function validateSiteContent(value: unknown): SiteContent {

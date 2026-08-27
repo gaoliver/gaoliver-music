@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ navigation, cta, socialLinks, onNavClic
             className="shell-header__logo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--shell-accent-hover)]"
             aria-label="G.A. Oliver home"
           >
-            <Logo size="xl" className="w-[190px] max-w-[42vw]" />
+            <Logo size="nav" />
           </Link>
 
           <div className="ml-auto hidden lg:flex">

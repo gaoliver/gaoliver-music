@@ -8,9 +8,14 @@ import { useNavigate } from 'react-router';
 interface MainLayoutProps {
   children: React.ReactNode;
   onNavClick?: (href: string) => void;
+  /**
+   * Route-specific backdrop. Supports an optional looping video, which is
+   * suppressed for reduced-motion users. Defaults to the shared site image.
+   */
+  background?: { image: string; video?: string; poster?: string };
 }
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children, onNavClick }) => {
+const MainLayout: React.FC<MainLayoutProps> = ({ children, onNavClick, background }) => {
   const navigate = useNavigate();
   const handleNavClick = (href: string) => {
     if (onNavClick) return onNavClick(href);
@@ -21,7 +26,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, onNavClick }) => {
   return (
     <div className="min-h-screen text-brand-text font-body antialiased">
       <BackgroundMedia
-        image={siteContent.backgroundImage}
+        image={background?.image ?? siteContent.backgroundImage}
+        video={background?.video}
+        poster={background?.poster}
         overlay="rgba(10, 10, 10, 0.4)"
         className="background-media--fixed"
       />
