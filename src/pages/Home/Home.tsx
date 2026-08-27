@@ -1,14 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Hero from '../../components/organisms/Hero';
 import About from '../../components/organisms/About';
 import Releases from '../../components/organisms/Releases';
-import Contact from '../../components/organisms/Contact';
 import Divider from '../../components/atoms/Divider';
 import MainLayout from '../../templates/MainLayout';
-import homeData from '../../data/home.json';
-import aboutData from '../../data/about.json';
-import releasesData from '../../data/releases.json';
-import contactData from '../../data/contact.json';
+import { aboutContent, contactContent, homeContent, releaseCatalog } from '../../data';
 
 const Home: React.FC = () => {
   const handleNavClick = (href: string) => {
@@ -20,40 +17,42 @@ const Home: React.FC = () => {
     }
   };
 
-  const featuredRelease = releasesData.releases.find((release) => release.featured);
+  const featuredRelease = releaseCatalog.releases.find((release) => release.featured);
 
   return (
     <MainLayout onNavClick={handleNavClick}>
       <Hero
-        title={homeData.hero.title}
-        subtitle={homeData.hero.subtitle}
-        backgroundImage={homeData.hero.backgroundImage}
-        ctaPrimary={homeData.hero.ctaPrimary}
-        ctaSecondary={homeData.hero.ctaSecondary}
+        title={homeContent.hero.title}
+        subtitle={homeContent.hero.subtitle}
+        backgroundImage={homeContent.hero.backgroundImage}
+        ctaPrimary={homeContent.hero.ctaPrimary}
+        ctaSecondary={homeContent.hero.ctaSecondary}
         featuredRelease={featuredRelease}
       />
       <Divider />
       <About
-        title={aboutData.title}
-        description={aboutData.description}
-        details={aboutData.details}
-        image={aboutData.image}
-        backgroundImage={aboutData.backgroundImage}
-        lightContent={aboutData.lightContent}
+        title={aboutContent.title}
+        description={aboutContent.description}
+        details={aboutContent.details}
+        image={aboutContent.image}
+        backgroundImage={aboutContent.backgroundImage}
+        lightContent={aboutContent.lightContent}
       />
       <Divider />
       <Releases 
-        releases={releasesData.releases}
-        viewAllCta={homeData.releases.cta}
+        releases={releaseCatalog.releases}
+        viewAllCta={homeContent.releases.cta}
       />
       <Divider />
-      <Contact
-        title={contactData.title}
-        endpoint={contactData.form.endpoint}
-        fields={contactData.form.fields}
-        submitText={contactData.form.submitText}
-        messages={contactData.form.messages}
-      />
+      <section id="contact" className="pt-24 pb-12">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <h2 className="mb-4 font-title text-3xl md:text-4xl">{contactContent.title}</h2>
+          <p className="mb-6 text-brand-muted">{contactContent.description}</p>
+          <Link to="/contact" className="inline-flex rounded-md bg-brand-accent px-5 py-3 font-semibold text-black">
+            Send a message
+          </Link>
+        </div>
+      </section>
     </MainLayout>
   );
 };
