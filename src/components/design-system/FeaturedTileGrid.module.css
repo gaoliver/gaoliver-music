@@ -1,0 +1,11 @@
+.grid :global(.group) { transition: opacity 300ms ease; }
+.grid :global(.group img) { transition: transform 500ms ease-out; }
+@media (hover: hover) and (pointer: fine) {
+  .grid:hover :global(.group:not(:hover)) { opacity: 0.45; }
+  .grid:focus-within :global(.group:not(:focus-visible)) { opacity: 0.45; }
+  .grid :global(.group:hover img), .grid :global(.group:focus-visible img) { transform: scale(1.05); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .grid :global(.group), .grid :global(.group img) { transition: none; }
+  .grid :global(.group:hover img), .grid :global(.group:focus-visible img) { transform: none; }
+}
