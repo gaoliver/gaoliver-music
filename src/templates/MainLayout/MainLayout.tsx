@@ -24,7 +24,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, onNavClick, backgroun
     } else navigate(href);
   };
   return (
-    <div className="min-h-screen text-brand-text font-body antialiased">
+    /* Flex column so a full-height route (the homepage hero) can fill exactly
+       the space left between header and footer, with no magic offsets. */
+    <div className="flex min-h-svh flex-col text-brand-text font-body antialiased">
       <BackgroundMedia
         image={background?.image ?? siteContent.backgroundImage}
         video={background?.video}
@@ -38,7 +40,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, onNavClick, backgroun
         socialLinks={siteContent.socialLinks}
         onNavClick={handleNavClick}
       />
-      <main>{children}</main>
+      <main className="flex flex-1 flex-col">{children}</main>
       <Footer copyright={siteContent.footer.copyright} socialLinks={siteContent.socialLinks} />
     </div>
   );

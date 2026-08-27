@@ -1,4 +1,4 @@
-import React, { useId, useState } from 'react';
+import React, { useCallback, useEffect, useId, useRef, useState } from 'react';
 import type { NavigationItem } from '../../../types/navigation';
 
 interface NavMenuProps {
@@ -6,9 +6,33 @@ interface NavMenuProps {
   onLinkClick?: (href: string) => void;
 }
 
+/** Grace period so the pointer can cross the gap between a nav item and its
+ *  panel without the panel closing underneath it. */
+const CLOSE_DELAY_MS = 260;
+
 const NavMenu: React.FC<NavMenuProps> = ({ items, onLinkClick }) => {
   const menuId = useId();
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const cancelClose = useCallback(() => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  }, []);
+
+  const openNow = useCallback((label: string) => {
+    cancelClose();
+    setOpenSubmenu(label);
+  }, [cancelClose]);
+
+  const closeSoon = useCallback(() => {
+    cancelClose();
+    closeTimerRef.current = setTimeout(() => setOpenSubmenu(null), CLOSE_DELAY_MS);
+  }, [cancelClose]);
+
+  useEffect(() => cancelClose, [cancelClose]);
 
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#') && onLinkClick) {
@@ -28,11 +52,11 @@ const NavMenu: React.FC<NavMenuProps> = ({ items, onLinkClick }) => {
           <li
             key={item.href}
             className="group"
-            onMouseEnter={() => hasSubmenu && setOpenSubmenu(item.label)}
-            onMouseLeave={() => hasSubmenu && setOpenSubmenu(null)}
-            onFocus={() => hasSubmenu && setOpenSubmenu(item.label)}
+            onMouseEnter={() => hasSubmenu && openNow(item.label)}
+            onMouseLeave={() => hasSubmenu && closeSoon()}
+            onFocus={() => hasSubmenu && openNow(item.label)}
             onBlur={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget)) setOpenSubmenu(null);
+              if (!event.currentTarget.contains(event.relatedTarget)) closeSoon();
             }}
           >
             {/* Always a real link, as on the reference site: the parent route

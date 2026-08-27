@@ -182,8 +182,12 @@
     outline-offset: 4px;
   }
 
-  /* Reference footer: transparent over the backdrop, no rule, compact. */
+  /* Reference footer: transparent over the backdrop, no rule, compact.
+     Positioned so it paints above PageContentSurface, which is relative and
+     casts a 100px shadow spread that would otherwise cover the footer. */
   .shell-footer {
+    position: relative;
+    z-index: 1;
     color: var(--shell-text);
     background: transparent;
   }

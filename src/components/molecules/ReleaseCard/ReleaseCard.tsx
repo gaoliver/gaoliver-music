@@ -34,11 +34,11 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
 }) => {
   if (featured) {
     return (
-      <article className="bg-brand-bgAlt p-6">
+      <article className="rounded-2xl border border-white/10 bg-black/40 p-8 backdrop-blur-sm">
         {videoId ? (
           <iframe
             src={`https://www.youtube.com/embed/${videoId}`}
-            className="aspect-square"
+            className="aspect-square rounded-xl"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
@@ -46,7 +46,7 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
           />
         ) : (
         <div
-          className="aspect-square bg-cover bg-center"
+          className="aspect-square rounded-xl bg-cover bg-center"
           style={{ backgroundImage: `url(${cover})` }}
         />
         )}
@@ -113,12 +113,12 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
   }
 
   return (
-    <article className="group overflow-hidden bg-brand-bgAlt">
+    <article className="group overflow-hidden rounded-2xl border border-white/10 bg-black/40 backdrop-blur-sm">
       <div
         className="aspect-square bg-cover bg-center transition-transform group-hover:scale-[1.02]"
         style={{ backgroundImage: `url(${cover})` }}
       />
-      <div className="p-4">
+      <div className="p-6">
         <h3 className="text-lg font-semibold">
           {detailUrl ? <Link to={detailUrl} className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent">{title}</Link> : title}
         </h3>

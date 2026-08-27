@@ -12,7 +12,7 @@ export interface PageContentSurfaceProps extends HTMLAttributes<HTMLElement> {
 export function PageContentSurface({ children, className = '', ...props }: PageContentSurfaceProps) {
   return (
     <section
-      className={`relative bg-[var(--shell-bg)] shadow-surface ${className}`}
+      className={`relative flex-1 bg-[var(--shell-bg)] shadow-surface ${className}`}
       {...props}
     >
       <div className="relative mx-auto w-full max-w-[var(--shell-content-width)] px-5 pb-20 md:px-10">
