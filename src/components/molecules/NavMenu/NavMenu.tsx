@@ -18,7 +18,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ items, onLinkClick }) => {
   };
 
   return (
-    <ul className="hidden items-center gap-8 text-sm font-semibold uppercase tracking-[0.16em] lg:flex">
+    <ul className="hidden items-center gap-8 text-base font-normal uppercase tracking-normal lg:flex">
       {items.map((item) => {
         const submenuId = `${menuId}-${item.label.replace(/\s+/g, '-').toLowerCase()}`;
         const hasSubmenu = Boolean(item.submenu?.items.length);
