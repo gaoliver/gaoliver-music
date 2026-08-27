@@ -1,5 +1,4 @@
 import React from 'react';
-import Logo from '../../atoms/Logo';
 import SocialLinks from '../../molecules/SocialLinks';
 import type { SocialLinkData } from '../../../types/navigation';
 
@@ -18,8 +17,7 @@ const Footer: React.FC<FooterProps> = ({ copyright, socialLinks }) => {
   return (
     <footer className="shell-footer">
       <div className="shell-footer__content">
-        <Logo size="md" className="mb-6 opacity-70" />
-        <div className="flex flex-col items-center gap-5 text-[var(--shell-muted-light)]">
+        <div className="flex flex-row flex-wrap items-center justify-center gap-10 text-[var(--shell-muted-light)]">
           <div>
             <span className="sr-only">Streaming platforms</span>
             <SocialLinks links={streamingLinks} withDividers={false} className="justify-center" />
@@ -29,7 +27,7 @@ const Footer: React.FC<FooterProps> = ({ copyright, socialLinks }) => {
             <SocialLinks links={communityLinks} withDividers={false} className="justify-center" />
           </div>
         </div>
-        <p className="mt-7 text-center text-[0.65rem] uppercase tracking-[0.18em] text-[var(--shell-muted)]">
+        <p className="mt-6 text-center text-[13px] uppercase text-[var(--shell-muted)]">
           {copyrightText}
         </p>
       </div>

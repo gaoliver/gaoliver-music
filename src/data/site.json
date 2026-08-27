@@ -12,7 +12,7 @@
     { "label": "Contact", "href": "/contact" }
   ],
   "headerCta": {
-    "isActive": true,
+    "isActive": false,
     "label": "Listen now",
     "url": "https://ffm.bio/gaoliver"
   },

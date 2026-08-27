@@ -25,7 +25,7 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-24 overflow-hidden"
+      className="relative min-h-[calc(100svh-var(--shell-header-height))] flex items-center overflow-hidden"
     >
       {/* Background Image (if provided) */}
       {backgroundImage && (

@@ -8,20 +8,19 @@ export interface PageTitleProps {
 
 /**
  * Oversized centred route title floating over the shell backdrop.
- * Reference geometry: 5rem desktop / 3.5rem mobile, weight 700, uppercase,
- * followed by a ~40svh visual pause before the content surface rises.
+ * Reference geometry, measured at 1280px: 80px top margin below the 88px
+ * sticky header, 5rem/3.5rem uppercase at weight 700 with a 1.0 line-height,
+ * then a 40svh visual pause before the content surface rises.
  */
 export function PageTitle({ children, eyebrow, className = '' }: PageTitleProps) {
   return (
     <header
-      className={`mx-auto w-full max-w-[var(--shell-content-width)] px-5 pb-[clamp(6rem,40svh,28rem)] pt-[calc(var(--shell-header-height)+clamp(1rem,8svh,4rem))] text-center md:px-10 ${className}`}
+      className={`mx-auto w-full max-w-[var(--shell-content-width)] px-5 pb-[40svh] pt-20 text-center md:px-10 ${className}`}
     >
       {eyebrow && (
-        <p className="mb-4 text-xs font-medium uppercase tracking-[0.24em] text-[var(--shell-muted-light)]">
-          {eyebrow}
-        </p>
+        <p className="mb-4 text-[13px] uppercase text-[var(--shell-muted)]">{eyebrow}</p>
       )}
-      <h1 className="text-[clamp(3.5rem,8vw,5rem)] font-bold uppercase leading-[1.05] text-[var(--shell-text)]">
+      <h1 className="text-[clamp(3.5rem,8vw,5rem)] font-bold uppercase leading-none text-[var(--shell-text)]">
         {children}
       </h1>
     </header>

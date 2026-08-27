@@ -133,10 +133,7 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
           </div>
         )}
 
-        <div className="border-t border-white/25 pt-6 text-white">
-          <p className="mb-4 text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/75">
-            Listen &amp; follow
-          </p>
+        <div className="text-white">
           <SocialLinks links={socialLinks} withDividers={false} className="justify-center" />
         </div>
       </div>

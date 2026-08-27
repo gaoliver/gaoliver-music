@@ -13,7 +13,7 @@
   --shell-accent-hover: #ef090c;
   --shell-content-width: 1280px;
   --shell-space-unit: 10px;
-  --shell-header-height: 180px; /* header nav min-height (92px) + vertical padding + logo overflow at 190px width */
+  --shell-header-height: 88px;
 
   /* Music surfaces now share the unified reference palette. Aliases are kept
      so existing utility classes keep resolving. */
@@ -63,13 +63,15 @@
     filter: grayscale(1) contrast(1.15);
   }
 
+  /* Reference header: sticky (so it occupies layout space), fully
+     transparent, 88px tall, logo flush left and nav flush right. */
   .shell-header {
-    position: fixed;
+    position: sticky;
     inset-inline: 0;
     top: 0;
     z-index: 50;
     color: var(--shell-text);
-    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.86), transparent);
+    background: transparent;
   }
 
   .shell-header__nav {
@@ -77,9 +79,9 @@
     display: flex;
     align-items: center;
     width: min(100%, var(--shell-content-width));
-    min-height: 92px;
+    height: var(--shell-header-height);
     margin-inline: auto;
-    padding: 14px 24px;
+    padding: 0 20px;
   }
 
   .shell-header__logo {
@@ -181,11 +183,10 @@
     outline-offset: 4px;
   }
 
+  /* Reference footer: transparent over the backdrop, no rule, compact. */
   .shell-footer {
-    margin-top: 64px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
     color: var(--shell-text);
-    background: var(--shell-bg);
+    background: transparent;
   }
 
   .shell-footer__content {
@@ -194,7 +195,7 @@
     align-items: center;
     width: min(100%, var(--shell-content-width));
     margin-inline: auto;
-    padding: 52px 24px 36px;
+    padding: 0 20px 20px;
   }
 
   .background-media {

@@ -32,16 +32,16 @@ const Releases: React.FC<ReleasesProps> = ({ releases, viewAllCta, detailBasePat
     <section id="releases" className="pt-12 pb-12">
       <div>
         {(title || (viewAllCta && viewAllCta.isActive)) && (
-          <div className="mb-6 flex items-end justify-between gap-6 border-b border-white/15 pb-4">
+          <div className="mb-5 flex items-end justify-between gap-6">
             {title && (
-              <h2 className="text-2xl font-bold uppercase leading-none tracking-tight text-white md:text-3xl">
+              <h2 className="text-2xl font-bold uppercase leading-none text-white md:text-3xl">
                 {title}
               </h2>
             )}
             {viewAllCta && viewAllCta.isActive && (
               <a
                 href={viewAllCta.url}
-                className="shrink-0 text-xs font-semibold uppercase tracking-[0.16em] text-white/70 underline underline-offset-4 transition-colors hover:text-brand-accentHover"
+                className="shrink-0 text-base uppercase text-[var(--shell-muted)] transition-colors hover:text-brand-accentHover"
                 target={isExternalLink ? '_blank' : undefined}
                 rel={isExternalLink ? 'noopener noreferrer' : undefined}
               >
