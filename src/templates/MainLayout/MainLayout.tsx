@@ -1,17 +1,16 @@
 import React from 'react';
 import Header from '../../components/organisms/Header';
 import Footer from '../../components/organisms/Footer';
+import BackgroundMedia from '../../components/media/BackgroundMedia';
 import { siteContent } from '../../data';
 import { useNavigate } from 'react-router';
 
 interface MainLayoutProps {
   children: React.ReactNode;
   onNavClick?: (href: string) => void;
-  /** Route-specific cinematic backdrop. Falls back to the shared site image. */
-  backgroundImage?: string;
 }
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children, onNavClick, backgroundImage }) => {
+const MainLayout: React.FC<MainLayoutProps> = ({ children, onNavClick }) => {
   const navigate = useNavigate();
   const handleNavClick = (href: string) => {
     if (onNavClick) return onNavClick(href);
@@ -21,10 +20,10 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, onNavClick, backgroun
   };
   return (
     <div className="min-h-screen text-brand-text font-body antialiased">
-      <div
-        className="shell-backdrop"
-        style={{ backgroundImage: `url(${backgroundImage ?? siteContent.backgroundImage})` }}
-        aria-hidden="true"
+      <BackgroundMedia
+        image={siteContent.backgroundImage}
+        overlay="rgba(10, 10, 10, 0.45)"
+        className="background-media--fixed"
       />
       <Header
         navigation={siteContent.navigation}

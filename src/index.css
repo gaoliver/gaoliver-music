@@ -46,27 +46,19 @@
 
 @layer components {
   /* Persistent cinematic backdrop. The reference site paints one cover image
-     behind the whole document with background-attachment: fixed; this layer
-     reproduces that without relying on body background shorthand. */
-  .shell-backdrop {
+     behind the whole document with background-attachment: fixed; pinning the
+     shared BackgroundMedia component reproduces that. */
+  .background-media--fixed {
     position: fixed;
-    inset: 0;
     z-index: -1;
     background-color: var(--shell-bg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    pointer-events: none;
-    /* Reference treatment: desaturated and slightly crushed, so overlaid
-       type stays legible regardless of the underlying frame. */
-    filter: grayscale(1) contrast(1.15);
   }
 
-  .shell-backdrop::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(10, 10, 10, 0.45);
+  /* Reference treatment: desaturated and slightly crushed, so overlaid type
+     stays legible regardless of the underlying frame. */
+  .background-media--fixed .background-media__image,
+  .background-media--fixed .background-media__video {
+    filter: grayscale(1) contrast(1.15);
   }
 
   .shell-header {
