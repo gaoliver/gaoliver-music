@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import Hero from '../../components/organisms/Hero';
 import Releases from '../../components/organisms/Releases';
-import Divider from '../../components/atoms/Divider';
+import { PageContentSurface, PageSection } from '../../components/design-system';
 import MainLayout from '../../templates/MainLayout';
 import { aboutContent, contactContent, homeContent, releaseCatalog } from '../../data';
 import { SITE_URL } from '../../lib/seo';
@@ -40,31 +40,28 @@ const Home: React.FC = () => {
         ctaSecondary={homeContent.hero.ctaSecondary}
         featuredRelease={featuredRelease}
       />
-      <Divider />
-      <section id="about" className="pt-24 pb-12">
-        <div className="container mx-auto px-6 max-w-3xl">
-          <h2 className="mb-4 font-title text-3xl md:text-4xl">{aboutContent.title}</h2>
-          <p className="mb-6 text-brand-muted">{homeContent.about.summary}</p>
-          <Link to="/about" className="inline-flex rounded-md bg-brand-accent px-5 py-3 font-semibold text-black">
-            {homeContent.about.cta.label}
-          </Link>
-        </div>
-      </section>
-      <Divider />
-      <Releases 
-        releases={releaseCatalog.releases}
-        viewAllCta={homeContent.releases.cta}
-      />
-      <Divider />
-      <section id="contact" className="pt-24 pb-12">
-        <div className="container mx-auto px-6 max-w-3xl">
-          <h2 className="mb-4 font-title text-3xl md:text-4xl">{contactContent.title}</h2>
-          <p className="mb-6 text-brand-muted">{contactContent.description}</p>
-          <Link to="/contact" className="inline-flex rounded-md bg-brand-accent px-5 py-3 font-semibold text-black">
-            Send a message
-          </Link>
-        </div>
-      </section>
+      <PageContentSurface aria-label="G.A. Oliver highlights">
+        <PageSection title={aboutContent.title}>
+          <div className="max-w-3xl">
+            <p className="mb-6 text-[var(--shell-muted-light)]">{homeContent.about.summary}</p>
+            <Link to="/about" className="inline-flex rounded-md bg-brand-accent px-5 py-3 font-semibold text-black">
+              {homeContent.about.cta.label}
+            </Link>
+          </div>
+        </PageSection>
+        <Releases
+          releases={releaseCatalog.releases}
+          viewAllCta={homeContent.releases.cta}
+        />
+        <PageSection title={contactContent.title}>
+          <div className="max-w-3xl">
+            <p className="mb-6 text-[var(--shell-muted-light)]">{contactContent.description}</p>
+            <Link to="/contact" className="inline-flex rounded-md bg-brand-accent px-5 py-3 font-semibold text-black">
+              Send a message
+            </Link>
+          </div>
+        </PageSection>
+      </PageContentSurface>
     </MainLayout>
   );
 };
