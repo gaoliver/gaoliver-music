@@ -73,6 +73,7 @@ const Header: React.FC<HeaderProps> = ({ navigation, cta, socialLinks, onNavClic
             isOpen={isDrawerOpen}
             onClick={() => setIsDrawerOpen((open) => !open)}
             controls={MOBILE_MENU_ID}
+            className="ml-auto lg:ml-0"
           />
         </nav>
       </header>
