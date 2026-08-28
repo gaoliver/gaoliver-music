@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router';
 import SocialLinks from '../../molecules/SocialLinks';
 import type { CTA } from '../../../types/cta';
 import type { NavigationItem, SocialLinkData } from '../../../types/navigation';
@@ -104,17 +105,17 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
             }
 
             return (
-              <a
+              <Link
                 key={item.href}
-                href={item.href}
+                to={item.href}
                 onClick={(event) => {
-                  if (item.href.startsWith('#')) event.preventDefault();
+                  event.preventDefault();
                   handleNavClick(item.href);
                 }}
                 className="mobile-menu-link"
               >
                 {item.label}
-              </a>
+              </Link>
             );
           })}
         </nav>
