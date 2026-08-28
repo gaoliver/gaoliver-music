@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export interface BackgroundMediaProps {
   image: string;
@@ -19,24 +19,25 @@ export interface BackgroundMediaProps {
   className?: string;
 }
 
-const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
 function useReducedMotion(): boolean {
-  const [reducedMotion, setReducedMotion] = useState(() => (
-    typeof window !== 'undefined'
-      && typeof window.matchMedia === 'function'
-      && window.matchMedia(REDUCED_MOTION_QUERY).matches
-  ));
+  const [reducedMotion, setReducedMotion] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      typeof window.matchMedia === "function" &&
+      window.matchMedia(REDUCED_MOTION_QUERY).matches,
+  );
 
   useEffect(() => {
-    if (typeof window.matchMedia !== 'function') return undefined;
+    if (typeof window.matchMedia !== "function") return undefined;
 
     const mediaQuery = window.matchMedia(REDUCED_MOTION_QUERY);
     const updatePreference = () => setReducedMotion(mediaQuery.matches);
 
     updatePreference();
-    mediaQuery.addEventListener('change', updatePreference);
-    return () => mediaQuery.removeEventListener('change', updatePreference);
+    mediaQuery.addEventListener("change", updatePreference);
+    return () => mediaQuery.removeEventListener("change", updatePreference);
   }, []);
 
   return reducedMotion;
@@ -46,12 +47,12 @@ function useReducedMotion(): boolean {
 export default function BackgroundMedia({
   image,
   imageSources = [],
-  imageAlt = '',
+  imageAlt = "",
   video,
   videoSources = [],
   poster,
   overlay,
-  className = '',
+  className = "",
 }: BackgroundMediaProps) {
   const reducedMotion = useReducedMotion();
   const [videoAvailable, setVideoAvailable] = useState(Boolean(video));
@@ -60,20 +61,22 @@ export default function BackgroundMedia({
   return (
     <div className={`background-media ${className}`.trim()} aria-hidden="true">
       <picture>
-        {imageSources.map((source) => (
-          <source
-            key={`${source.media ?? 'default'}-${source.srcSet}`}
-            srcSet={source.srcSet}
-            media={source.media}
-            type={source.type}
-          />
-        ))}
-        <img
-          className="background-media__image"
-          src={poster || image}
-          alt={imageAlt}
-          draggable={false}
-        />
+        {image &&
+          imageSources.map((source) => (
+            <source
+              key={`${source.media ?? "default"}-${source.srcSet}`}
+              srcSet={source.srcSet}
+              media={source.media}
+              type={source.type}
+            />
+          )) && (
+            <img
+              className="background-media__image"
+              src={poster || image}
+              alt={imageAlt}
+              draggable={false}
+            />
+          )}
       </picture>
       {shouldRenderVideo && (
         <video
@@ -88,7 +91,7 @@ export default function BackgroundMedia({
         >
           {videoSources.map((source) => (
             <source
-              key={`${source.media ?? 'default'}-${source.src}`}
+              key={`${source.media ?? "default"}-${source.src}`}
               src={source.src}
               media={source.media}
               type={source.type}

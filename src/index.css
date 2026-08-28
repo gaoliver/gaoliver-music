@@ -234,6 +234,7 @@
 
   .background-media__image {
     z-index: 0;
+    opacity: 0.6;
   }
 
   .background-media__video {
