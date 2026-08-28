@@ -4,7 +4,7 @@
     "description": "Heavy riffs • Loud screams • Deep faith",
     "lang": "en"
   },
-  "backgroundImage": "/images/singing-of-christ-church.webp",
+  "backgroundImage": "/images/home-studio-recording.webp",
   "navigation": [
     { "label": "Home", "href": "/" },
     { "label": "Shows", "href": "/shows" },
@@ -15,8 +15,16 @@
         "image": "/images/singing-studio-white.webp",
         "imageAlt": "",
         "items": [
-          { "label": "Story", "href": "/about/story", "description": "The journey behind the music" },
-          { "label": "Timeline", "href": "/about/timeline", "description": "Releases and milestones" }
+          {
+            "label": "Story",
+            "href": "/about/story",
+            "description": "The journey behind the music"
+          },
+          {
+            "label": "Timeline",
+            "href": "/about/timeline",
+            "description": "Releases and milestones"
+          }
         ]
       }
     },
@@ -27,9 +35,21 @@
         "image": "/images/albums/xmas-album-red.webp",
         "imageAlt": "",
         "items": [
-          { "label": "Discography", "href": "/releases", "description": "Every official release" },
-          { "label": "Lyrics", "href": "/lyrics", "description": "Words to the songs" },
-          { "label": "Videos", "href": "/videos", "description": "Official videos" }
+          {
+            "label": "Discography",
+            "href": "/releases",
+            "description": "Every official release"
+          },
+          {
+            "label": "Lyrics",
+            "href": "/lyrics",
+            "description": "Words to the songs"
+          },
+          {
+            "label": "Videos",
+            "href": "/videos",
+            "description": "Official videos"
+          }
         ]
       }
     },
@@ -41,14 +61,46 @@
     "url": "https://ffm.bio/gaoliver"
   },
   "socialLinks": [
-    { "platform": "Spotify", "url": "https://open.spotify.com/artist/0QcdwXaf0rj4RtErlHVH4y", "ariaLabel": "Listen on Spotify" },
-    { "platform": "AppleMusic", "url": "https://music.apple.com/de/artist/g-a-oliver/1779139802", "ariaLabel": "Listen on Apple Music" },
-    { "platform": "AmazonMusic", "url": "https://music.amazon.com/artists/B0CKNDLZNZ/g-a-oliver", "ariaLabel": "Listen on Amazon Music" },
-    { "platform": "Deezer", "url": "https://www.deezer.com/en/artist/234915551", "ariaLabel": "Listen on Deezer" },
-    { "platform": "YouTube", "url": "https://www.youtube.com/@gaoliver", "ariaLabel": "Watch on YouTube" },
-    { "platform": "Instagram", "url": "https://www.instagram.com/eugaoliver/", "ariaLabel": "Follow on Instagram" },
-    { "platform": "TikTok", "url": "https://www.tiktok.com/@eugaoliver", "ariaLabel": "Follow on TikTok" },
-    { "platform": "Facebook", "url": "https://www.facebook.com/gaoliver", "ariaLabel": "Follow on Facebook" }
+    {
+      "platform": "Spotify",
+      "url": "https://open.spotify.com/artist/0QcdwXaf0rj4RtErlHVH4y",
+      "ariaLabel": "Listen on Spotify"
+    },
+    {
+      "platform": "AppleMusic",
+      "url": "https://music.apple.com/de/artist/g-a-oliver/1779139802",
+      "ariaLabel": "Listen on Apple Music"
+    },
+    {
+      "platform": "AmazonMusic",
+      "url": "https://music.amazon.com/artists/B0CKNDLZNZ/g-a-oliver",
+      "ariaLabel": "Listen on Amazon Music"
+    },
+    {
+      "platform": "Deezer",
+      "url": "https://www.deezer.com/en/artist/234915551",
+      "ariaLabel": "Listen on Deezer"
+    },
+    {
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/@gaoliver",
+      "ariaLabel": "Watch on YouTube"
+    },
+    {
+      "platform": "Instagram",
+      "url": "https://www.instagram.com/eugaoliver/",
+      "ariaLabel": "Follow on Instagram"
+    },
+    {
+      "platform": "TikTok",
+      "url": "https://www.tiktok.com/@eugaoliver",
+      "ariaLabel": "Follow on TikTok"
+    },
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/gaoliver",
+      "ariaLabel": "Follow on Facebook"
+    }
   ],
   "footer": {
     "copyright": "© [YEAR] G.A. Oliver | All rights reserved."

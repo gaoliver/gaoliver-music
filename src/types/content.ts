@@ -9,7 +9,7 @@ export interface ReleaseCatalogContent { title: string; releases: ReleaseContent
 export interface AboutContent { title: string; summary: string; description: string; details: string[]; image: string; backgroundImage?: string; lightContent?: boolean; }
 export interface ContactContent { title: string; description: string; email?: string; form: { endpoint: string; fields: { name: string; email: string; message: string }; submitText: string; messages: { success: string; error: string; sending: string; timeout?: string } } }
 export interface TimelineContent { title: string; description: string; entries: Array<{ year: string; title: string; description: string }> }
-export interface HomeContent { background: { image: string; video?: string; poster?: string }; hero: { title: string; subtitle: string; ctaPrimary: CTA; ctaSecondary: CTA } }
+export interface HomeContent { background: { image?: string; video?: string; poster?: string }; hero: { title: string; subtitle: string; ctaPrimary: CTA; ctaSecondary: CTA } }
 export interface SiteContent { meta: { title: string; description: string; lang: string }; backgroundImage: string; navigation: NavigationItem[]; headerCta?: CTA; socialLinks: SocialLinkData[]; footer: { copyright: string } }
 export interface ShowContent { id: string; date: string; venue: string; city: string; ticketUrl?: string; }
 export interface ArticleContent { slug: string; title: string; publishedAt: string; summary: string; image?: string; }
@@ -129,7 +129,11 @@ export function validateHomeContent(value: unknown): HomeContent {
   const background = record(data.background, `${path}.background`);
   return {
     background: {
-      image: requiredString(background.image, `${path}.background.image`),
+      // An absent or blank image means "use the site's shared backdrop" -
+      // a homepage-specific image is a deliberate override, not a requirement.
+      image: background.image === undefined || background.image === ''
+        ? undefined
+        : requiredString(background.image, `${path}.background.image`),
       video: optionalString(background.video, `${path}.background.video`),
       poster: optionalString(background.poster, `${path}.background.poster`),
     },

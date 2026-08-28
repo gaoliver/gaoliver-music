@@ -12,7 +12,7 @@ interface MainLayoutProps {
    * Route-specific backdrop. Supports an optional looping video, which is
    * suppressed for reduced-motion users. Defaults to the shared site image.
    */
-  background?: { image: string; video?: string; poster?: string };
+  background?: { image?: string; video?: string; poster?: string };
 }
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children, onNavClick, background }) => {

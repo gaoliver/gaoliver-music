@@ -18,7 +18,10 @@ describe('site content', () => {
   it('validates every content document at import time', () => {
     expect(siteContent.navigation.length).toBeGreaterThan(0);
     expect(siteContent.backgroundImage).toBeTruthy();
-    expect(homeContent.background.image).toBeTruthy();
+    // background.image is intentionally optional here: leaving it unset (or
+    // blank) means the homepage falls back to the site's shared backdrop,
+    // resolved by MainLayout - see MainLayout.test.tsx.
+    expect(homeContent.background.image === undefined || homeContent.background.image.length > 0).toBe(true);
     expect(aboutContent.summary).toBeTruthy();
     expect(contactContent.form.endpoint).toBeTruthy();
     expect(releaseCatalog.releases.length).toBeGreaterThan(0);
