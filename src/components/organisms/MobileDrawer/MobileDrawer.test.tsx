@@ -1,5 +1,6 @@
 import { createRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router';
 import { describe, expect, it, vi } from 'vitest';
 import MobileDrawer from './MobileDrawer';
 
@@ -13,7 +14,7 @@ describe('MobileDrawer', () => {
     const onClose = vi.fn();
     const triggerRef = createRef<HTMLButtonElement>();
     const { rerender } = render(
-      <>
+      <MemoryRouter>
         <button ref={triggerRef}>Menu trigger</button>
         <MobileDrawer
           id="mobile-menu"
@@ -23,7 +24,7 @@ describe('MobileDrawer', () => {
           socialLinks={[]}
           triggerRef={triggerRef}
         />
-      </>,
+      </MemoryRouter>,
     );
 
     expect(screen.getByRole('link', { name: 'Home' })).toHaveFocus();
@@ -31,7 +32,7 @@ describe('MobileDrawer', () => {
     expect(onClose).toHaveBeenCalledOnce();
 
     rerender(
-      <>
+      <MemoryRouter>
         <button ref={triggerRef}>Menu trigger</button>
         <MobileDrawer
           id="mobile-menu"
@@ -41,7 +42,7 @@ describe('MobileDrawer', () => {
           socialLinks={[]}
           triggerRef={triggerRef}
         />
-      </>,
+      </MemoryRouter>,
     );
     expect(screen.getByRole('button', { name: 'Menu trigger' })).toHaveFocus();
   });
