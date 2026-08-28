@@ -266,7 +266,7 @@ export function validateAlbumCatalog(value: unknown): AlbumCatalogContent {
   const albums = data.albums.map((item, index): AlbumContent => {
     const itemPath = `${path}.albums[${index}]`;
     const album = record(item, itemPath);
-    if (!Array.isArray(album.songs) || album.songs.length === 0) {
+    if (!Array.isArray(album.songs)) {
       throw new Error(
         `Invalid content in ${itemPath}.songs: expected a non-empty array`,
       );
