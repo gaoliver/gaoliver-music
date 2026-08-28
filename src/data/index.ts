@@ -1,8 +1,8 @@
 export {
   aboutContent,
+  albumCatalog,
   contactContent,
   homeContent,
-  releaseCatalog,
   showsContent,
   siteContent,
   timelineContent,

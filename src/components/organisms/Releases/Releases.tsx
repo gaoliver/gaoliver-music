@@ -2,7 +2,7 @@ import React from 'react';
 import ReleaseCard from '../../molecules/ReleaseCard';
 import type { CTA } from '../../../types/cta';
 
-interface Release {
+interface Album {
   id: string;
   title: string;
   type: string;
@@ -18,14 +18,14 @@ interface Release {
 }
 
 interface ReleasesProps {
-  releases: Release[];
+  albums: Album[];
   viewAllCta?: CTA;
   detailBasePath?: string;
   /** Section heading. Omit on the releases route, where the page title already says it. */
   title?: string;
 }
 
-const Releases: React.FC<ReleasesProps> = ({ releases, viewAllCta, detailBasePath, title }) => {
+const Releases: React.FC<ReleasesProps> = ({ albums, viewAllCta, detailBasePath, title }) => {
   const isExternalLink = viewAllCta?.url && (viewAllCta.url.startsWith('http://') || viewAllCta.url.startsWith('https://'));
   
   return (
@@ -51,15 +51,15 @@ const Releases: React.FC<ReleasesProps> = ({ releases, viewAllCta, detailBasePat
           </div>
         )}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {releases.map((release) => (
+          {albums.map((album) => (
             <ReleaseCard
-              key={release.id}
-              title={release.title}
-              type={release.type}
-              year={release.year}
-              cover={release.cover}
-              links={release.links}
-              detailUrl={detailBasePath ? `${detailBasePath}/${release.id}` : undefined}
+              key={album.id}
+              title={album.title}
+              type={album.type}
+              year={album.year}
+              cover={album.cover}
+              links={album.links}
+              detailUrl={detailBasePath ? `${detailBasePath}/${album.id}` : undefined}
             />
           ))}
         </div>

@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import {
   aboutContent,
+  albumCatalog,
   contactContent,
   homeContent,
-  releaseCatalog,
   siteContent,
   timelineContent,
 } from './content';
@@ -24,7 +24,7 @@ describe('site content', () => {
     expect(homeContent.background.image === undefined || homeContent.background.image.length > 0).toBe(true);
     expect(aboutContent.summary).toBeTruthy();
     expect(contactContent.form.endpoint).toBeTruthy();
-    expect(releaseCatalog.releases.length).toBeGreaterThan(0);
+    expect(albumCatalog.albums.length).toBeGreaterThan(0);
     expect(timelineContent.entries.length).toBeGreaterThan(0);
   });
 

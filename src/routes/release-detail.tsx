@@ -1,19 +1,16 @@
 import type { MetaFunction } from 'react-router';
-import { releaseCatalog } from '../data';
-import { releaseMeta } from '../lib/seo';
+import { albumCatalog } from '../data';
+import { findAlbum } from '../lib/discography';
+import { albumMeta } from '../lib/seo';
 import ReleaseDetail from '../pages/ReleaseDetail';
 
-function findRelease(slug: string | undefined) {
-  return releaseCatalog.releases.find((release) => release.id === slug);
-}
-
 export const meta: MetaFunction = ({ params }) => {
-  const release = findRelease(params.slug);
-  return release
-    ? releaseMeta(release)
+  const album = findAlbum(albumCatalog, params.slug);
+  return album
+    ? albumMeta(album)
     : [{ title: 'Release not found | G.A. Oliver' }, { name: 'robots', content: 'noindex, nofollow' }];
 };
 
 export default function ReleaseDetailRoute({ params }: { params: { slug?: string } }) {
-  return <ReleaseDetail release={findRelease(params.slug)} />;
+  return <ReleaseDetail album={findAlbum(albumCatalog, params.slug)} />;
 }

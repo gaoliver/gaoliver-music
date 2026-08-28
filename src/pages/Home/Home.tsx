@@ -1,7 +1,8 @@
 import React from 'react';
 import Hero from '../../components/organisms/Hero';
 import MainLayout from '../../templates/MainLayout';
-import { homeContent, releaseCatalog } from '../../data';
+import { homeContent, albumCatalog } from '../../data';
+import { albumVideoId } from '../../lib/discography';
 import { SITE_URL } from '../../lib/seo';
 
 const musicGroupStructuredData = {
@@ -16,7 +17,8 @@ const musicGroupStructuredData = {
  * shell backdrop plus the hero. Everything else lives on its own route.
  */
 const Home: React.FC = () => {
-  const featuredRelease = releaseCatalog.releases.find((release) => release.featured);
+  const featuredAlbum = albumCatalog.albums.find((album) => album.featured);
+  const featuredRelease = featuredAlbum ? { ...featuredAlbum, videoId: albumVideoId(featuredAlbum) } : undefined;
 
   return (
     <MainLayout background={homeContent.background}>

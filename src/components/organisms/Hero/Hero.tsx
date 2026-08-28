@@ -10,7 +10,7 @@ interface HeroProps {
   subtitle: string;
   ctaPrimary: CTA;
   ctaSecondary: CTA;
-  featuredRelease?: ReleaseCardProps;
+  featuredRelease?: ReleaseCardProps & { id: string };
 }
 
 /**
@@ -62,6 +62,7 @@ const Hero: React.FC<HeroProps> = ({
                 links={featuredRelease.links}
                 featured={true}
                 newReleaseLabel={featuredRelease.newReleaseLabel}
+                detailUrl={`/releases/${featuredRelease.id}`}
               />
             ) : null}
           </div>

@@ -115,29 +115,39 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
     );
   }
 
+  const cardMedia = (
+    <div
+      className="aspect-square bg-cover bg-center transition-transform group-hover:scale-[1.02]"
+      style={{ backgroundImage: `url(${cover})` }}
+    />
+  );
+  const cardHeading = (
+    <div className="px-6 pt-6">
+      <h3 className="text-lg font-semibold">{title}</h3>
+      <p className="text-sm text-brand-muted">
+        {type} • {year}
+      </p>
+    </div>
+  );
+
   return (
     <article className="group overflow-hidden rounded-2xl border border-white/10 bg-black/40 backdrop-blur-sm">
-      <div
-        className="aspect-square bg-cover bg-center transition-transform group-hover:scale-[1.02]"
-        style={{ backgroundImage: `url(${cover})` }}
-      />
-      <div className="p-6">
-        <h3 className="text-lg font-semibold">
-          {detailUrl ? (
-            <Link
-              to={detailUrl}
-              className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
-            >
-              {title}
-            </Link>
-          ) : (
-            title
-          )}
-        </h3>
-        <p className="text-sm text-brand-muted">
-          {type} • {year}
-        </p>
-        <div className="flex flex-wrap gap-2 pt-3">
+      {detailUrl ? (
+        <Link
+          to={detailUrl}
+          className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
+        >
+          {cardMedia}
+          {cardHeading}
+        </Link>
+      ) : (
+        <>
+          {cardMedia}
+          {cardHeading}
+        </>
+      )}
+      <div className="p-6 pt-3">
+        <div className="flex flex-wrap gap-2">
           {links.spotify && (
             <Button
               variant="secondary"

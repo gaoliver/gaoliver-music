@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
 import { PageContentSurface, PageTitle } from '../../components/design-system';
-import { releaseCatalog } from '../../data';
+import { albumCatalog } from '../../data';
+import { allSongs } from '../../lib/discography';
 import MainLayout from '../../templates/MainLayout';
 
 export default function LyricsPage() {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const songs = releaseCatalog.releases.filter((release) => release.lyrics && release.lyrics.length > 0);
+  const songs = allSongs(albumCatalog)
+    .map(({ song }) => song)
+    .filter((song) => song.lyrics && song.lyrics.length > 0);
 
   // Filter songs based on search query
   const filteredSongs = songs.filter((song) =>
