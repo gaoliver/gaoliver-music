@@ -8,16 +8,18 @@ import type { ReleaseCardProps } from "../../molecules/ReleaseCard/ReleaseCard";
 interface HeroProps {
   title: string;
   subtitle: string;
-  backgroundImage?: string;
   ctaPrimary: CTA;
   ctaSecondary: CTA;
-  featuredRelease: ReleaseCardProps;
+  featuredRelease?: ReleaseCardProps & { id: string };
 }
 
+/**
+ * Content-only hero. The homepage backdrop (image or video) is owned by the
+ * site shell, so this component paints no background of its own.
+ */
 const Hero: React.FC<HeroProps> = ({
   title,
   subtitle,
-  backgroundImage,
   ctaPrimary,
   ctaSecondary,
   featuredRelease,
@@ -25,26 +27,8 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-24 overflow-hidden"
+      className="relative flex flex-1 items-center overflow-hidden py-4"
     >
-      {/* Background Image (if provided) */}
-      {backgroundImage && (
-        <div
-          className="absolute inset-0 z-0 bg-cover bg-center opacity-25"
-          style={{
-            backgroundImage: `url(${backgroundImage})`,
-            filter: "blur(8px)",
-            transform: "scale(1.1)",
-          }}
-        />
-      )}
-      {/* Radial Vignette Overlay - Complete black at all edges, larger transparent center */}
-      <div className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,_transparent_0%,_transparent_15%,_rgba(18,18,18,0.8)_40%,_rgba(18,18,18,1)_75%)]" />
-      {/* Top and Bottom Black Gradient */}
-      <div className="absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,_rgba(18,18,18,1)_0%,_transparent_20%,_transparent_80%,_rgba(18,18,18,1)_100%)]" />
-      {/* Accent Gradient Overlay */}
-      {/* <div className="absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_center,_rgba(228,91,102,0.12)_0%,_transparent_50%)]" /> */}
-      <div className="absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_center,_rgba(119,141,251,0.12)_0%,_transparent_50%)]" />
       <div className="container md:max-w-7xl relative z-10">
         <div className="grid md:grid-cols-2 md:gap-40 gap-10 items-center">
           <div className="space-y-6 text-center">
@@ -66,17 +50,21 @@ const Hero: React.FC<HeroProps> = ({
               )}
             </div>
           </div>
-          <div>
-            <ReleaseCard
-              title={featuredRelease.title}
-              type={featuredRelease.type}
-              year={featuredRelease.year}
-              cover={featuredRelease.cover}
-              videoId={featuredRelease.videoId}
-              links={featuredRelease.links}
-              featured={true}
-              newReleaseLabel={featuredRelease.newReleaseLabel}
-            />
+          {/* Capped so the hero still fits one screen alongside the shell. */}
+          <div className="mx-auto w-full max-w-[26rem]">
+            {featuredRelease ? (
+              <ReleaseCard
+                title={featuredRelease.title}
+                type={featuredRelease.type}
+                year={featuredRelease.year}
+                cover={featuredRelease.cover}
+                videoId={featuredRelease.videoId}
+                links={featuredRelease.links}
+                featured={true}
+                newReleaseLabel={featuredRelease.newReleaseLabel}
+                detailUrl={`/releases/${featuredRelease.id}`}
+              />
+            ) : null}
           </div>
         </div>
       </div>

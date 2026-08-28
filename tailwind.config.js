@@ -5,20 +5,22 @@ export default {
     extend: {
       colors: {
         brand: {
-          bg: "#121212",
-          bgAlt: "#0C0C0C",
-          text: "#E5E5E5",
-          muted: "#8E8E8E",
-          // accent: "#E45B66"
-          accent: "#778dfbff",
+          bg: "#0a0a0a",
+          bgAlt: "#0a0a0a",
+          text: "#fdfdfd",
+          muted: "#7e848c",
+          // accent: "#ad0e10",
+          accent: "#2c1fa5ff",
+          accentHover: "#ef090c",
         },
       },
       fontFamily: {
-        title: ["Cinzel", "serif"],
-        body: ["Inter", "system-ui", "sans-serif"],
+        title: ["Roboto", "Helvetica Neue", "sans-serif"],
+        body: ["Roboto", "Helvetica Neue", "sans-serif"],
       },
       boxShadow: {
         soft: "0 10px 30px rgba(0,0,0,0.35)",
+        surface: "0 -10px 100px 100px #0a0a0a",
       },
       container: {
         center: true,

@@ -1,20 +1,16 @@
 import React from 'react';
 import SocialLink from '../../atoms/SocialLink';
-
-interface SocialLinkData {
-  platform: string;
-  url: string;
-  ariaLabel: string;
-}
+import type { SocialLinkData } from '../../../types/navigation';
 
 interface SocialLinksProps {
   links: SocialLinkData[];
   withDividers?: boolean;
+  className?: string;
 }
 
-const SocialLinks: React.FC<SocialLinksProps> = ({ links, withDividers = true }) => {
+const SocialLinks: React.FC<SocialLinksProps> = ({ links, withDividers = true, className = '' }) => {
   return (
-    <div className="flex items-center flex-wrap gap-4">
+    <div className={`flex flex-wrap items-center gap-5 ${className}`.trim()}>
       {links.map((link, index) => (
         <React.Fragment key={link.platform}>
           <SocialLink
@@ -32,4 +28,3 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ links, withDividers = true })
 };
 
 export default SocialLinks;
-

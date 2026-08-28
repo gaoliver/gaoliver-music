@@ -2,7 +2,7 @@ import React from 'react';
 import ReleaseCard from '../../molecules/ReleaseCard';
 import type { CTA } from '../../../types/cta';
 
-interface Release {
+interface Album {
   id: string;
   title: string;
   type: string;
@@ -18,38 +18,48 @@ interface Release {
 }
 
 interface ReleasesProps {
-  releases: Release[];
+  albums: Album[];
   viewAllCta?: CTA;
+  detailBasePath?: string;
+  /** Section heading. Omit on the releases route, where the page title already says it. */
+  title?: string;
 }
 
-const Releases: React.FC<ReleasesProps> = ({ releases, viewAllCta }) => {
+const Releases: React.FC<ReleasesProps> = ({ albums, viewAllCta, detailBasePath, title }) => {
   const isExternalLink = viewAllCta?.url && (viewAllCta.url.startsWith('http://') || viewAllCta.url.startsWith('https://'));
   
   return (
-    <section id="releases" className="pt-24 pb-12">
-      <div className="container mx-auto px-6">
-        <div className="flex items-end justify-between mb-6">
-          <h2 className="font-title text-3xl md:text-4xl">Releases</h2>
-          {viewAllCta && viewAllCta.isActive && (
-            <a 
-              href={viewAllCta.url} 
-              className="text-sm text-brand-muted hover:text-brand-accent transition"
-              target={isExternalLink ? '_blank' : undefined}
-              rel={isExternalLink ? 'noopener noreferrer' : undefined}
-            >
-              {viewAllCta.label}
-            </a>
-          )}
-        </div>
+    <section id="releases" className="pt-12 pb-12">
+      <div>
+        {(title || (viewAllCta && viewAllCta.isActive)) && (
+          <div className="mb-5 flex items-end justify-between gap-6">
+            {title && (
+              <h2 className="text-2xl font-bold uppercase leading-none text-white md:text-3xl">
+                {title}
+              </h2>
+            )}
+            {viewAllCta && viewAllCta.isActive && (
+              <a
+                href={viewAllCta.url}
+                className="shrink-0 text-base uppercase text-[var(--shell-muted)] transition-colors hover:text-brand-accentHover"
+                target={isExternalLink ? '_blank' : undefined}
+                rel={isExternalLink ? 'noopener noreferrer' : undefined}
+              >
+                {viewAllCta.label}
+              </a>
+            )}
+          </div>
+        )}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {releases.map((release) => (
+          {albums.map((album) => (
             <ReleaseCard
-              key={release.id}
-              title={release.title}
-              type={release.type}
-              year={release.year}
-              cover={release.cover}
-              links={release.links}
+              key={album.id}
+              title={album.title}
+              type={album.type}
+              year={album.year}
+              cover={album.cover}
+              links={album.links}
+              detailUrl={detailBasePath ? `${detailBasePath}/${album.id}` : undefined}
             />
           ))}
         </div>
@@ -59,4 +69,3 @@ const Releases: React.FC<ReleasesProps> = ({ releases, viewAllCta }) => {
 };
 
 export default Releases;
-

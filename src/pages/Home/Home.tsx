@@ -1,62 +1,40 @@
 import React from 'react';
 import Hero from '../../components/organisms/Hero';
-import About from '../../components/organisms/About';
-import Releases from '../../components/organisms/Releases';
-import Contact from '../../components/organisms/Contact';
-import Divider from '../../components/atoms/Divider';
 import MainLayout from '../../templates/MainLayout';
-import homeData from '../../data/home.json';
-import aboutData from '../../data/about.json';
-import releasesData from '../../data/releases.json';
-import contactData from '../../data/contact.json';
+import { homeContent, albumCatalog } from '../../data';
+import { albumVideoId } from '../../lib/discography';
+import { SITE_URL } from '../../lib/seo';
 
+const musicGroupStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'MusicGroup',
+  name: 'G.A. Oliver',
+  url: SITE_URL,
+};
+
+/**
+ * Like the reference site, the homepage is a single cinematic canvas: the
+ * shell backdrop plus the hero. Everything else lives on its own route.
+ */
 const Home: React.FC = () => {
-  const handleNavClick = (href: string) => {
-    if (href.startsWith('#')) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
-
-  const featuredRelease = releasesData.releases.find((release) => release.featured);
+  const featuredAlbum = albumCatalog.albums.find((album) => album.featured);
+  const featuredRelease = featuredAlbum ? { ...featuredAlbum, videoId: albumVideoId(featuredAlbum) } : undefined;
 
   return (
-    <MainLayout onNavClick={handleNavClick}>
+    <MainLayout background={homeContent.background}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(musicGroupStructuredData) }}
+      />
       <Hero
-        title={homeData.hero.title}
-        subtitle={homeData.hero.subtitle}
-        backgroundImage={homeData.hero.backgroundImage}
-        ctaPrimary={homeData.hero.ctaPrimary}
-        ctaSecondary={homeData.hero.ctaSecondary}
-        featuredRelease={featuredRelease!}
-      />
-      <Divider />
-      <About
-        title={aboutData.title}
-        description={aboutData.description}
-        details={aboutData.details}
-        image={aboutData.image}
-        backgroundImage={aboutData.backgroundImage}
-        lightContent={aboutData.lightContent}
-      />
-      <Divider />
-      <Releases 
-        releases={releasesData.releases}
-        viewAllCta={homeData.releases.cta}
-      />
-      <Divider />
-      <Contact
-        title={contactData.title}
-        endpoint={contactData.form.endpoint}
-        fields={contactData.form.fields}
-        submitText={contactData.form.submitText}
-        messages={contactData.form.messages}
+        title={homeContent.hero.title}
+        subtitle={homeContent.hero.subtitle}
+        ctaPrimary={homeContent.hero.ctaPrimary}
+        ctaSecondary={homeContent.hero.ctaSecondary}
+        featuredRelease={featuredRelease}
       />
     </MainLayout>
   );
 };
 
 export default Home;
-

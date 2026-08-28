@@ -1,0 +1,156 @@
+{
+  "title": "Discography",
+  "albums": [
+    {
+      "id": "in-the-waters",
+      "title": "In The Waters (Walk Upon)",
+      "type": "Single",
+      "year": "2026",
+      "cover": "/images/albums/in-the-water-single-cover.webp",
+      "featured": true,
+      "newReleaseLabel": "New Single",
+      "links": {
+        "spotify": "https://ffm.to/ga-oliver-in-the-waters",
+        "other": "https://ffm.to/ga-oliver-in-the-waters"
+      },
+      "songs": []
+    },
+    {
+      "id": "night-divine",
+      "title": "Night Divine",
+      "type": "EP",
+      "year": "2025",
+      "cover": "/images/albums/xmas-album-red.webp",
+      "links": {
+        "spotify": "https://open.spotify.com/album/3Km26UkX6OjctP5jLdXMuh",
+        "appleMusic": "https://music.apple.com/album/night-divine-ep/1847123904",
+        "other": "https://ffm.to/ga-oliver-night-divine",
+        "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_loThs1JIe26CtxnHxD-UzFn-IvWnyYJVo&si=9OoLnXcckctevUQi"
+      },
+      "songs": [
+        {
+          "id": "carol-of-the-bells",
+          "title": "Carol of the Bells",
+          "composer": "*",
+          "videoId": "Ej5erDfs4Oc",
+          "lyrics": [
+            "Hark how the bells, sweet silver bells\nAll seem to say, 'Throw cares away'\nChristmas is here, bringing good cheer\nTo young and old, meek and the bold",
+            "Ding-dong, ding-dong, that is their song\nWith joyful ring, all caroling\nOne seems to hear, words of good cheer\nFrom ev'rywhere, filling the air",
+            "Oh, how they pound, raising the sound\nO'er hill and dale, telling their tale\nGaily they ring while people sing\nSongs of good cheer, Christmas is here",
+            "Merry, merry, merry, merry Christmas\nMerry, merry, merry, merry Christmas"
+          ],
+          "lyricsDraft": false,
+          "links": {
+            "spotify": "https://open.spotify.com/track/3bckqNs1gdnqud2AEKoIAj?si=24c7e21782984584",
+            "appleMusic": "https://music.apple.com/nl/album/carol-of-the-bells-cover/1847123904?i=1847123967",
+            "other": "https://ffm.to/ga-oliver-night-divine",
+            "youtube": "https://youtu.be/Ej5erDfs4Oc?si=-eLnzHG8N6RkSL0B"
+          }
+        },
+        {
+          "id": "god-rest-ye-merry-gentlemen",
+          "title": "G.R.Y.M.G. (God Rest Ye Merry Gentlemen)",
+          "composer": "*",
+          "videoId": "F8FO4gRKAYI",
+          "lyrics": [
+            "God rest you merry, gentlemen,\nLet nothing you dismay,\nRemember Christ our Savior\nWas born on Christmas Day\nTo save us all from Satan's pow'r\nWhen we were gone astray",
+            "O tidings of comfort and joy,\nComfort and joy;\nO tidings of comfort and joy.",
+            "From God our heav'nly Father\nA blessed angel came\nAnd unto certain shepherds\nBrought tidings of the same;\nHow that in Bethlehem was born\nThe Son of God by name",
+            "O tidings of comfort and joy,\nComfort and joy;\nO tidings of comfort and joy.",
+            "\"Fear not,\" then said the angel,\n\"Let nothing you affright;\nThis day is born a Savior\nof a pure virgin bright,\nto free all those who trust in Him\nfrom Satan's pow'r and might.\"",
+            "O tidings of comfort and joy,\nComfort and joy;\nO tidings of comfort and joy.",
+            "The shepherds at those tidings\nRejoiced much in mind,\nAnd left their flocks afeeding,\nIn tempest, storm, and wind,\nAnd went to Bethlehem straightway,\nThis blessed Babe to find.",
+            "O tidings of comfort and joy,\nComfort and joy;\nO tidings of comfort and joy.",
+            "Now to the Lord sing praises\nAll you within this place,\nAnd with true love and brotherhood\nEach other now embrace;\nThis holy tide of Christmas\nAll other doth deface",
+            "O tidings of comfort and joy,\nComfort and joy;\nO tidings of comfort and joy."
+          ],
+          "lyricsDraft": false,
+          "links": {
+            "spotify": "https://open.spotify.com/track/3VMGMPaAhphZvGzjBrFegR?si=22bc12f4fb054534",
+            "appleMusic": "https://music.apple.com/nl/album/g-r-y-m-g-god-rest-ye-merry-gentlemen-cover/1847123904?i=1847123969&l=en-GB",
+            "other": "https://ffm.to/ga-oliver-night-divine",
+            "youtube": "https://youtu.be/F8FO4gRKAYI?si=aAVg20zbEhq6gMSY"
+          }
+        },
+        {
+          "id": "mary-did-you-know",
+          "title": "Mary, Did You Know? (feat. Triz Furtado)",
+          "composer": "*",
+          "videoId": "4OxRjOuyF4Q",
+          "lyrics": [
+            "Mary, did you know\nThat your baby boy will one day walk on water?\nMary, did you know\nThat your baby boy will save our sons and daughters?\nDid you know\nThat your baby boy has come to make you new?\nThis child that you've delivered\nWill soon deliver you",
+            "Mary, did you know\nThat your baby boy will give sight to a blind man?\nMary, did you know\nThat your baby boy will calm a storm with His hand?\nDid you know\nThat your baby boy has walked where angels trod?\nAnd when you kiss your little baby\nYou've kissed the face of God\nMary, did you know?",
+            "The blind will see\nThe deaf will hear\nAnd the dead will live again\nThe lame will leap\nThe dumb will speak\nThe praises of the Lamb",
+            "Mary, did you know\nThat your baby boy is Lord of all creation?\nMary, did you know\nThat your baby boy will one day rule the nations?\nDid you know\nThat your baby boy is heaven's perfect Lamb?\nThis sleeping child you're holding\nIs the Great I Am",
+            "Oh, Mary, did you know?"
+          ],
+          "lyricsDraft": false,
+          "links": {
+            "spotify": "https://open.spotify.com/track/1YtMsEkaZx7AKXnYVM3f76?si=df9e1f5e765b4ca4",
+            "appleMusic": "https://music.apple.com/nl/album/mary-did-you-know-feat-triz-furtado-cover/1847123904?i=1847123970",
+            "other": "https://ffm.to/ga-oliver-night-divine",
+            "youtube": "https://youtu.be/yyvR76JArT8?si=EdHdRrDZpwwRXK19"
+          }
+        },
+        {
+          "id": "o-holy-night",
+          "title": "O Holy Night",
+          "composer": "*",
+          "videoId": "5ZvRNL0wM4E",
+          "lyrics": [
+            "O Holy night! The stars are brightly shining\nIt is the night of our dear Savior's birth\nLong lay the world in sin and error pining\n'Til He appeared and the soul felt its worth",
+            "A thrill of hope the weary world rejoices\nFor yonder breaks a new and glorious morn\nFall on your knees; O hear the Angel voices!",
+            "O night divine, O night when Christ was born\nO night, O Holy night, O night divine!",
+            "Led by the light of Faith serenely beaming\nWith glowing hearts by His cradle we stand\nSo led by light of a star sweetly gleaming\nHere come the Wise Men from Orient land",
+            "The King of kings lay thus in lowly manger\nIn all our trials born to be our friend\nHe knows our need, to our weakness is no stranger",
+            "Behold your King; before Him lowly bend\nBehold your King; before Him lowly bend",
+            "Truly He taught us to love one another;\nHis law is love and His Gospel is Peace\nChains shall He break, for the slave is our brother\nAnd in His name, all oppression shall cease",
+            "Sweet hymns of joy in grateful chorus raise we\nLet all within us Praise His Holy name\nChrist is the Lord; O praise His name forever!",
+            "His power and glory evermore proclaim\nHis power and glory evermore proclaim",
+            "Fall on your knees; O hear the Angel voices!\nO night divine, O night when Christ was born\nO night, O Holy night, O night divine!"
+          ],
+          "lyricsDraft": false,
+          "links": {
+            "spotify": "https://open.spotify.com/track/7iOf47nrIUHWIzcn2YxBVV?si=40855382ee6346fd",
+            "appleMusic": "https://music.apple.com/nl/album/o-holy-night-cover/1847123904?i=1847123971&l=en-GB",
+            "other": "https://ffm.to/ga-oliver-night-divine",
+            "youtube": "https://youtu.be/5ZvRNL0wM4E?si=_22CoeZbTx7zfNAH"
+          }
+        }
+      ]
+    },
+    {
+      "id": "hail-to-the-king",
+      "title": "Hail to the King",
+      "type": "Single",
+      "year": "2024",
+      "cover": "/images/albums/hail-to-the-king.webp",
+      "links": {
+        "spotify": "https://open.spotify.com/track/5BgXgETox5CCDKq9qjlOfB",
+        "appleMusic": "https://geo.music.apple.com/us/album/_/1779789035?i=1779789036&mt=1&app=music",
+        "other": "https://ffm.to/hailtotheking",
+        "youtube": "https://www.youtube.com/watch?v=ZLb7YkIku-8"
+      },
+      "songs": [
+        {
+          "id": "hail-to-the-king",
+          "title": "Hail to the King",
+          "composer": "G.A. Oliver",
+          "videoId": "ZLb7YkIku-8",
+          "lyrics": [
+            "Hail to the King\nWho gave up His Glory\nAnd came as man so humbly\nUndressed of beauty and majesty\nWas pierced for our iniquities",
+            "Hail to the Word\nGod since the creation\nAll the things were made through Him\nWithout Him, nothing was made\nHe carries life and light to save",
+            "He came to give salvation\nHe came to give us peace\nHe came to give us hope\nAnd teach us how to live",
+            "Hail to the Lamb\nThat gave himself to be slain\nAnd rose from death in Majesty\nHe is the Lord Almighty\nHe saved my soul. I am free",
+            "Hail to The One\nWhose paths go beyond\nFrom Him, through Him and for Him\nAll things have been made\nGlorified forever. Amen!",
+            "He came to give salvation\nHe came to give us peace\nHe came to give us hope\nAnd teach us how to live",
+            "He came to give salvation\nHe came to give us peace\nHe came to give us hope\nAnd teach us how to live",
+            "And teach us how to live\nAnd teach me how",
+            "To live!"
+          ],
+          "lyricsDraft": false
+        }
+      ]
+    }
+  ]
+}

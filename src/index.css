@@ -4,20 +4,270 @@
 
 /* Custom CSS Variables */
 :root {
-  --bg: #121212;
-  --bgAlt: #0C0C0C;
-  --text: #E5E5E5;
-  --muted: #8E8E8E;
-  /* --accent: #E45B66; */
-  --accent: #778dfbff;
+  /* Reference shell palette. Shell/editorial surfaces should use these tokens. */
+  --shell-bg: #0a0a0a;
+  --shell-text: #fdfdfd;
+  --shell-muted: #7e848c;
+  --shell-muted-light: #d7d7d7;
+  --shell-accent: #ad0e10;
+  --shell-accent-hover: #ef090c;
+  --shell-content-width: 1280px;
+  --shell-space-unit: 10px;
+  --shell-header-height: 88px;
+
+  /* Music surfaces now share the unified reference palette. Aliases are kept
+     so existing utility classes keep resolving. */
+  --music-bg: var(--shell-bg);
+  --music-bg-alt: var(--shell-bg);
+  --music-text: var(--shell-text);
+  --music-muted: var(--shell-muted);
+  --music-accent: var(--shell-accent);
+
+  --bg: var(--shell-bg);
+  --bgAlt: var(--shell-bg);
+  --text: var(--shell-text);
+  --muted: var(--shell-muted);
+  --accent: var(--shell-accent);
 }
 
 /* Base Styles */
 @layer base {
-  html,
+  html {
+    background: var(--shell-bg);
+  }
+
+  /* Transparent so the fixed .shell-backdrop (z-index: -1) stays visible.
+     An opaque body background would paint over it. */
   body {
-    background: #121212;
-    color: #E5E5E5;
+    background: transparent;
+    color: var(--shell-text);
+  }
+}
+
+@layer components {
+  /* Persistent cinematic backdrop. The reference site paints one cover image
+     behind the whole document with background-attachment: fixed; pinning the
+     shared BackgroundMedia component reproduces that. */
+  /* Two classes so this wins over .background-media's absolute default
+     regardless of declaration order. */
+  .background-media.background-media--fixed {
+    position: fixed;
+    z-index: -1;
+    background-color: var(--shell-bg);
+  }
+
+  /* The reference applies no filter to its page backdrop (measured
+     filter: none) - contrast comes from the overlay alone. */
+
+  /* Reference header: sticky (so it occupies layout space), fully
+     transparent, 88px tall, logo flush left and nav flush right. */
+  .shell-header {
+    position: sticky;
+    inset-inline: 0;
+    top: 0;
+    z-index: 50;
+    color: var(--shell-text);
+    background: transparent;
+    transition: background-color 200ms ease, backdrop-filter 200ms ease;
+  }
+
+  /* Applied once the page is scrolled, so navigation never blends into the
+     content passing beneath it. */
+  .shell-header--scrolled {
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(8px);
+  }
+
+  .shell-header__nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: min(100%, var(--shell-content-width));
+    height: var(--shell-header-height);
+    margin-inline: auto;
+    padding: 0 20px;
+  }
+
+  .shell-header__logo {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .shell-nav-link {
+    display: inline-flex;
+    padding-block: 12px;
+    /* Explicit, because Tailwind's preflight forces text-transform: none on
+       button elements and would otherwise break casing parity. */
+    text-transform: uppercase;
+    color: var(--shell-text);
+    transition: color 160ms ease, transform 160ms ease;
+  }
+
+  .shell-nav-link:hover,
+  .shell-nav-link:focus-visible {
+    color: var(--shell-accent-hover);
+    transform: rotate(-1deg) scale(1.04);
+    outline: none;
+  }
+
+  .shell-submenu {
+    position: absolute;
+    inset-inline: 20px;
+    top: calc(100% - 4px);
+    display: grid;
+    grid-template-columns: minmax(220px, 0.8fr) 1.2fr;
+    min-height: 220px;
+    overflow: hidden;
+    background: #080808;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.72);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-18px);
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .shell-submenu--open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .shell-submenu__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.15) brightness(0.58);
+  }
+
+  .shell-submenu__items {
+    display: grid;
+    align-content: center;
+    gap: 8px;
+    padding: 32px 44px;
+  }
+
+  .shell-submenu__link {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px;
+    color: var(--shell-text);
+    transition: color 160ms ease, background-color 160ms ease;
+  }
+
+  .shell-submenu__link:hover,
+  .shell-submenu__link:focus-visible {
+    color: var(--shell-accent-hover);
+    background: rgba(255, 255, 255, 0.04);
+    outline: 2px solid var(--shell-accent-hover);
+    outline-offset: -2px;
+  }
+
+  .shell-submenu__link small {
+    color: var(--shell-muted-light);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: none;
+  }
+
+  .mobile-menu-link {
+    padding: 10px 18px;
+    font-size: clamp(1.8rem, 9vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-transform: uppercase;
+    transition: color 150ms ease, transform 150ms ease;
+  }
+
+  .mobile-menu-link:hover,
+  .mobile-menu-link:focus-visible {
+    color: #120000;
+    transform: scale(1.04);
+    outline: 2px solid white;
+    outline-offset: 4px;
+  }
+
+  /* Reference footer: transparent over the backdrop, no rule, compact.
+     Positioned so it paints above PageContentSurface, which is relative and
+     casts a 100px shadow spread that would otherwise cover the footer. */
+  .shell-footer {
+    position: relative;
+    z-index: 1;
+    color: var(--shell-text);
+    background: transparent;
+  }
+
+  .shell-footer__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(100%, var(--shell-content-width));
+    margin-inline: auto;
+    padding: 0 20px 20px;
+  }
+
+  .background-media {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .background-media__image,
+  .background-media__video,
+  .background-media__overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .background-media__image,
+  .background-media__video {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .background-media__image {
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  .background-media__video {
+    z-index: 1;
+    /* The video sits over the still image at partial opacity and
+       desaturated, so both are visible at once rather than the video
+       fully replacing the image. The reference uses opacity 0.8, but its
+       video and image are two takes of the same dark stage performance, so
+       the pairing reads as one blended scene at that value. Our two assets
+       are visually distinct (different photo, different lighting), so a
+       0.8-opaque video reads as "just the video" - lowered until the still
+       image is clearly legible underneath. */
+    opacity: 1;
+    mix-blend-mode: exclusion;
+    filter: grayscale(0.8);
+  }
+
+  .background-media__overlay {
+    z-index: 2;
+    background: var(--background-media-overlay, rgba(10, 10, 10, 0.62));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shell-header,
+  .shell-nav-link,
+  .shell-submenu,
+  .mobile-menu-link {
+    transition: none;
+  }
+
+  .background-media__video {
+    display: none;
   }
 }
 

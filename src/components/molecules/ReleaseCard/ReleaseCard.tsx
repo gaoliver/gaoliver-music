@@ -1,7 +1,8 @@
-import React from 'react';
-import Button from '../../atoms/Button';
-import { FaSpotify, FaApple, FaYoutube } from 'react-icons/fa';
-import { HiDotsHorizontal } from 'react-icons/hi';
+import React from "react";
+import Button from "../../atoms/Button";
+import { FaSpotify, FaApple, FaYoutube } from "react-icons/fa";
+import { HiDotsHorizontal } from "react-icons/hi";
+import { Link } from "react-router";
 
 export interface ReleaseCardProps {
   title: string;
@@ -17,6 +18,7 @@ export interface ReleaseCardProps {
   };
   featured?: boolean;
   newReleaseLabel?: string;
+  detailUrl?: string;
 }
 
 const ReleaseCard: React.FC<ReleaseCardProps> = ({
@@ -27,11 +29,12 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
   videoId,
   links,
   featured = false,
-  newReleaseLabel = 'New Release',
+  newReleaseLabel = "New Release",
+  detailUrl,
 }) => {
   if (featured) {
     return (
-      <article className="rounded-2xl border border-white/10 bg-brand-bgAlt p-6 shadow-soft">
+      <article className="rounded-2xl border-2 border-white/10 bg-black/80 p-8 backdrop-blur-sm">
         {videoId ? (
           <iframe
             src={`https://www.youtube.com/embed/${videoId}`}
@@ -42,24 +45,27 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
             allowFullScreen
           />
         ) : (
-        <div
-          className="aspect-square rounded-xl bg-cover bg-center"
-          style={{ backgroundImage: `url(${cover})` }}
-        />
+          <div
+            className="aspect-square rounded-xl bg-cover bg-center"
+            style={{ backgroundImage: `url(${cover})` }}
+          />
         )}
         <div id="listen" className="pt-5">
           <h3 className="font-title text-2xl">
-            {newReleaseLabel} — <span className="text-brand-accent">{title}</span>
+            {newReleaseLabel} —{" "}
+            <span className="text-brand-accent">
+              {detailUrl ? <Link to={detailUrl}>{title}</Link> : title}
+            </span>
           </h3>
           <p className="text-sm text-brand-muted">
             {type} — {year}
           </p>
           <div className="flex flex-wrap gap-2 pt-3">
             {links.spotify && (
-              <Button 
-                variant="secondary" 
-                size="sm" 
-                as="a" 
+              <Button
+                variant="secondary"
+                size="sm"
+                as="a"
                 href={links.spotify}
                 className="!px-4 !py-2.5 hover:bg-[#1DB954] hover:border-[#1DB954] transition-colors"
                 aria-label="Listen on Spotify"
@@ -68,10 +74,10 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
               </Button>
             )}
             {links.appleMusic && (
-              <Button 
-                variant="secondary" 
-                size="sm" 
-                as="a" 
+              <Button
+                variant="secondary"
+                size="sm"
+                as="a"
                 href={links.appleMusic}
                 className="!px-4 !py-2.5 hover:bg-white hover:text-black hover:border-white transition-colors"
                 aria-label="Listen on Apple Music"
@@ -80,10 +86,10 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
               </Button>
             )}
             {links.youtube && (
-              <Button 
-                variant="secondary" 
-                size="sm" 
-                as="a" 
+              <Button
+                variant="secondary"
+                size="sm"
+                as="a"
                 href={links.youtube}
                 className="!px-4 !py-2.5 hover:bg-[#FF0000] hover:border-[#FF0000] transition-colors"
                 aria-label="Watch on YouTube"
@@ -92,10 +98,10 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
               </Button>
             )}
             {links.other && (
-              <Button 
-                variant="secondary" 
-                size="sm" 
-                as="a" 
+              <Button
+                variant="secondary"
+                size="sm"
+                as="a"
                 href={links.other}
                 className="!px-4 !py-2.5 hover:bg-brand-accent hover:border-brand-accent hover:text-black transition-colors"
                 aria-label="More streaming options"
@@ -109,23 +115,44 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
     );
   }
 
+  const cardMedia = (
+    <div
+      className="aspect-square bg-cover bg-center transition-transform group-hover:scale-[1.02]"
+      style={{ backgroundImage: `url(${cover})` }}
+    />
+  );
+  const cardHeading = (
+    <div className="px-6 pt-6">
+      <h3 className="text-lg font-semibold">{title}</h3>
+      <p className="text-sm text-brand-muted">
+        {type} • {year}
+      </p>
+    </div>
+  );
+
   return (
-    <article className="group rounded-xl overflow-hidden border border-white/10 bg-brand-bgAlt shadow-soft">
-      <div
-        className="aspect-square bg-cover bg-center transition-transform group-hover:scale-[1.02]"
-        style={{ backgroundImage: `url(${cover})` }}
-      />
-      <div className="p-4">
-        <h3 className="text-lg font-semibold">{title}</h3>
-        <p className="text-sm text-brand-muted">
-          {type} • {year}
-        </p>
-        <div className="flex flex-wrap gap-2 pt-3">
+    <article className="group overflow-hidden rounded-2xl border border-white/10 bg-black/40 backdrop-blur-sm">
+      {detailUrl ? (
+        <Link
+          to={detailUrl}
+          className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
+        >
+          {cardMedia}
+          {cardHeading}
+        </Link>
+      ) : (
+        <>
+          {cardMedia}
+          {cardHeading}
+        </>
+      )}
+      <div className="p-6 pt-3">
+        <div className="flex flex-wrap gap-2">
           {links.spotify && (
-            <Button 
-              variant="secondary" 
-              size="sm" 
-              as="a" 
+            <Button
+              variant="secondary"
+              size="sm"
+              as="a"
               href={links.spotify}
               className="!px-4 !py-2.5 hover:bg-[#1DB954] hover:border-[#1DB954] transition-colors"
               aria-label="Listen on Spotify"
@@ -134,10 +161,10 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
             </Button>
           )}
           {links.appleMusic && (
-            <Button 
-              variant="secondary" 
-              size="sm" 
-              as="a" 
+            <Button
+              variant="secondary"
+              size="sm"
+              as="a"
               href={links.appleMusic}
               className="!px-4 !py-2.5 hover:bg-white hover:text-black hover:border-white transition-colors"
               aria-label="Listen on Apple Music"
@@ -146,10 +173,10 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
             </Button>
           )}
           {links.youtube && (
-            <Button 
-              variant="secondary" 
-              size="sm" 
-              as="a" 
+            <Button
+              variant="secondary"
+              size="sm"
+              as="a"
               href={links.youtube}
               className="!px-4 !py-2.5 hover:bg-[#FF0000] hover:border-[#FF0000] transition-colors"
               aria-label="Watch on YouTube"
@@ -158,10 +185,10 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
             </Button>
           )}
           {links.other && (
-            <Button 
-              variant="secondary" 
-              size="sm" 
-              as="a" 
+            <Button
+              variant="secondary"
+              size="sm"
+              as="a"
               href={links.other}
               className="!px-4 !py-2.5 hover:bg-brand-accent hover:border-brand-accent hover:text-black transition-colors"
               aria-label="More streaming options"
@@ -176,4 +203,3 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({
 };
 
 export default ReleaseCard;
-

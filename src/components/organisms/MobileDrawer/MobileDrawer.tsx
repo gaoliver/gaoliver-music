@@ -1,26 +1,19 @@
-import React, { useEffect } from 'react';
-import Button from '../../atoms/Button';
+import React, { useEffect, useRef } from 'react';
 import SocialLinks from '../../molecules/SocialLinks';
 import type { CTA } from '../../../types/cta';
+import type { NavigationItem, SocialLinkData } from '../../../types/navigation';
 
-interface NavItem {
-  label: string;
-  href: string;
-}
-
-interface SocialLink {
-  platform: string;
-  url: string;
-  ariaLabel: string;
-}
+const FOCUSABLE_ELEMENTS = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 interface MobileDrawerProps {
   isOpen: boolean;
   onClose: () => void;
-  navigation: NavItem[];
+  navigation: NavigationItem[];
   cta?: CTA;
-  socialLinks: SocialLink[];
+  socialLinks: SocialLinkData[];
   onNavClick?: (href: string) => void;
+  id: string;
+  triggerRef: React.RefObject<HTMLButtonElement | null>;
 }
 
 const MobileDrawer: React.FC<MobileDrawerProps> = ({
@@ -30,103 +23,122 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
   cta,
   socialLinks,
   onNavClick,
+  id,
+  triggerRef,
 }) => {
-  // Prevent body scroll when drawer is open
+  const drawerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
+    if (!isOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const menuTrigger = triggerRef.current;
+    const drawer = drawerRef.current;
+    const focusable = drawer?.querySelectorAll<HTMLElement>(FOCUSABLE_ELEMENTS);
+    focusable?.[0]?.focus();
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        onClose();
+        return;
+      }
+
+      if (event.key !== 'Tab' || !focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
-  }, [isOpen]);
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      (menuTrigger ?? previouslyFocused)?.focus();
+    };
+  }, [isOpen, onClose, triggerRef]);
 
   const handleNavClick = (href: string) => {
-    if (onNavClick) {
-      onNavClick(href);
-    }
+    onNavClick?.(href);
     onClose();
   };
 
   return (
-    <>
-      {/* Backdrop */}
-      <div
-        className={`fixed inset-0 z-40 bg-black/80 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
-          isOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
-        }`}
-        onClick={onClose}
-        aria-hidden="true"
-      />
-
-      {/* Drawer */}
-      <div
-        className={`fixed right-0 top-0 z-40 h-full w-80 max-w-[85vw] bg-brand-bgAlt shadow-2xl transition-transform duration-300 lg:hidden ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
-        <div className="flex h-full flex-col p-6 pt-20">
-          {/* Navigation Links */}
-          <nav className="flex flex-col gap-1">
-            {navigation.map((item) => {
-              const isExternal = item.href.startsWith('http://') || item.href.startsWith('https://');
-              
-              if (isExternal) {
-                return (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    onClick={onClose}
-                    className="rounded-lg px-4 py-3 font-body text-lg transition-colors hover:bg-white/5 hover:text-brand-accent"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {item.label}
-                  </a>
-                );
-              }
-
-              // Internal link (smooth scroll)
+    <div
+      ref={drawerRef}
+      id={id}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Site menu"
+      aria-hidden={!isOpen}
+      inert={!isOpen}
+      className={`fixed inset-0 z-[60] bg-[var(--shell-accent)] text-white transition-transform duration-300 motion-reduce:transition-none lg:hidden ${
+        isOpen ? 'translate-y-0' : 'pointer-events-none -translate-y-full'
+      }`}
+    >
+      <div className="mx-auto flex h-full max-w-2xl flex-col px-6 pb-8 pt-24">
+        <nav className="flex flex-1 flex-col items-center justify-center gap-2" aria-label="Mobile navigation">
+          {navigation.map((item) => {
+            const isExternal = /^https?:\/\//.test(item.href);
+            if (isExternal) {
               return (
-                <button
-                  key={item.label}
-                  onClick={() => handleNavClick(item.href)}
-                  className="rounded-lg px-4 py-3 text-left font-body text-lg transition-colors hover:bg-white/5 hover:text-brand-accent"
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={onClose}
+                  className="mobile-menu-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {item.label}
-                </button>
+                </a>
               );
-            })}
-          </nav>
+            }
 
-          {/* CTA Button */}
-          {cta && cta.isActive && (
-            <div className="mt-6">
-              <Button 
-                variant="primary" 
-                size="md" 
-                as="a" 
-                href={cta.url}
-                className="w-full"
-                onClick={onClose}
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={(event) => {
+                  if (item.href.startsWith('#')) event.preventDefault();
+                  handleNavClick(item.href);
+                }}
+                className="mobile-menu-link"
               >
-                {cta.label}
-              </Button>
-            </div>
-          )}
+                {item.label}
+              </a>
+            );
+          })}
+        </nav>
 
-          {/* Social Links */}
-          <div className="mt-auto border-t border-white/5 pt-6">
-            <p className="mb-4 text-sm font-medium uppercase tracking-wider text-brand-muted">Follow me</p>
-            <SocialLinks links={socialLinks} withDividers={false} />
+        {cta?.isActive && (
+          <div className="mb-8 text-center">
+            <a
+              href={cta.url}
+              onClick={onClose}
+              className="inline-flex border border-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.15em] transition-colors hover:bg-white hover:text-[var(--shell-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              target={/^https?:\/\//.test(cta.url) ? '_blank' : undefined}
+              rel={/^https?:\/\//.test(cta.url) ? 'noopener noreferrer' : undefined}
+            >
+              {cta.label}
+            </a>
           </div>
+        )}
+
+        <div className="text-white">
+          <SocialLinks links={socialLinks} withDividers={false} className="justify-center" />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
 export default MobileDrawer;
-

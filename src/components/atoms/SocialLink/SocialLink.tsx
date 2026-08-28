@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaSpotify, FaApple, FaAmazon, FaYoutube, FaInstagram, FaTiktok, FaFacebook } from 'react-icons/fa';
+import { FaDeezer } from 'react-icons/fa6';
 
 interface SocialLinkProps {
   platform: string;
@@ -13,7 +14,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ platform, url, ariaLabel }) => 
   
   // Map platform to icon
   const getIcon = () => {
-    const iconSize = 20;
+    const iconSize = 24;
     switch (platform) {
       case 'Spotify':
         return <FaSpotify size={iconSize} />;
@@ -22,8 +23,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ platform, url, ariaLabel }) => 
       case 'AmazonMusic':
         return <FaAmazon size={iconSize} />;
       case 'Deezer':
-        // return <SiDeezer size={iconSize} />;
-        return null;
+        return <FaDeezer size={iconSize} />;
       case 'YouTube':
         return <FaYoutube size={iconSize} />;
       case 'Instagram':
