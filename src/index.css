@@ -238,6 +238,11 @@
 
   .background-media__video {
     z-index: 1;
+    /* Reference treatment: the video sits over the still image at partial
+       opacity and desaturated, so both are visible at once rather than the
+       video fully replacing the image. */
+    opacity: 0.8;
+    filter: contrast(1.2) grayscale(0.8);
   }
 
   .background-media__overlay {

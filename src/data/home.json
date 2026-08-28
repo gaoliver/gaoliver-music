@@ -1,6 +1,7 @@
 {
   "background": {
-    "image": "/images/singing-of-christ-church.webp"
+    "image": "/images/singing-of-christ-church.webp",
+    "video": "/videos/ga-oliver-website-bg.mp4"
   },
   "hero": {
     "title": "New Release",
