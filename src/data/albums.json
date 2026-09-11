@@ -10,10 +10,38 @@
       "featured": true,
       "newReleaseLabel": "New Single",
       "links": {
-        "spotify": "https://ffm.to/ga-oliver-in-the-waters",
-        "other": "https://ffm.to/ga-oliver-in-the-waters"
+        "spotify": "https://open.spotify.com/album/48CXRK5UUcce1J5IYSMVUw",
+        "appleMusic": "https://geo.music.apple.com/us/album/in-the-waters-walk-upon-single/6802350759?app=music&ls=1",
+        "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_loThs1JIe26CtxnHxD-UzFn-IvWnyYJVo&si=9OoLnXcckctevUQi",
+        "other": "https://ffm.to/in-the-waters-walk-upon"
       },
-      "songs": []
+      "songs": [
+        {
+          "id": "in-the-waters",
+          "title": "In The Waters (Walk Upon)",
+          "composer": "G.A. Oliver",
+          "videoId": "Lm7UOj2fB74",
+          "lyrics": [
+            "Adrift upon the violent deep,\nWhere tempest hides the sky,\nThe dark horizon swallows hope,\nAnd strength begins to die",
+            "My trembling heart gives up the fight,\nEngulfed in shadow’s breath\nThe weight of silence pressing down\nA slow and quiet death",
+            "How long, O Lord, until You speak?\nBreak through the deafening roar\nReach down Your hand into the deep\nCause I cannot reach the shore",
+            "How to trust when the world\nCollapses over me?\nHow to trust, how to hope\nWhen I’m drowning in the sea?",
+            "My faith is weak,\nBut Your word is strong\nFor the waters split\nOr make me walk upon",
+            "In brokenness my eyes are cleared,\nThe internal gales decrease\nSufficient is Your grace alone\nIn weakness, I find peace",
+            "Though darkness lingers in the air,\nYour promise holds me fast\nThe Anchor of my weary soul\nHas swallowed death at last",
+            "How long, O Lord, until You speak?\nBreak through the deafening roar\nReach down Your hand into the deep\nCause I cannot reach the shore",
+            "How to trust when the world\nCollapses over me?\nHow to trust, how to hope\nWhen I’m drowning in the sea?",
+            "My faith is weak,\nBut Your word is strong\nFor the waters split\nOr make me walk upon"
+          ],
+          "lyricsDraft": false,
+          "links": {
+            "spotify": "https://open.spotify.com/album/48CXRK5UUcce1J5IYSMVUw",
+            "appleMusic": "https://geo.music.apple.com/us/album/in-the-waters-walk-upon-single/6802350759?app=music&ls=1",
+            "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_loThs1JIe26CtxnHxD-UzFn-IvWnyYJVo&si=9OoLnXcckctevUQi",
+            "other": "https://ffm.to/in-the-waters-walk-upon"
+          }
+        }
+      ]
     },
     {
       "id": "night-divine",

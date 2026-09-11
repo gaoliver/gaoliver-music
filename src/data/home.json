@@ -5,11 +5,11 @@
   },
   "hero": {
     "title": "New Release",
-    "subtitle": "In The Waters (Walk Upon) — Single • 09/11/2026",
+    "subtitle": "In The Waters (Walk Upon) — Single",
     "ctaPrimary": {
       "isActive": true,
-      "label": "Pre-save now",
-      "url": "https://ffm.to/ga-oliver-in-the-waters"
+      "label": "Listen now",
+      "url": "https://ffm.to/in-the-waters-walk-upon"
     },
     "ctaSecondary": {
       "isActive": false,
